@@ -30,7 +30,7 @@ defineProps({
         <div class="border-2">
             <h1 class="text-5xl font-bold text-center">Get a unique essay!</h1>
             <p class="text-2xl font-semibold py-3">Hire our professional writer to save time</p>
-            <a href="#" class="inline-block mt-5 px-8 py-4 border-2 rounded-md w-full text-center font-semibold">Hire Writer</a>
+            <a href="#" class="inline-block mt-5 px-8 py-4 border-2 rounded-md w-full text-center font-semiboldx">Hire Writer</a>
 
             <div class="mt-5">
                 <div class="grid grid-cols-3 gap-5">
