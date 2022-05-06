@@ -1,4 +1,6 @@
 <script setup>
+import Footer from '@/Components/Footer.vue';
+import Links from '@/Components/Links.vue'
 import { Head, Link } from '@inertiajs/inertia-vue3';
 
 defineProps({
@@ -10,42 +12,30 @@ defineProps({
 <template>
     <Head title="Welcome" />
     
-    <header class="h-[550px] bg-hero bg-fixed bg-center bg-no-repeat bg-cover flex justify-center items-center bg-gradient-to-l from-blue-500 to-cyan-500">
-        <!-- <div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-            <Link v-if="$page.props.auth.user" :href="route('dashboard')" class="text-sm text-gray-700 underline">
-                Dashboard
-            </Link>
+    <header class="h-[550px] bg-hero bg-fixed bg-center bg-no-repeat bg-cover bg-gradient-to-l from-blue-500 to-cyan-500">
+       <Links />
 
-            <template v-else>
-                <Link :href="route('login')" class="text-sm text-gray-700 underline">
-                    Log in
-                </Link>
+       <div class="flex justify-center items-center h-full">
+            <div class="border-2">
+                <h1 class="text-5xl font-bold text-center">Get a unique essay!</h1>
+                <p class="text-2xl font-semibold py-3">Hire our professional writer to save time</p>
+                <a href="#" class="inline-block mt-5 px-8 py-4 border-2 rounded-md w-full text-center font-semiboldx">Hire Writer</a>
 
-                <Link v-if="canRegister" :href="route('register')" class="ml-4 text-sm text-gray-700 underline">
-                    Register
-                </Link>
-            </template>
-        </div> -->
-
-        <div class="border-2">
-            <h1 class="text-5xl font-bold text-center">Get a unique essay!</h1>
-            <p class="text-2xl font-semibold py-3">Hire our professional writer to save time</p>
-            <a href="#" class="inline-block mt-5 px-8 py-4 border-2 rounded-md w-full text-center font-semiboldx">Hire Writer</a>
-
-            <div class="mt-5">
-                <div class="grid grid-cols-3 gap-5">
-                    <div>
-                        <p>Easy Process</p>
-                    </div>
-                    <div>
-                        <p>24/7 on Demand</p>
-                    </div>
-                    <div>
-                        <p>Timesaver</p>
+                <div class="mt-5">
+                    <div class="grid grid-cols-3 gap-5">
+                        <div>
+                            <p>Easy Process</p>
+                        </div>
+                        <div>
+                            <p>24/7 on Demand</p>
+                        </div>
+                        <div>
+                            <p>Timesaver</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+       </div>
 
     </header>
 
@@ -53,10 +43,10 @@ defineProps({
         <!-- Testimonial Section -->
         
         <section>
-            <div>
-                <div>
-                    <h2>Check out our most recent customer reviews</h2>
-                    <div>
+            <div class="py-12">
+                <div class="mx-auto w-5/6">
+                    <h1 class="text-4xl font-semibold text-center">Check out our most recent customer reviews</h1>
+                    <div class="w-3/5 mx-auto py-10">
                         <div>
                         </div>
                         <div>
@@ -67,16 +57,18 @@ defineProps({
                             </p>
                         </div>
                     </div>
-                    <a href="#">Order Now</a>
+                    <div class="flex justify-center">
+                         <a href="#" class="inline-block px-4 py-2 rounded-md border-2 mx-auto">Order Now</a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Steps to get Essay done -->
         <section>
-            <div>
-                <div>
-                    <h1>Steps to follow to get your Essay done</h1>
+            <div class="py-12">
+                <div class="w-5/6 mx-auto">
+                    <h1 class="text-4xl font-semibold text-center">Steps to follow to get your Essay done</h1>
 
                     <div>
 
@@ -87,11 +79,11 @@ defineProps({
 
         <!-- Services -->
 
-        <section>
-            <div>
+        <section class="py-12">
+            <div class="w-5/6 mx-auto">
                 <div>
-                    <h1>Our Services</h1>
-                    <p>Our Expertise Covers...</p>
+                    <h1 class="text-4xl font-semibold text-center">Our Services</h1>
+                    <p class="text-2xl font-semibold text-center">Our Expertise Covers...</p>
                 </div>
 
                 <div>
@@ -104,12 +96,12 @@ defineProps({
 
         <!-- About Us -->
 
-        <section>   
-            <div>
+        <section class="py-12">   
+            <div class="w-5/6 mx-auto">
                 <div>
-                    <h1>About Our Solutions in Details</h1>
+                    <h1 class="text-4xl font-semibold text-center">About Our Solutions in Details</h1>
                 </div>
-                <div>
+                <div class="py-10">
                     <p>
                         Do you feel juggling work, studying, exams, and a personal life can sometimes feel a little bit overwhelming? 
                         You’re not alone, a lot of students do. College life these days is demanding and requires a lot of time, 
@@ -117,8 +109,8 @@ defineProps({
                         We are a dedicated essay writing service that can help you put together a top-quality essay.
                     </p>
                 </div>
-                <div>
-                    <a href="#">Read More</a>
+                <div class="flex mx-auto">
+                    <a href="#" class="inline-block px-4 py-2 rounded-md border-2 mx-auto">Read More</a>
                 </div>
             </div>
         </section>
@@ -126,17 +118,17 @@ defineProps({
         <!-- Hire Writers -->
 
         <section>
-            <div>
-                <div>
+            <div class="py-12">
+                <div class="w-5/6 grid grid-cols-3 mx-auto">
                     <div>
-                        <h1>Are you a professional writer</h1>
-                        <p>
+                        <h1 class="text-3xl font-semibold text-center">Are you a professional writer</h1>
+                        <p class="py-10">
                             We are always looking for talented writers and academic experts to join our team
                         </p>
-                        <a href="#">Become a writer</a>
+                        <a href="#" class="inline-block px-4 py-2 rounded-md border-2 mx-auto">Become a writer</a>
                     </div>
                     <div>
-                        <h1>Core requirements</h1>
+                        <h1 class="text-2xl font-semibold text-center">Core requirements</h1>
                         <ul>
                             <li>bullshits</li>
                         </ul>
@@ -149,72 +141,7 @@ defineProps({
         </section>
 
     </main>
-
-    <footer>
-        <div>
-            <div>
-                <div>
-                    <h1>Essay</h1>
-                </div>
-                <div>
-                    <ul>
-                        <li>
-                            <a href="mailto:support@essay.com">support@esssay.com</a>
-                        </li>
-                        <li>
-                            <a href="tel:+22100000000">+22100000000</a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h1>We accept: </h1>
-                </div>
-            </div>
-            <div>
-                <h1>Company</h1>
-                <ul>
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Testimonials</a>
-                    </li>
-                    <li>
-                        <a href="#">Privacy Policy</a>
-                    </li>
-                    <li>
-                        <a href="#">FAQ</a>
-                    </li>
-                    <li>
-                        <a href="#">How it works</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact Us</a>
-                    </li>
-                    <li>
-                        <a href="#">We are hiring</a>
-                    </li>
-                    <li>
-                        <a href="#">Terms and Conditions</a>
-                    </li>
-                    <li>
-                        <a href="#">Acceptable Use Policy</a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <div>
-                    <div>
-
-                    </div>
-                </div>
-                <div>
-                    <p>2022 Essay.com All rights reserved</p>
-                    <span>Edusson</span>
-                </div>
-            </div>
-        </div>
-    </footer>
-       
+    
+    <Footer />
 </template>
 

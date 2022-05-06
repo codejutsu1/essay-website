@@ -20,7 +20,18 @@ Route::get('/', function () {
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
     ]);
-});
+})->name('home');
+
+Route::get('about', function(){
+    return Inertia::render('Web/About', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+    ]);
+})->name('about');
+
+Route::inertia('contact-us', 'Web/Contact')->name('contact');
+Route::inertia('how-it-works', 'Web/Works')->name('works');
+Route::inertia('writer', 'Web/Writers')->name('writers');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
