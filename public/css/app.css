@@ -693,6 +693,9 @@ select {
 .mt-5 {
   margin-top: 1.25rem;
 }
+.-mt-20 {
+  margin-top: -5rem;
+}
 .block {
   display: block;
 }
@@ -740,6 +743,12 @@ select {
 }
 .h-\[550px\] {
   height: 550px;
+}
+.h-\[600px\] {
+  height: 600px;
+}
+.h-screen {
+  height: 100vh;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -794,6 +803,9 @@ select {
 }
 .shrink-0 {
   flex-shrink: 0;
+}
+.grow {
+  flex-grow: 1;
 }
 .origin-top-left {
   transform-origin: top left;
@@ -855,6 +867,9 @@ select {
 }
 .gap-5 {
   gap: 1.25rem;
+}
+.gap-7 {
+  gap: 1.75rem;
 }
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
@@ -974,6 +989,9 @@ select {
 .p-2 {
   padding: 0.5rem;
 }
+.p-8 {
+  padding: 2rem;
+}
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -1037,6 +1055,10 @@ select {
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+}
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 .pt-8 {
   padding-top: 2rem;

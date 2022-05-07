@@ -26,27 +26,34 @@ import { Link } from '@inertiajs/inertia-vue3';
             </div>
             <div class="py-10">
                 <h1 class="text-xl font-semibold">Company</h1>
-                <ul class="flex space-x-8 py-5">
+                <ul class="flex space-x-8 py-5 justify-center">
                     <li>
-                        <a href="#">About</a>
+                        <Link :href="route('about')">
+                            About Us
+                        </Link>
                     </li>
                     <li>
-                        <a href="#">Testimonials</a>
-                    </li>
-                    <li>
-                        <a href="#">Privacy Policy</a>
+                        <Link :href="route('about')">
+                            Privacy Policy
+                        </Link>
                     </li>
                     <li>
                         <a href="#">FAQ</a>
                     </li>
                     <li>
-                        <a href="#">How it works</a>
+                        <Link :href="route('works')">
+                            How It works
+                        </Link>
                     </li>
                     <li>
-                        <a href="#">Contact Us</a>
+                        <Link :href="route('contact')">
+                            Contact Us
+                        </Link>
                     </li>
                     <li>
-                        <a href="#">We are hiring</a>
+                        <Link :href="route('writers')" class="px-6 py-4">
+                            We are hiring
+                        </Link>
                     </li>
                     <li>
                         <a href="#">Terms and Conditions</a>
