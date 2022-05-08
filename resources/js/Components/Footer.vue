@@ -33,12 +33,14 @@ import { Link } from '@inertiajs/inertia-vue3';
                         </Link>
                     </li>
                     <li>
-                        <Link :href="route('about')">
+                        <Link :href="route('policy')">
                             Privacy Policy
                         </Link>
                     </li>
                     <li>
-                        <a href="#">FAQ</a>
+                        <Link :href="route('faq')">
+                            FAQ
+                        </Link>
                     </li>
                     <li>
                         <Link :href="route('works')">
@@ -51,15 +53,19 @@ import { Link } from '@inertiajs/inertia-vue3';
                         </Link>
                     </li>
                     <li>
-                        <Link :href="route('writers')" class="px-6 py-4">
+                        <Link :href="route('writers')">
                             We are hiring
                         </Link>
                     </li>
                     <li>
-                        <a href="#">Terms and Conditions</a>
+                        <Link :href="route('terms')">
+                            Terms and Conditions
+                        </Link>
                     </li>
                     <li>
-                        <a href="#">Acceptable Use Policy</a>
+                        <Link :href="route('usePolicy')">
+                            Acceptable Use Policy
+                        </Link>
                     </li>
                 </ul>
             </div>
