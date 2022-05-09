@@ -5,7 +5,9 @@ import { Link } from '@inertiajs/inertia-vue3';
 </script>
 
 <template>
-     <div class="w-5/6 mx-auto flex justify-between">
+<!-- bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-400 -->
+     <div>
+         <div class="w-5/6 mx-auto flex justify-between relative z-30">
             <div class="flex items-center">
                 <h1 class="font-semibold text-xl tracking-wide">
                     <Link :href="route('home')">
@@ -14,21 +16,21 @@ import { Link } from '@inertiajs/inertia-vue3';
                 </h1>
             </div>
         
-            <nav class="flex">
+            <nav class="flex text-white font-bold">
                 <ul class="flex items-center">
-                    <Link :href="route('home')" class="px-6 py-4">
+                    <Link :href="route('home')" class="px-6 py-4 hover:text-black transition ease-in-out duration-300">
                         Home
                     </Link>
-                    <Link :href="route('about')" class="px-6 py-4">
+                    <Link :href="route('about')" class="px-6 py-4 hover:text-black transition ease-in-out duration-300">
                         About Us
                     </Link>
-                    <Link :href="route('contact')" class="px-6 py-4">
+                    <Link :href="route('contact')" class="px-6 py-4 hover:text-black transition ease-in-out duration-300">
                         Contact Us
                     </Link>
-                    <Link :href="route('works')" class="px-6 py-4">
+                    <Link :href="route('works')" class="px-6 py-4 hover:text-black transition ease-in-out duration-300">
                         How It works
                     </Link>
-                    <Link :href="route('writers')" class="px-6 py-4">
+                    <Link :href="route('writers')" class="px-6 py-4 hover:text-black transition ease-in-out duration-300">
                         For Writers
                     </Link>
                 </ul>
@@ -49,5 +51,6 @@ import { Link } from '@inertiajs/inertia-vue3';
                 </div>
             </nav>
         </div>
+     </div>
 
 </template>

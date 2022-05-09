@@ -14,9 +14,6 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
         },
-        backgroundImage: {
-            'hero' : "url('/images/hero.jpg')",
-        }
     },
 
     plugins: [require('@tailwindcss/forms')],

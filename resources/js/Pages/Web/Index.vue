@@ -12,25 +12,37 @@ defineProps({
 <template>
     <Head title="Welcome" />
     
-    <header class="h-[550px] bg-hero bg-fixed bg-center bg-no-repeat bg-cover bg-gradient-to-l from-blue-500 to-cyan-500">
+    <header class="h-[550px] bg-hero bg-fixed bg-center bg-no-repeat bg-cover relative bg-[url('/images/hero.jpg')] z-30">
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-700"></div>
        <Links />
 
        <div class="flex justify-center items-center h-full">
-            <div class="border-2">
-                <h1 class="text-5xl font-bold text-center">Get a unique essay!</h1>
-                <p class="text-2xl font-semibold py-3">Hire our professional writer to save time</p>
-                <a href="#" class="inline-block mt-5 px-8 py-4 border-2 rounded-md w-full text-center font-semiboldx">Hire Writer</a>
+            <div class="z-30 absolute w-3/5">
+                <h1 class="text-5xl font-bold text-center text-white">Get a unique essay!</h1>
+                <p class="text-2xl font-semibold py-3 text-white text-center">Hire our professional writer to save time</p>
+                <div class="flex justify-center">
+                    <a href="#" class="inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-gradient-to-br from-pink-500 to-indigo-500 hover:translate-x-4 transition duration-300">Hire Writer</a>
+                </div>
 
                 <div class="mt-5">
-                    <div class="grid grid-cols-3 gap-5">
+                    <div class="grid grid-cols-3 gap-5 justify-center pt-14">
                         <div>
-                            <p>Easy Process</p>
+                            <div class="flex justify-center">
+                                <img src="/images/process.png" alt="Process" width="30">
+                            </div>
+                            <p class="text-center text-white font-bold pt-3">Easy Process</p>
                         </div>
                         <div>
-                            <p>24/7 on Demand</p>
+                            <div class="flex justify-center">
+                                <img src="/images/demand.png" alt="Demand" width="30">
+                            </div>
+                            <p class="text-center text-white font-bold pt-3">24/7 on Demand</p>
                         </div>
                         <div>
-                            <p>Timesaver</p>
+                            <div class="flex justify-center">
+                                <img src="/images/time.png" alt="Timesaver" width="30">
+                            </div>
+                            <p class="text-center text-white font-bold pt-3">Timesaver</p>
                         </div>
                     </div>
                 </div>
