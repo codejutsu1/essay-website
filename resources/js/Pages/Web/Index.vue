@@ -54,15 +54,30 @@ defineProps({
     <main>
         <!-- Testimonial Section -->
         
-        <section>
+        <section class="bg-[#FDF7E9]">
             <div class="py-12">
                 <div class="mx-auto w-5/6">
                     <h1 class="text-4xl font-semibold text-center">Check out our most recent customer reviews</h1>
-                    <div class="w-3/5 mx-auto py-10">
-                        <div>
+                    <div class="w-3/5 mx-auto py-10 my-12 flex bg-white px-4 rounded-md shadow-xl">
+                        <div class="px-2">
+                            <div>
+                                <img src="/images/user.png" alt="A user" loading="lazy">
+                                <p class="font-semibold">Customer-34858509</p>
+                                <span class="text-xs text-gray-300 font-semibold">May 16, 2021</span>
+                            </div>
                         </div>
-                        <div>
-                            <p>
+                        <div class="px-2">
+                            <div>
+                                <div class="flex items-center space-x-2">
+                                    <img src="/images/star.png" alt="star rating" loading="lazy" width="30">
+                                    <img src="/images/star.png" alt="star rating" loading="lazy" width="30">
+                                    <img src="/images/star.png" alt="star rating" loading="lazy" width="30">
+                                    <img src="/images/star.png" alt="star rating" loading="lazy" width="30">
+                                    <img src="/images/star.png" alt="star rating" loading="lazy" width="30">
+                                    <h1 class="pl-2 font-bold text-xl text-gray-500">Essasy</h1>
+                                </div>
+                            </div>
+                            <p class="pt-5 pb-10 font-semibold text-lg">
                                 Went beyond what my expectations were! Had a last minute order for a long 
                                 literature review and it was completed on time and no corrections were needed. 
                                 Followed the topic and instructions and couldn't have asked for a better job!
@@ -70,20 +85,7 @@ defineProps({
                         </div>
                     </div>
                     <div class="flex justify-center">
-                         <a href="#" class="inline-block px-4 py-2 rounded-md border-2 mx-auto">Order Now</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Steps to get Essay done -->
-        <section>
-            <div class="py-12">
-                <div class="w-5/6 mx-auto">
-                    <h1 class="text-4xl font-semibold text-center">Steps to follow to get your Essay done</h1>
-
-                    <div>
-
+                         <a href="#" class="inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-indigo-500 hover:translate-x-4 hover:bg-indigo-700 transition duration-300">Order Now</a>
                     </div>
                 </div>
             </div>
@@ -101,6 +103,19 @@ defineProps({
                 <div>
                     <div>
                         Essay
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Steps to get Essay done -->
+        <section>
+            <div class="py-12">
+                <div class="w-5/6 mx-auto">
+                    <h1 class="text-4xl font-semibold text-center">Steps to follow to get your Essay done</h1>
+
+                    <div>
+
                     </div>
                 </div>
             </div>
