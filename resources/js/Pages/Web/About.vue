@@ -11,13 +11,14 @@ defineProps({
 </script>
 
 <template>
-    <header class="h-[400px] border-2">
+    <header class="h-[400px] bg-fixed bg-center bg-no-repeat bg-cover relative bg-[url('/images/about.jpg')] z-30">
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-700"></div>
         <Links />
 
         <div class="w-5/6 mx-auto flex items-center h-full">
-            <div class="w-2/5">
-                <h1 class="text-4xl font-semibold">About Us</h1>
-                <p class="py-5">
+            <div class="w-2/5 z-30 absolute text-white">
+                <h1 class="text-6xl font-bold">About Us</h1>
+                <p class="py-5 text-xl font-semibold">
                     We are an online service providing Personalised Essay Writing Suggestions. 
                     You can use this service as a mean to improve your writing skills alongside
                      with Peer Proofreading and On-campus Writing advisory.
@@ -29,10 +30,10 @@ defineProps({
     <main>
         <section>
             <div class="py-12">
-                <div class="grid grid-cols-2 w-5/6 mx-auto">
+                <div class="grid grid-cols-2 gap-10 w-5/6 mx-auto">
                     <div>
-                        <h1 class="text-3xl font-semibold">Problem</h1>
-                        <p class="py-5">
+                        <h1 class="text-3xl font-bold">Problem</h1>
+                        <p class="py-5 font-semibold">
                             Students often struggle with the basics of constructing a written argument. 
                             “Students would come to writing instructors with the critical thinking skills,” Oli Raw says, 
                             “but they didn’t understand how to put their thoughts into a structure, or vice versa.”
@@ -40,7 +41,7 @@ defineProps({
                     </div>
                     <div>
                         <h1 class="text-3xl font-semibold">Solution</h1>
-                        <p class="py-5">
+                        <p class="py-5 font-semibold">
                             Annotated assignment - this service allows you to upload your assignment or sections of 
                             your project to the platform and get feedback from a professional coach, which can help you
                              improve your paper. 
@@ -50,7 +51,7 @@ defineProps({
                     </div>
                 </div>
                 <div class="flex justify-center">
-                    <a href="#" class="px-4 py-8 border-2 rounded-md font-semibold">Start Now</a>
+                    <a href="#" class="inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-purple-500 hover:translate-x-4 hover:bg-purple-700 transition duration-300">Start Now</a>
                 </div>
             </div>
         </section>

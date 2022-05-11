@@ -12,7 +12,7 @@ defineProps({
 <template>
     <Head title="Welcome" />
     
-    <header class="h-[550px] bg-hero bg-fixed bg-center bg-no-repeat bg-cover relative bg-[url('/images/hero.jpg')] z-30">
+    <header class="h-[550px] bg-fixed bg-center bg-no-repeat bg-cover relative bg-[url('/images/hero.jpg')] z-30">
         <div class="absolute inset-0 bg-gradient-to-r from-indigo-700"></div>
        <Links />
 
@@ -85,7 +85,7 @@ defineProps({
                         </div>
                     </div>
                     <div class="flex justify-center">
-                         <a href="#" class="inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-indigo-500 hover:translate-x-4 hover:bg-indigo-700 transition duration-300">Order Now</a>
+                        <a href="#" class="inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-purple-500 hover:translate-x-4 hover:bg-purple-700 transition duration-300">Order Now</a>
                     </div>
                 </div>
             </div>
@@ -100,22 +100,64 @@ defineProps({
                     <p class="text-2xl font-semibold text-center">Our Expertise Covers...</p>
                 </div>
 
-                <div>
-                    <div>
-                        Essay
+                <div class="grid grid-cols-3 py-12 justify-center">
+                    <div class="border-2 rounded-[100%] flex flex-col items-center justify-center h-[300px] w-[300px] bg-pink-500">
+                        <div>
+                            <img src="/images/essay.svg" alt="Essay Writing" loading="lazy" width="150">
+                        </div>
+                        <p class="pt-5 font-semibold text-xl text-white">Essay</p>
+                    </div>
+                    <div class="border-2 rounded-[100%] flex flex-col items-center justify-center h-[300px] w-[300px] bg-purple-500">
+                        <div>
+                            <img src="/images/research.svg" alt="Research Paper" loading="lazy" width="150">
+                        </div>
+                        <p class="pt-5 font-semibold text-xl text-white">Research Paper</p>
+                    </div>
+                    <div class="border-2 rounded-[100%] flex flex-col items-center justify-center h-[300px] w-[300px] bg-indigo-500">
+                        <div>
+                            <img src="/images/assignment.svg" alt="Assignment" loading="lazy" width="150">
+                        </div>
+                        <p class="pt-5 font-semibold text-xl text-white">Assignment</p>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl my-6 py-5 bg-[#FDF7E9]">
+                    <div class="w-5/6 mx-auto">
+                        <ul class="flex list-disc list-inside space-x-10 justify-center items-center">
+                            <li>Narrative</li>
+                            <li>Descriptive</li>
+                            <li>Expository</li>
+                            <li>Persuasive</li>
+                            <li class="list-none">
+                                <a href="#" class="inline-block ml-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-purple-500 hover:translate-x-4 hover:bg-purple-700 transition duration-300">Order Now</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Steps to get Essay done -->
-        <section>
+        <section class="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-400">
             <div class="py-12">
                 <div class="w-5/6 mx-auto">
-                    <h1 class="text-4xl font-semibold text-center">Steps to follow to get your Essay done</h1>
+                    <h1 class="text-4xl font-bold text-center text-white">Steps to follow to get your Essay done</h1>
 
+                    <div class="w-5/6 mx-auto flex py-10">
+                        <div class="w-1/2">
+
+                        </div>
+                        <div class="w-1/2 text-white">
+                            <h2 class="text-2xl font-bold">1<sup>st</sup> Step</h2>
+                            <p class="font-semibold text-lg py-5">
+                                As a first step, we’ll ask you to provide as many details about your essay as possible. Fill out the simple form – be as specific as you feel is necessary.
+                            </p>
+                        </div>
+                    </div>
                     <div>
-
+                        <p class="text-center text-sm text-gray-200">
+                            By choosing Essay Solutions you get covered by our <a :href="route('terms')" class="underline">Money back</a>, <a :href="route('policy')" class="underline">Confidentiality</a>, <a :href="route('terms')" class="underline">Plagiarism free</a> guarantees.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -126,38 +168,55 @@ defineProps({
         <section class="py-12">   
             <div class="w-5/6 mx-auto">
                 <div>
-                    <h1 class="text-4xl font-semibold text-center">About Our Solutions in Details</h1>
+                    <h1 class="text-4xl font-bold text-center">About Our Solutions in Details</h1>
                 </div>
                 <div class="py-10">
-                    <p>
+                    <p class="text-lg font-semibold">
                         Do you feel juggling work, studying, exams, and a personal life can sometimes feel a little bit overwhelming? 
                         You’re not alone, a lot of students do. College life these days is demanding and requires a lot of time, 
                         which you sometimes might not have. That’s where Edusson can help you. 
                         We are a dedicated essay writing service that can help you put together a top-quality essay.
                     </p>
                 </div>
-                <div class="flex mx-auto">
-                    <a href="#" class="inline-block px-4 py-2 rounded-md border-2 mx-auto">Read More</a>
+                <div class="flex justify-center">
+                    <a href="#" class="inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-purple-500 hover:translate-x-4 hover:bg-purple-700 transition duration-300">Read More</a>
                 </div>
             </div>
         </section>
 
         <!-- Hire Writers -->
 
-        <section>
+        <section class="bg-[#FDF7E9]">
             <div class="py-12">
-                <div class="w-5/6 grid grid-cols-3 mx-auto">
+                <div class="w-5/6 grid grid-cols-3 mx-auto gap-10">
                     <div>
-                        <h1 class="text-3xl font-semibold text-center">Are you a professional writer</h1>
-                        <p class="py-10">
+                        <h1 class="text-3xl font-bold text-center">Are you a professional writer?</h1>
+                        <p class="py-10 font-semibold">
                             We are always looking for talented writers and academic experts to join our team
                         </p>
-                        <a href="#" class="inline-block px-4 py-2 rounded-md border-2 mx-auto">Become a writer</a>
+                        <a href="#" class="inline-block w-full px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-purple-500 hover:translate-x-4 hover:bg-purple-700 transition duration-300">Become a writer</a>
                     </div>
                     <div>
-                        <h1 class="text-2xl font-semibold text-center">Core requirements</h1>
-                        <ul>
-                            <li>bullshits</li>
+                        <h1 class="text-2xl font-bold">Core requirements</h1>
+                        <ul class="p-4 space-y-4">
+                            <li class="flex items-center">
+                                <div class="w-[10%]">
+                                    <img src="/images/list-star.png" alt="Listing Star" loading="lazy" width="50">
+                                </div>
+                                <p  class="font-semibold pl-1 w-[90%]">Bachelors degree from an accredited educational institution</p>
+                            </li>
+                            <li  class="flex items-center">    
+                                <div class="w-[10%]">
+                                    <img src="/images/list-star.png" alt="Listing Star" loading="lazy" width="50">
+                                </div>
+                                <p class="font-semibold pl-1 w-[90%]">Excellent communication skills</p>
+                            </li>
+                            <li  class="flex items-center">
+                                <div class="w-[10%]">
+                                    <img src="/images/list-star.png" alt="Listing Star" loading="lazy" width="50">
+                                </div>
+                                <p class="font-semibold pl-1 w-[90%]">Proficiency in the particular area of study</p>
+                            </li>
                         </ul>
                     </div>
                     <div>
