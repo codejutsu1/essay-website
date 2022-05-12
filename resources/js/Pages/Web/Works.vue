@@ -1,6 +1,7 @@
 <script setup>
 import Footer from '@/Components/Footer.vue';
 import Links from '@/Components/Links.vue';
+import Work from '@/Components/Work.vue';
 import { Head, Link } from '@inertiajs/inertia-vue3';
 
 
@@ -8,32 +9,24 @@ import { Head, Link } from '@inertiajs/inertia-vue3';
 <template>
     <Head title="How it is done on Essay?" />
     
-    <header class="border-2 h-[600px]">
+    <header>
         <Links />
 
-        <div class="w-3/5 mx-auto h-full flex items-center justify-center">
-            <div>
-                <h1 class="text-4xl font-semibold text-center">Steps to follow to get your Essay done</h1>
-
-                <div>
-
-                </div>
-            </div>
-        </div>
+        <Work />
     </header>
 
     <main>
-        <section>
+        <section class="bg-[#FDF7E9]">
             <div class="py-12 w-5/6 mx-auto">
-                <h1 class="font-semibold text-4xl text-center">How to use Essay</h1>
-                <p class="py-5">
+                <h1 class="font-bold text-4xl text-center">How to use Essay</h1>
+                <p class="py-5 text-lg font-semibold">
                     If you’ve made the decision to order a paper from us, but don't know how to go about the process,
                      then you’ve come to the right place. 
                     It is an easy procedure that takes up very little of your time, than you can possibly imagine!
                 </p>
                 
                 <div class="flex justify-center">
-                    <a href="#" class="px-5 py-3 rounded-md border-2 inline-block">
+                    <a href="#" class="inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-purple-500 hover:translate-x-4 hover:bg-purple-700 transition duration-300">
                         Read more
                     </a>
                 </div>
@@ -42,20 +35,19 @@ import { Head, Link } from '@inertiajs/inertia-vue3';
 
         <section>
             <div class="py-12 w-5/6 mx-auto">
-                <h1 class="font-semibold text-4xl text-center">Feel free to contact us at any time</h1>
-                <div class="grid grid-cols-2 gap-7 justify-center py-8">
+                <h1 class="font-bold text-4xl text-center">Feel free to contact us at any time</h1>
+                <div class="grid grid-cols-2 w-1/2 mx-auto space-x-8 pt-10 px-8">
                     <div>
-                        <h1 class="font-semibold text-2xl text-center">Email for customer:</h1>
-                        <p class="py-5 text-center">support@essay.com</p>
+                        <h1 class="text-lg font-bold">Email for customers:</h1>
+                        <a href="mailto:support@essay.com" class="text-blue-600 hover:underline">support@essay.com</a>
                     </div>
-
                     <div>
-                        <h1 class="font-semibold text-2xl text-center">Email for writers:</h1>
-                        <p class="py-5 text-center">writer@essay.com</p>
+                        <h1 class="text-lg font-bold">Email for Writers</h1>
+                        <a href="mailto:writers@essay.com" class="text-blue-600 hover:underline">writers@essay.com</a>
                     </div>
                 </div>
                 <div class="flex justify-center">
-                    <a href="#" class="px-5 py-3 rounded-md border-2 inline-block">Live Chat</a>
+                    <a href="#" class="inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-gradient-to-br from-pink-500 to-indigo-500 hover:translate-x-4 transition duration-300">Live Chat</a>
                 </div>
             </div>
         </section>
