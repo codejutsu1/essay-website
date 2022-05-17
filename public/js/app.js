@@ -21843,13 +21843,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+ // import { before } from 'laravel-mix';
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
+    var scrollFromTop = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)(false);
+
+    function scroll() {
+      return window.pageYOffset;
+    }
+
+    (0,vue__WEBPACK_IMPORTED_MODULE_1__.onMounted)(function () {
+      scroll();
+      window.addEventListener('scroll', scroll());
+    });
     var __returned__ = {
-      Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.Link
+      scrollFromTop: scrollFromTop,
+      scroll: scroll,
+      Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.Link,
+      ref: vue__WEBPACK_IMPORTED_MODULE_1__.ref,
+      onMounted: vue__WEBPACK_IMPORTED_MODULE_1__.onMounted
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -23024,7 +23041,7 @@ var _hoisted_2 = {
   "class": "w-5/6 mx-auto py-12"
 };
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex py-10\"><div class=\"pr-12\"><h1 class=\"text-3xl font-bold\">Essay</h1></div><div class=\"w-1/3 px-4\"><ul class=\"space-y-3\"><li><a href=\"mailto:support@essay.com\">support@esssay.com</a></li><li><a href=\"tel:+22100000000\">+22100000000</a></li></ul></div><div><h1 class=\"text-xl font-semibold\">We accept: </h1></div></div>", 1);
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex py-10\"><div class=\"pr-12\"><h1 class=\"text-3xl font-bold\">Global Expert</h1></div><div class=\"w-1/3 px-4\"><ul class=\"space-y-3\"><li><a href=\"mailto:support@essay.com\">support@globalexpert.com</a></li><li><a href=\"tel:+22100000000\">+22100000000</a></li></ul></div><div><h1 class=\"text-xl font-semibold\">We accept: </h1></div></div>", 1);
 
 var _hoisted_4 = {
   "class": "py-10"
@@ -23058,7 +23075,7 @@ var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 
 var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "w-1/3 mx-auto text-center font-bold"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "2022 Essay.com All rights reserved"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Edusson")])], -1
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "2022 GlobalExpert.com All rights reserved"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Global Expert")])], -1
 /* HOISTED */
 );
 
@@ -23246,7 +23263,7 @@ var _hoisted_3 = {
   "class": "font-semibold text-xl tracking-wide"
 };
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Essay ");
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Global Expert ");
 
 var _hoisted_5 = {
   "class": "flex text-white font-bold"
@@ -24644,7 +24661,7 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 
 var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex justify-center items-center h-full\"><div class=\"z-30 absolute w-3/5\"><h1 class=\"text-5xl font-bold text-center text-white\">Get a unique essay!</h1><p class=\"text-2xl font-semibold py-3 text-white text-center\">Hire our professional writer to save time</p><div class=\"flex justify-center\"><a href=\"#\" class=\"inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-gradient-to-br from-pink-500 to-indigo-500 hover:translate-x-4 transition duration-300\">Hire Writer</a></div><div class=\"mt-5\"><div class=\"grid grid-cols-3 gap-5 justify-center pt-14\"><div><div class=\"flex justify-center\"><img src=\"/images/process.png\" alt=\"Process\" width=\"30\"></div><p class=\"text-center text-white font-bold pt-3\">Easy Process</p></div><div><div class=\"flex justify-center\"><img src=\"/images/demand.png\" alt=\"Demand\" width=\"30\"></div><p class=\"text-center text-white font-bold pt-3\">24/7 on Demand</p></div><div><div class=\"flex justify-center\"><img src=\"/images/time.png\" alt=\"Timesaver\" width=\"30\"></div><p class=\"text-center text-white font-bold pt-3\">Timesaver</p></div></div></div></div></div>", 1);
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<section class=\"bg-[#FDF7E9]\"><div class=\"py-12\"><div class=\"mx-auto w-5/6\"><h1 class=\"text-4xl font-semibold text-center\">Check out our most recent customer reviews</h1><div class=\"w-3/5 mx-auto py-10 my-12 flex bg-white px-4 rounded-md shadow-xl\"><div class=\"px-2\"><div><img src=\"/images/user.png\" alt=\"A user\" loading=\"lazy\"><p class=\"font-semibold\">Customer-34858509</p><span class=\"text-xs text-gray-300 font-semibold\">May 16, 2021</span></div></div><div class=\"px-2\"><div><div class=\"flex items-center space-x-2\"><img src=\"/images/star.png\" alt=\"star rating\" loading=\"lazy\" width=\"30\"><img src=\"/images/star.png\" alt=\"star rating\" loading=\"lazy\" width=\"30\"><img src=\"/images/star.png\" alt=\"star rating\" loading=\"lazy\" width=\"30\"><img src=\"/images/star.png\" alt=\"star rating\" loading=\"lazy\" width=\"30\"><img src=\"/images/star.png\" alt=\"star rating\" loading=\"lazy\" width=\"30\"><h1 class=\"pl-2 font-bold text-xl text-gray-500\">Essasy</h1></div></div><p class=\"pt-5 pb-10 font-semibold text-lg\"> Went beyond what my expectations were! Had a last minute order for a long literature review and it was completed on time and no corrections were needed. Followed the topic and instructions and couldn&#39;t have asked for a better job! </p></div></div><div class=\"flex justify-center\"><a href=\"#\" class=\"inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-purple-500 hover:translate-x-4 hover:bg-purple-700 transition duration-300\">Order Now</a></div></div></div></section>", 1);
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<section class=\"bg-[#FDF7E9]\"><div class=\"py-12\"><div class=\"mx-auto w-5/6\"><h1 class=\"text-4xl font-semibold text-center\">Check out our most recent customer reviews</h1><div class=\"w-3/5 mx-auto py-10 my-12 flex bg-white px-4 rounded-md shadow-xl\"><div class=\"px-2\"><div><img src=\"/images/user.png\" alt=\"A user\" loading=\"lazy\"><p class=\"font-semibold\">Customer-34858509</p><span class=\"text-xs text-gray-300 font-semibold\">May 16, 2021</span></div></div><div class=\"px-2\"><div><div class=\"flex items-center space-x-2\"><img src=\"/images/star.png\" alt=\"star rating\" loading=\"lazy\" width=\"30\"><img src=\"/images/star.png\" alt=\"star rating\" loading=\"lazy\" width=\"30\"><img src=\"/images/star.png\" alt=\"star rating\" loading=\"lazy\" width=\"30\"><img src=\"/images/star.png\" alt=\"star rating\" loading=\"lazy\" width=\"30\"><img src=\"/images/star.png\" alt=\"star rating\" loading=\"lazy\" width=\"30\"><h1 class=\"pl-2 font-bold text-xl text-gray-500\">Global Expert</h1></div></div><p class=\"pt-5 pb-10 font-semibold text-lg\"> Went beyond what my expectations were! Had a last minute order for a long literature review and it was completed on time and no corrections were needed. Followed the topic and instructions and couldn&#39;t have asked for a better job! </p></div></div><div class=\"flex justify-center\"><a href=\"#\" class=\"inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-purple-500 hover:translate-x-4 hover:bg-purple-700 transition duration-300\">Order Now</a></div></div></div></section>", 1);
 
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<section class=\"py-12\"><div class=\"w-5/6 mx-auto\"><div><h1 class=\"text-4xl font-semibold text-center\">Our Services</h1><p class=\"text-2xl font-semibold text-center\">Our Expertise Covers...</p></div><div class=\"grid grid-cols-3 py-12 justify-center\"><div class=\"border-2 rounded-[100%] flex flex-col items-center justify-center h-[300px] w-[300px] bg-pink-500\"><div><img src=\"/images/essay.svg\" alt=\"Essay Writing\" loading=\"lazy\" width=\"150\"></div><p class=\"pt-5 font-semibold text-xl text-white\">Essay</p></div><div class=\"border-2 rounded-[100%] flex flex-col items-center justify-center h-[300px] w-[300px] bg-purple-500\"><div><img src=\"/images/research.svg\" alt=\"Research Paper\" loading=\"lazy\" width=\"150\"></div><p class=\"pt-5 font-semibold text-xl text-white\">Research Paper</p></div><div class=\"border-2 rounded-[100%] flex flex-col items-center justify-center h-[300px] w-[300px] bg-indigo-500\"><div><img src=\"/images/assignment.svg\" alt=\"Assignment\" loading=\"lazy\" width=\"150\"></div><p class=\"pt-5 font-semibold text-xl text-white\">Assignment</p></div></div><div class=\"rounded-2xl my-6 py-5 bg-[#FDF7E9]\"><div class=\"w-5/6 mx-auto\"><ul class=\"flex list-disc list-inside space-x-10 justify-center items-center\"><li>Narrative</li><li>Descriptive</li><li>Expository</li><li>Persuasive</li><li class=\"list-none\"><a href=\"#\" class=\"inline-block ml-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-purple-500 hover:translate-x-4 hover:bg-purple-700 transition duration-300\">Order Now</a></li></ul></div></div></div></section>", 1);
 
@@ -24664,7 +24681,7 @@ var _hoisted_11 = {
   "class": "text-center text-sm text-gray-200"
 };
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" By choosing Essay Solutions you get covered by our ");
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" By choosing Global Expert Solutions you get covered by our ");
 
 var _hoisted_13 = ["href"];
 

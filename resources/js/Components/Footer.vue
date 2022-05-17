@@ -8,12 +8,12 @@ import { Link } from '@inertiajs/inertia-vue3';
         <div class="w-5/6 mx-auto py-12">
             <div class="flex py-10">
                 <div class="pr-12">
-                    <h1 class="text-3xl font-bold">Essay</h1>
+                    <h1 class="text-3xl font-bold">Global Expert</h1>
                 </div>
                 <div class="w-1/3 px-4">
                     <ul class="space-y-3">
                         <li>
-                            <a href="mailto:support@essay.com">support@esssay.com</a>
+                            <a href="mailto:support@essay.com">support@globalexpert.com</a>
                         </li>
                         <li>
                             <a href="tel:+22100000000">+22100000000</a>
@@ -76,8 +76,8 @@ import { Link } from '@inertiajs/inertia-vue3';
                     </div>
                 </div>
                 <div class="w-1/3 mx-auto text-center font-bold">
-                    <p>2022 Essay.com All rights reserved</p>
-                    <span>Edusson</span>
+                    <p>2022 GlobalExpert.com All rights reserved</p>
+                    <span>Global Expert</span>
                 </div>
             </div>
         </div>

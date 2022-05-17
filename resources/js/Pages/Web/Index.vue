@@ -74,7 +74,7 @@ defineProps({
                                     <img src="/images/star.png" alt="star rating" loading="lazy" width="30">
                                     <img src="/images/star.png" alt="star rating" loading="lazy" width="30">
                                     <img src="/images/star.png" alt="star rating" loading="lazy" width="30">
-                                    <h1 class="pl-2 font-bold text-xl text-gray-500">Essasy</h1>
+                                    <h1 class="pl-2 font-bold text-xl text-gray-500">Global Expert</h1>
                                 </div>
                             </div>
                             <p class="pt-5 pb-10 font-semibold text-lg">
@@ -156,7 +156,7 @@ defineProps({
                     </div>
                     <div>
                         <p class="text-center text-sm text-gray-200">
-                            By choosing Essay Solutions you get covered by our <a :href="route('terms')" class="underline">Money back</a>, <a :href="route('policy')" class="underline">Confidentiality</a>, <a :href="route('terms')" class="underline">Plagiarism free</a> guarantees.
+                            By choosing Global Expert Solutions you get covered by our <a :href="route('terms')" class="underline">Money back</a>, <a :href="route('policy')" class="underline">Confidentiality</a>, <a :href="route('terms')" class="underline">Plagiarism free</a> guarantees.
                         </p>
                     </div>
                 </div>
