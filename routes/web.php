@@ -37,6 +37,10 @@ Route::inertia('privacy-policy', 'Web/Policy')->name('policy');
 Route::inertia('faq', 'Web/Faq')->name('faq');
 Route::inertia('acceptance-use-policy', 'Web/UsePolicy')->name('usePolicy');
 
+Route::inertia('user/dashboard', 'User/Dashboard')->name('dashboardUser');
+Route::inertia('writer/dashboard', 'Writer/Dashboard')->name('dashboardWriter');
+Route::inertia('admin/dashboard', 'Admin/Dashboard')->name('dashboardAdmin');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
