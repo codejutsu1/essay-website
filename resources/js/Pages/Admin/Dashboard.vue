@@ -35,12 +35,12 @@ import Dashboard from '@/Layouts/AdminDashboard.vue';
                   <p
                     class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
                   >
-                    Room No.
+                    Total Users
                   </p>
                   <p
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
-                    10
+                    100
                   </p>
                 </div>
               </div>
@@ -63,12 +63,12 @@ import Dashboard from '@/Layouts/AdminDashboard.vue';
                   <p
                     class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
                   >
-                    Account Paid
+                    Account Balance
                   </p>
                   <p
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
-                    &#8358; 120,000.00 ($200)
+                    $2,200.00
                   </p>
                 </div>
               </div>
@@ -89,12 +89,12 @@ import Dashboard from '@/Layouts/AdminDashboard.vue';
                   <p
                     class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
                   >
-                    Session
+                    New Orders
                   </p>
                   <p
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
-                    2022
+                    20
                   </p>
                 </div>
               </div>
@@ -117,12 +117,12 @@ import Dashboard from '@/Layouts/AdminDashboard.vue';
                   <p
                     class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
                   >
-                    Status 
+                    In  Progress
                   </p>
                   <p
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
-                    Paid
+                    6
                   </p>
                 </div>
               </div>

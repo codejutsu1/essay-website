@@ -40,6 +40,10 @@ Route::inertia('acceptance-use-policy', 'Web/UsePolicy')->name('usePolicy');
 Route::inertia('user/dashboard', 'User/Dashboard')->name('dashboardUser');
 Route::inertia('writer/dashboard', 'Writer/Dashboard')->name('dashboardWriter');
 Route::inertia('admin/dashboard', 'Admin/Dashboard')->name('dashboardAdmin');
+Route::inertia('admin/orders', 'Admin/Orders')->name('ordersAdmin');
+Route::inertia('admin/completed-orders', 'Admin/CompletedOrders')->name('completeOrdersAdmin');
+
+Route::inertia('user/make-order', 'User/MakeOrder')->name('makeOrder');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
