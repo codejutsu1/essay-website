@@ -17,7 +17,7 @@ function prevStep(){
 
 <template>
     <UserDashboard>
-        <Head title="Dashboard" />
+        <Head title="Make Order" />
 
         <main class="h-full overflow-y-auto z-30">
           <div class="container px-6 mx-auto grid">
@@ -31,7 +31,7 @@ function prevStep(){
                 class="my-6 text-xl font-semibold text-gray-700 dark:text-gray-100 text-center"
                 v-if="formStep == 1"
             >
-                1. Your Order
+                1. Complete the following information
             </h3>
 
             <h3

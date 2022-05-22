@@ -6,33 +6,17 @@ import Dashboard from '@/Layouts/AdminDashboard.vue';
 
 <template>
     <Dashboard>
-        <Head title="List of Orders" />
+        <Head title="All Writers" />
 
         <main class="h-full overflow-y-auto z-30">
           <div class="container px-6 mx-auto grid">
             <h2
               class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
             >
-              Orders
+              Here are list of all writers
             </h2>
       
-            
-            <div class="grid gap-6 mb-8 md:grid-cols-2">
-                <button class="flex items-center justify-center p-4 bg-gray-800 hover:bg-gray-900 transition duration-300 rounded-lg shadow-xs text-lg font-semibold text-gray-200">
-                    New Orders
-                </button>
-
-                <button class="flex items-center justify-center p-4 bg-gray-800 hover:bg-gray-900 transition duration-300 rounded-lg shadow-xs text-lg font-semibold text-gray-200">
-                    Pending Orders
-                </button>
-            </div>
-
             <div>
-                 <h4
-              class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
-            >
-              New Orders
-            </h4>
             <div class="w-full overflow-hidden rounded-lg shadow-xs pb-10">
               <div class="w-full overflow-x-auto">
                 <table class="w-full whitespace-no-wrap">
@@ -40,10 +24,11 @@ import Dashboard from '@/Layouts/AdminDashboard.vue';
                     <tr
                       class="font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-300 dark:bg-gray-800"
                     >
-                      <th class="px-4 py-3">User-ID</th>
-                      <th class="px-4 py-3">Order-ID</th>
-                      <th class="px-4 py-3">Topic</th>
-                      <th class="px-4 py-3">File</th>
+                      <th class="px-4 py-3">Name</th>
+                      <th class="px-4 py-3">Email</th>
+                      <th class="px-4 py-3">Completed Orders</th>
+                      <th class="px-4 py-3">Pending Orders</th>
+                      <th class="px-4 py-3">Total Orders</th>
                       <th class="px-4 py-3">Date</th>
                       <th class="px-4 py-3">Actions</th>
                     </tr>
@@ -55,22 +40,21 @@ import Dashboard from '@/Layouts/AdminDashboard.vue';
                       <td class="px-4 py-3">
                         <div class="flex items-center text-sm">
                           <div>
-                            <p class="font-semibold">ID-001001</p>
+                            <p class="font-semibold">Hans Burger</p>
                           </div>
                         </div>
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        OR-0001110
+                        user@Email.com
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        Environmental Pollution
+                        10
                       </td>
                       <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
-                        >
-                          Approved
-                        </span>
+                        2
+                      </td>
+                      <td class="px-4 py-3 text-xs">
+                        12
                       </td>
                       <td class="px-4 py-3 text-sm">
                         6/10/2020
@@ -78,10 +62,10 @@ import Dashboard from '@/Layouts/AdminDashboard.vue';
                       <td class="px-4 py-3">
                         <div class="flex items-center space-x-4 text-sm">
                           <button
-                            class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 text-purple-600 rounded-lg dark:text-green-200 dark:bg-green-700 focus:outline-none focus:shadow-outline-gray"
+                            class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 dark:text-white dark:bg-orange-600 focus:outline-none focus:shadow-outline-gray"
                             aria-label="Edit"
                           >
-                            Assign
+                            Suspend
                           </button>
                           <button
                             class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-red-700 focus:outline-none focus:shadow-outline-gray"
@@ -104,26 +88,25 @@ import Dashboard from '@/Layouts/AdminDashboard.vue';
                       </td>
                     </tr>
 
-                    <tr class="text-gray-700 dark:text-gray-400">
+                     <tr class="text-gray-700 dark:text-gray-400">
                       <td class="px-4 py-3">
                         <div class="flex items-center text-sm">
                           <div>
-                            <p class="font-semibold">ID-001001</p>
+                            <p class="font-semibold">Hans Burger</p>
                           </div>
                         </div>
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        OR-0001110
+                        user@Email.com
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        Environmental Pollution
+                        1
                       </td>
                       <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
-                        >
-                          Approved
-                        </span>
+                        1
+                      </td>
+                      <td class="px-4 py-3 text-xs">
+                        2
                       </td>
                       <td class="px-4 py-3 text-sm">
                         6/10/2020
@@ -131,10 +114,10 @@ import Dashboard from '@/Layouts/AdminDashboard.vue';
                       <td class="px-4 py-3">
                         <div class="flex items-center space-x-4 text-sm">
                           <button
-                            class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 text-purple-600 rounded-lg dark:text-green-200 dark:bg-green-700 focus:outline-none focus:shadow-outline-gray"
+                            class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 dark:text-white dark:bg-orange-600 focus:outline-none focus:shadow-outline-gray"
                             aria-label="Edit"
                           >
-                            Assign
+                            Suspend
                           </button>
                           <button
                             class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-red-700 focus:outline-none focus:shadow-outline-gray"
@@ -157,26 +140,25 @@ import Dashboard from '@/Layouts/AdminDashboard.vue';
                       </td>
                     </tr>
 
-                    <tr class="text-gray-700 dark:text-gray-400">
+                     <tr class="text-gray-700 dark:text-gray-400">
                       <td class="px-4 py-3">
                         <div class="flex items-center text-sm">
                           <div>
-                            <p class="font-semibold">ID-001001</p>
+                            <p class="font-semibold">Hans Burger</p>
                           </div>
                         </div>
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        OR-0001110
+                        user@Email.com
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        Environmental Pollution
+                        0
                       </td>
                       <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
-                        >
-                          Approved
-                        </span>
+                        1
+                      </td>
+                      <td class="px-4 py-3 text-xs">
+                        1
                       </td>
                       <td class="px-4 py-3 text-sm">
                         6/10/2020
@@ -184,10 +166,10 @@ import Dashboard from '@/Layouts/AdminDashboard.vue';
                       <td class="px-4 py-3">
                         <div class="flex items-center space-x-4 text-sm">
                           <button
-                            class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 text-purple-600 rounded-lg dark:text-green-200 dark:bg-green-700 focus:outline-none focus:shadow-outline-gray"
+                            class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 dark:text-white dark:bg-orange-600 focus:outline-none focus:shadow-outline-gray"
                             aria-label="Edit"
                           >
-                            Assign
+                            Suspend
                           </button>
                           <button
                             class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-red-700 focus:outline-none focus:shadow-outline-gray"

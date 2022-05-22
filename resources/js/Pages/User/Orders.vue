@@ -1,64 +1,40 @@
 <script setup>
 import { Head, Link } from '@inertiajs/inertia-vue3';
-import Dashboard from '@/Layouts/AdminDashboard.vue';
+import UserDashboard from '@/Layouts/UserDashboard.vue';
 
 </script>
 
 <template>
-    <Dashboard>
-        <Head title="List of Orders" />
+    <UserDashboard>
+        <Head title="Your Orders" />
 
         <main class="h-full overflow-y-auto z-30">
           <div class="container px-6 mx-auto grid">
             <h2
-              class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+              class="mt-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
             >
-              Orders
+              Your Orders
             </h2>
-      
-            
-            <div class="grid gap-6 mb-8 md:grid-cols-2">
-                <button class="flex items-center justify-center p-4 bg-gray-800 hover:bg-gray-900 transition duration-300 rounded-lg shadow-xs text-lg font-semibold text-gray-200">
-                    New Orders
-                </button>
 
-                <button class="flex items-center justify-center p-4 bg-gray-800 hover:bg-gray-900 transition duration-300 rounded-lg shadow-xs text-lg font-semibold text-gray-200">
-                    Pending Orders
-                </button>
-            </div>
-
-            <div>
-                 <h4
-              class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
-            >
-              New Orders
-            </h4>
-            <div class="w-full overflow-hidden rounded-lg shadow-xs pb-10">
+            <div class="w-full overflow-hidden rounded-lg shadow-xs py-10">
               <div class="w-full overflow-x-auto">
                 <table class="w-full whitespace-no-wrap">
                   <thead>
                     <tr
                       class="font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-300 dark:bg-gray-800"
                     >
-                      <th class="px-4 py-3">User-ID</th>
                       <th class="px-4 py-3">Order-ID</th>
                       <th class="px-4 py-3">Topic</th>
-                      <th class="px-4 py-3">File</th>
-                      <th class="px-4 py-3">Date</th>
-                      <th class="px-4 py-3">Actions</th>
+                      <th class="px-4 py-3">Old File</th>
+                      <th class="px-4 py-3">New File</th>
+                      <th class="px-4 py-3">Date Sent</th>
+                      <th class="px-4 py-3">Date Received</th>
                     </tr>
                   </thead>
                   <tbody
                     class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
                   >
                     <tr class="text-gray-700 dark:text-gray-400">
-                      <td class="px-4 py-3">
-                        <div class="flex items-center text-sm">
-                          <div>
-                            <p class="font-semibold">ID-001001</p>
-                          </div>
-                        </div>
-                      </td>
                       <td class="px-4 py-3 text-sm">
                         OR-0001110
                       </td>
@@ -69,144 +45,77 @@ import Dashboard from '@/Layouts/AdminDashboard.vue';
                         <span
                           class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
                         >
-                          Approved
+                          download.pdf
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-xs">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                        >
+                          newDownload.pdf
                         </span>
                       </td>
                       <td class="px-4 py-3 text-sm">
                         6/10/2020
                       </td>
-                      <td class="px-4 py-3">
-                        <div class="flex items-center space-x-4 text-sm">
-                          <button
-                            class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 text-purple-600 rounded-lg dark:text-green-200 dark:bg-green-700 focus:outline-none focus:shadow-outline-gray"
-                            aria-label="Edit"
-                          >
-                            Assign
-                          </button>
-                          <button
-                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-red-700 focus:outline-none focus:shadow-outline-gray"
-                            aria-label="Delete"
-                          >
-                            <svg
-                              class="w-5 h-5"
-                              aria-hidden="true"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                clip-rule="evenodd"
-                              ></path>
-                            </svg>
-                          </button>
-                        </div>
+                      <td class="px-4 py-3 text-sm">
+                        10/10/2020
                       </td>
                     </tr>
-
                     <tr class="text-gray-700 dark:text-gray-400">
-                      <td class="px-4 py-3">
-                        <div class="flex items-center text-sm">
-                          <div>
-                            <p class="font-semibold">ID-001001</p>
-                          </div>
-                        </div>
+                      <td class="px-4 py-3 text-sm">
+                        OR-0001123
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        OR-0001110
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        Environmental Pollution
+                        Lost Youth, Where did we go wrong
                       </td>
                       <td class="px-4 py-3 text-xs">
                         <span
                           class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
                         >
-                          Approved
+                          download.pdf
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-xs">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600"
+                        >
+                          Pending
                         </span>
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        6/10/2020
+                        6/11/2020
                       </td>
-                      <td class="px-4 py-3">
-                        <div class="flex items-center space-x-4 text-sm">
-                          <button
-                            class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 text-purple-600 rounded-lg dark:text-green-200 dark:bg-green-700 focus:outline-none focus:shadow-outline-gray"
-                            aria-label="Edit"
-                          >
-                            Assign
-                          </button>
-                          <button
-                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-red-700 focus:outline-none focus:shadow-outline-gray"
-                            aria-label="Delete"
-                          >
-                            <svg
-                              class="w-5 h-5"
-                              aria-hidden="true"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                clip-rule="evenodd"
-                              ></path>
-                            </svg>
-                          </button>
-                        </div>
+                      <td class="px-4 py-3 text-sm">
+                        Null
                       </td>
                     </tr>
-
                     <tr class="text-gray-700 dark:text-gray-400">
-                      <td class="px-4 py-3">
-                        <div class="flex items-center text-sm">
-                          <div>
-                            <p class="font-semibold">ID-001001</p>
-                          </div>
-                        </div>
+                      <td class="px-4 py-3 text-sm">
+                        OR-0001143
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        OR-0001110
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        Environmental Pollution
+                        Learning Mechanism
                       </td>
                       <td class="px-4 py-3 text-xs">
                         <span
                           class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
                         >
-                          Approved
+                          download.pdf
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-xs">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700"
+                        >
+                          Denied
                         </span>
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        6/10/2020
+                        6/03/2020
                       </td>
-                      <td class="px-4 py-3">
-                        <div class="flex items-center space-x-4 text-sm">
-                          <button
-                            class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 text-purple-600 rounded-lg dark:text-green-200 dark:bg-green-700 focus:outline-none focus:shadow-outline-gray"
-                            aria-label="Edit"
-                          >
-                            Assign
-                          </button>
-                          <button
-                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-red-700 focus:outline-none focus:shadow-outline-gray"
-                            aria-label="Delete"
-                          >
-                            <svg
-                              class="w-5 h-5"
-                              aria-hidden="true"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                clip-rule="evenodd"
-                              ></path>
-                            </svg>
-                          </button>
-                        </div>
+                      <td class="px-4 py-3 text-sm">
+                        Null
                       </td>
                     </tr>
                   </tbody>
@@ -309,9 +218,14 @@ import Dashboard from '@/Layouts/AdminDashboard.vue';
                 </span>
               </div>
             </div>
-            </div>
           </div>
         </main>
-       
-    </Dashboard>
+
+    </UserDashboard>
 </template>
+
+<style>
+  main{
+    display: block;
+  }
+</style>

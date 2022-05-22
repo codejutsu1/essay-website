@@ -39,11 +39,22 @@ Route::inertia('acceptance-use-policy', 'Web/UsePolicy')->name('usePolicy');
 
 Route::inertia('user/dashboard', 'User/Dashboard')->name('dashboardUser');
 Route::inertia('writer/dashboard', 'Writer/Dashboard')->name('dashboardWriter');
+Route::inertia('writer/orders', 'Writer/Orders')->name('writerOrders');
+Route::inertia('writer/received-orders', 'Writer/ReceivedOrders')->name('receivedOrders');
+Route::inertia('writer/settings', 'Writer/Settings')->name('writerSettings');
+
 Route::inertia('admin/dashboard', 'Admin/Dashboard')->name('dashboardAdmin');
 Route::inertia('admin/orders', 'Admin/Orders')->name('ordersAdmin');
 Route::inertia('admin/completed-orders', 'Admin/CompletedOrders')->name('completeOrdersAdmin');
+Route::inertia('admin/all-orders', 'Admin/AllOrders')->name('allOrders');
+Route::inertia('admin/all-writers', 'Admin/Writers')->name('allWriters');
+Route::inertia('admin/all-users', 'Admin/Users')->name('allUsers');
+
 
 Route::inertia('user/make-order', 'User/MakeOrder')->name('makeOrder');
+Route::inertia('user/orders', 'User/Orders')->name('userOrders');
+Route::inertia('user/payment-history', 'User/PaymentHistory')->name('userPayment');
+Route::inertia('user/settings', 'User/Setting')->name('userSettings');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
