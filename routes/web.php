@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,14 @@ Route::inertia('user/make-order', 'User/MakeOrder')->name('makeOrder');
 Route::inertia('user/orders', 'User/Orders')->name('userOrders');
 Route::inertia('user/payment-history', 'User/PaymentHistory')->name('userPayment');
 Route::inertia('user/settings', 'User/Setting')->name('userSettings');
+
+// The route that the button calls to initialize payment
+Route::post('/paystack/initialize', [PaymentController::class, 'initialize'])
+    ->name('pay');
+
+// The callback url after a payment
+Route::get('/paystack/callback', [PaymentController::class, 'callback'])
+    ->name('callback');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
