@@ -6,6 +6,7 @@ import { Inertia } from '@inertiajs/inertia'
 
 const formStep = ref(1);
 const btnDisable = ref(true);
+const fileRequire = ref(false);
 
 const form = reactive({
     mode: null,
@@ -19,19 +20,28 @@ const form = reactive({
     channels: ['card']
 });
 
+function editing(){
+    fileRequire.value = true
+    btnDisable.value = false
 
+    return { fileRequire, btnDisable}
+}
 
 function btnEnable(){
-    return btnDisable.value = false
+    fileRequire.value = false
+    btnDisable.value = false
+
+    return { fileRequire, btnDisable}
 }
 
 function nextStep(){
-    if(form.mode == 'Writing' && form.topic == null || form.essay_number == 0 || form.instructions == null){
-        return btnDisable.value = true
-    }
-
-    if(form.mode == 'Editing' && form.topic == null || form.essay_number == 0 || form.instructions == null || form.document == null){
-        return btnDisable.value = true
+    if(form.mode == 'Writing'){
+        if(!form.topic || form.essay_number == 0 || !form.instructions){
+            return btnDisable.value = true
+        }
+    }else if(form.mode == 'Editing' && !form.topic || !form.essay_number || !form.instructions || !form.document){
+        return btnDisable.value = true;
+         
     }
 
     formStep.value++;
@@ -107,6 +117,7 @@ function submit() {
                 <form action="#" @submit.prevent="submit">
                     <div v-show="formStep == 1">
                         <div class="flex justify-center space-x-16">
+                            <span class="text-gray-400 font-semibold">Mode<span class="text-red-300 pl-1 font-semibold">*</span></span>
                             <label
                                 class="inline-flex items-center text-gray-600 dark:text-gray-400"
                                 for="writing"
@@ -132,14 +143,14 @@ function submit() {
                                     value="Editing"
                                     name="editing"
                                     v-model="form.mode"
-                                    @click="btnEnable"
+                                    @click="editing"
                                 />
                                 <span class="ml-2">Editing</span>
                             </label>
                         </div>
 
                         <label class="block">
-                            <span class="text-gray-400 pt-4 pb-2 block font-semibold">Topic</span>
+                            <span class="text-gray-400 pt-4 pb-2 block font-semibold">Topic <span class="text-red-300 pl-1 font-semibold">*</span></span>
                             <input
                                 class="block w-full mt-1 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                                 placeholder="Main Idea"
@@ -150,7 +161,7 @@ function submit() {
 
                         <div class="flex justify-between py-10">
                             <div class="w-1/5">
-                                <span class="text-gray-700 dark:text-gray-400 pb-2 block font-semibold">Pages</span>
+                                <span class="text-gray-700 dark:text-gray-400 pb-2 block font-semibold">Pages <span class="text-red-300 pl-1 font-semibold">*</span></span>
 
                                 <div class="flex items-center justify-center ">
                                     <div class="grid grid-cols-3 border border-purple-400">
@@ -182,7 +193,7 @@ function submit() {
                                 </span>
                             </div>
                             <label class="block mt-4 w-[60%]">
-                                <span class="text-gray-700 dark:text-gray-400">Detailed Instructions</span>
+                                <span class="text-gray-700 dark:text-gray-400">Detailed Instructions <span class="text-red-300 pl-1 font-semibold">*</span></span>
                                 <textarea
                                     class="block w-full mt-1 dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                                     rows="10"
@@ -193,8 +204,9 @@ function submit() {
                             </label>
                         </div>
 
-                        <div class="border-2 border-dashed border-purple-400 bg-gray-700 w-1/3 mx-auto flex justify-center">
-                            <input type="file" name="essay" @keypress="btnEnabled" id="essay" class="bg-gray-700 py-6 text-gray-200 cursor-pointer" @input="form.document = $event.target.files[0]">
+                        <span class="text-gray-400 font-semibold text-center block pb-4">File<span class="text-red-300 pl-1 font-semibold" v-show="fileRequire">*</span></span>
+                        <div @click="btnEnabled" class="border-2 border-dashed border-purple-400 bg-gray-700 w-1/3 mx-auto flex flex-col justify-center">
+                            <input type="file" name="essay" id="essay" class="bg-gray-700 py-6 text-gray-200 cursor-pointer" @input="form.document = $event.target.files[0]">
                         </div>
 
                         <progress v-if="form.progress" :value="form.progress.percentage" max="100">
@@ -292,6 +304,9 @@ function submit() {
                         >
                             Previous
                         </button>
+                    </div>
+                    <div>
+                        <p v-show="btnDisable" class="text-right py-3 font-semibold text-sm text-red-300">Please provide all Information. (If editing, it must require a file)</p>
                     </div>
                 </form>
             </div>
