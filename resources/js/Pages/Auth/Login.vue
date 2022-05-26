@@ -36,6 +36,7 @@ const submit = () => {
         </div>
 
         <form @submit.prevent="submit">
+            <!-- <p class="mb-4">Hey, your account is not registered as a user, proceed to login as a writer.</p> -->
             <div>
                 <BreezeLabel for="email" value="Email" />
                 <BreezeInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus autocomplete="username" />

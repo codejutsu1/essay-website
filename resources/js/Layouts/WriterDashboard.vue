@@ -1,5 +1,6 @@
 <script setup>
   import { Link } from '@inertiajs/inertia-vue3';
+  import BreezeDropdownLink from '@/Components/DropdownLink.vue';
 </script>
 <template>
     <div class="flex h-screen bg-gray-50 dark:bg-gray-900 overflow-hidden" >
@@ -20,7 +21,7 @@
               ></span>
               <Link
                 class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                :href="route('dashboardWriter')"
+                :href="route('dashboard.writer')"
               >
                 <svg
                   class="w-5 h-5"
@@ -44,7 +45,7 @@
             <li class="relative px-6 py-3">
               <Link
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                :href="route('receivedOrders')"
+                :href="route('received.orders')"
               >
                 <svg
                   class="w-5 h-5"
@@ -66,7 +67,7 @@
             <li class="relative px-6 py-3">
               <Link
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                :href="route('writerOrders')"
+                :href="route('writer.orders')"
               >
                 <svg
                   class="w-5 h-5"
@@ -88,7 +89,7 @@
             <li class="relative px-6 py-3">
               <Link
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                :href="route('writerSettings')"
+                :href="route('writer.settings')"
               >
                 <svg
                   class="w-5 h-5"
@@ -107,6 +108,11 @@
                 </svg>
                 <span class="ml-4">Settings</span>
               </Link>
+            </li>
+            <li class="relative px-6 py-3">
+                <BreezeDropdownLink :href="route('logout')" method="post" as="button">
+                    Log Out
+                </BreezeDropdownLink>
             </li>
           </ul>
           <div class="px-6 my-6">

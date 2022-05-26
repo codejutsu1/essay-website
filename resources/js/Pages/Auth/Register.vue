@@ -7,11 +7,13 @@ import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
 import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
 
 const form = useForm({
-    name: '',
+    first_name: '',
+    last_name: '',
     email: '',
     password: '',
     password_confirmation: '',
     terms: false,
+    mode: '',
 });
 
 const submit = () => {
@@ -29,8 +31,15 @@ const submit = () => {
 
         <form @submit.prevent="submit">
             <div>
-                <BreezeLabel for="name" value="Name" />
-                <BreezeInput id="name" type="text" class="mt-1 block w-full" v-model="form.name" required autofocus autocomplete="name" />
+                <div>
+                    <BreezeLabel for="first_name" value="First Name" />
+                    <BreezeInput id="first_name" type="text" class="mt-1 block w-full" v-model="form.first_name" required autofocus autocomplete="name" />
+                </div>
+
+                <div class="mt-4">
+                    <BreezeLabel for="last_name" value="Last Name" />
+                    <BreezeInput id="last_name" type="text" class="mt-1 block w-full" v-model="form.last_name" required autocomplete="name" />
+                </div>
             </div>
 
             <div class="mt-4">
@@ -46,6 +55,18 @@ const submit = () => {
             <div class="mt-4">
                 <BreezeLabel for="password_confirmation" value="Confirm Password" />
                 <BreezeInput id="password_confirmation" type="password" class="mt-1 block w-full" v-model="form.password_confirmation" required autocomplete="new-password" />
+            </div>
+
+            <div class="flex justify-between">
+                <div class="mt-4 flex">
+                    <BreezeInput id="userRole" type="radio" name="role" value="2" class="mr-2" v-model="form.mode" required autocomplete="mode" />
+                    <BreezeLabel for="userRole" value="User" />
+                </div>
+
+                <div class="mt-4 flex">
+                    <BreezeInput id="writerRole" name="role" type="radio" value="3" class="mr-2" v-model="form.mode" required autocomplete="mode" />
+                    <BreezeLabel for="writerRole" value="Writer" />
+                </div>
             </div>
 
             <div class="flex items-center justify-end mt-4">

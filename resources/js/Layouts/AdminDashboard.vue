@@ -1,5 +1,6 @@
 <script setup>
   import { Link } from '@inertiajs/inertia-vue3';
+  import BreezeDropdownLink from '@/Components/DropdownLink.vue';
 </script>
 <template>
     <div class="flex h-screen bg-gray-50 dark:bg-gray-900 overflow-hidden" >
@@ -20,7 +21,7 @@
               ></span>
               <Link
                 class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                :href="route('dashboardAdmin')"
+                :href="route('dashboard.admin')"
               >
                 <svg
                   class="w-5 h-5"
@@ -44,7 +45,7 @@
             <li class="relative px-6 py-3">
               <Link
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                :href="route('ordersAdmin')"
+                :href="route('orders.admin')"
               >
                 <svg
                   class="w-5 h-5"
@@ -66,7 +67,7 @@
             <li class="relative px-6 py-3">
               <Link
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                :href="route('completeOrdersAdmin')"
+                :href="route('complete.orders')"
               >
                 <svg
                   class="w-5 h-5"
@@ -88,7 +89,7 @@
             <li class="relative px-6 py-3">
               <Link
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                :href="route('allOrders')"
+                :href="route('all.orders')"
               >
                 <svg
                   class="w-5 h-5"
@@ -110,7 +111,7 @@
             <li class="relative px-6 py-3">
               <Link
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                :href="route('allWriters')"
+                :href="route('writers.index')"
               >
                 <svg
                   class="w-5 h-5"
@@ -133,7 +134,7 @@
             <li class="relative px-6 py-3">
               <Link
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                :href="route('allUsers')"
+                :href="route('users.index')"
               >
                 <svg
                   class="w-5 h-5"
@@ -151,6 +152,11 @@
               </Link>
             </li>
             <li class="relative px-6 py-3">
+                <BreezeDropdownLink :href="route('logout')" method="post" as="button">
+                    Log Out
+                </BreezeDropdownLink>
+            </li>
+            <!-- <li class="relative px-6 py-3">
               <button
                 class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 @click="togglePagesMenu"
@@ -228,7 +234,7 @@
                   </li>
                 </ul>
               </template>
-            </li>
+            </li> -->
           </ul>
           <div class="px-6 my-6">
             <button

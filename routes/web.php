@@ -4,7 +4,17 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\PaymentController;
-
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\WriterController;
+use App\Http\Controllers\User\DashboardController as UserDashboard;
+use App\Http\Controllers\User\OrderController as UserOrder;
+use App\Http\Controllers\User\PaymentController as UserPayment;
+use App\Http\Controllers\User\SettingsController as UserSettings;
+use App\Http\Controllers\Writer\DashboardController as WriterDashboard;
+use App\Http\Controllers\Writer\OrderController as WriterOrder;
+use App\Http\Controllers\Writer\SettingsController as WriterSettings;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,35 +48,62 @@ Route::inertia('privacy-policy', 'Web/Policy')->name('policy');
 Route::inertia('faq', 'Web/Faq')->name('faq');
 Route::inertia('acceptance-use-policy', 'Web/UsePolicy')->name('usePolicy');
 
-Route::inertia('user/dashboard', 'User/Dashboard')->name('dashboardUser');
-Route::inertia('writer/dashboard', 'Writer/Dashboard')->name('dashboardWriter');
-Route::inertia('writer/orders', 'Writer/Orders')->name('writerOrders');
-Route::inertia('writer/received-orders', 'Writer/ReceivedOrders')->name('receivedOrders');
-Route::inertia('writer/settings', 'Writer/Settings')->name('writerSettings');
+// Admin's Dashboard
 
-Route::inertia('admin/dashboard', 'Admin/Dashboard')->name('dashboardAdmin');
-Route::inertia('admin/orders', 'Admin/Orders')->name('ordersAdmin');
-Route::inertia('admin/completed-orders', 'Admin/CompletedOrders')->name('completeOrdersAdmin');
-Route::inertia('admin/all-orders', 'Admin/AllOrders')->name('allOrders');
-Route::inertia('admin/all-writers', 'Admin/Writers')->name('allWriters');
-Route::inertia('admin/all-users', 'Admin/Users')->name('allUsers');
+Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function(){
+    
+    Route::get('dashboard', [DashboardController::class, 'dashboardAdmin'])->name('dashboard.admin');
 
+    Route::controller(OrderController::class)->group(function() {
+        Route::get('orders', 'ordersAdmin')->name('orders.admin');
+        Route::get('completed-orders', 'completeOrders')->name('complete.orders');
+        Route::get('all-orders', 'allOrders')->name('all.orders');
+    });
 
-Route::inertia('user/make-order', 'User/MakeOrder')->name('makeOrder');
-Route::inertia('user/orders', 'User/Orders')->name('userOrders');
-Route::inertia('user/payment-history', 'User/PaymentHistory')->name('userPayment');
-Route::inertia('user/settings', 'User/Setting')->name('userSettings');
+    Route::resource('users', UserController::class);
+    Route::resource('writers', WriterController::class);
+});
 
-// The route that the button calls to initialize payment
-Route::post('/paystack/initialize', [PaymentController::class, 'initialize'])
-    ->name('pay');
+// User's Dashboard
 
-// The callback url after a payment
-Route::get('/paystack/callback', [PaymentController::class, 'callback'])
-    ->name('callback');
+Route::group(['middleware' => ['auth', 'user'], 'prefix' => 'user'], function(){
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    Route::get('dashboard', [UserDashboard::class, 'dashboardUser'])->name('dashboard.user');
+
+    Route::controller(UserOrder::class)->group(function() {
+        Route::get('make-order', 'makeOrder')->name('make.order');
+        Route::get('orders', 'userOrders')->name('user.orders');
+    });
+
+    Route::controller(UserPayment::class)->group(function() {
+        // The route that the button calls to initialize payment
+        Route::post('paystack/initialize', 'initialize')->name('pay');
+
+        // The callback url after a payment
+        Route::get('paystack/callback', 'callback')->name('callback');
+
+        Route::get('payment-history', 'paymentHistory')->name('payment.history');
+    });
+
+    Route::controller(UserSettings::class)->group(function() {
+        Route::get('settings', 'userSettings')->name('user.settings'); 
+    });
+});
+
+//Writer's Dashboard
+
+Route::group(['middleware' => ['auth', 'writer'], 'prefix' => 'writer'], function(){
+
+    Route::get('dashboard', [WriterDashboard::class, 'dashboardWriter'])->name('dashboard.writer');
+
+    Route::controller(WriterOrder::class)->group(function(){
+        Route::get('orders', 'writerOrders')->name('writer.orders');
+        Route::get('received-orders', 'receivedOrders')->name('received.orders');
+    });
+
+    Route::controller(WriterSettings::class)->group(function(){
+        Route::get('settings', 'writerSettings')->name('writer.settings');
+    });
+});
 
 require __DIR__.'/auth.php';
