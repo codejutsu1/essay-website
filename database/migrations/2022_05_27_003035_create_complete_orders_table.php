@@ -13,20 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('complete_orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->string('orderId')->nullable();
-            $table->string('oldFile')->nullable();
-            $table->string('topic');
-            $table->string('mode');
-            $table->string('essay_number');
-            $table->string('instructions');
-            $table->string('amount')->nullable();
-            $table->string('referenceId')->nullable();
+            $table->foreignId('order_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->string('newFile')->nullable();
+            $table->boolean('completed')->nullable();
             $table->timestamps();
         });
     }
@@ -38,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('complete_orders');
     }
 };

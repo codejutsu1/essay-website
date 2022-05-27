@@ -72,6 +72,7 @@ Route::group(['middleware' => ['auth', 'user'], 'prefix' => 'user'], function(){
 
     Route::controller(UserOrder::class)->group(function() {
         Route::get('make-order', 'makeOrder')->name('make.order');
+        Route::post('store-order', 'storeOrder')->name('store.order');
         Route::get('orders', 'userOrders')->name('user.orders');
     });
 

@@ -1,19 +1,23 @@
 <script setup>
-import { Head, Link } from '@inertiajs/inertia-vue3';
+import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
 import UserDashboard from '@/Layouts/UserDashboard.vue';
 import { ref, reactive, computed } from 'vue';
 import { Inertia } from '@inertiajs/inertia'
+
+const props = defineProps({
+    errors: Object,
+});
 
 const formStep = ref(1);
 const btnDisable = ref(true);
 const fileRequire = ref(false);
 
-const form = reactive({
-    mode: null,
-    topic: null,
+const form = useForm({
+    mode: '',
+    topic: '',
     essay_number: 2,
-    instructions: null,
-    document: null,
+    instructions: '',
+    document: '',
     email: 'user@email.com',
     amount: 2700,
     currency: 'NGN',
@@ -81,8 +85,8 @@ function decreaseButton(){
 }
 
 function submit() {
-    Inertia.post(route('pay'), form);
-    // console.log(form);    
+    Inertia.post(route('store.order'), form); 
+    console.log(errors);  
 }
 
 </script>
@@ -114,7 +118,7 @@ function submit() {
             </h3>
 
             <div class="bg-gray-800 px-4 py-10">
-                <form action="#" @submit.prevent="submit">
+                <form @submit.prevent="submit">
                     <div v-show="formStep == 1">
                         <div class="flex justify-center space-x-16">
                             <span class="text-gray-400 font-semibold">Mode<span class="text-red-300 pl-1 font-semibold">*</span></span>
@@ -148,6 +152,7 @@ function submit() {
                                 <span class="ml-2">Editing</span>
                             </label>
                         </div>
+                        <p class="my-2 text-red-300 text-center">{{ errors.mode }} </p>
 
                         <label class="block">
                             <span class="text-gray-400 pt-4 pb-2 block font-semibold">Topic <span class="text-red-300 pl-1 font-semibold">*</span></span>
@@ -157,6 +162,7 @@ function submit() {
                                 v-model="form.topic"
                                 @keypress="btnEnable"
                             />
+                            <p class="my-2 text-red-300 text-center">{{ errors.topic }} </p>
                         </label>
 
                         <div class="flex justify-between py-10">
@@ -191,6 +197,7 @@ function submit() {
                                 <span class="text-gray-400 pb-2 block font-semibold">
                                     double spacing
                                 </span>
+                                <p class="my-2 text-red-300 text-center">{{ errors.essay_number }} </p>
                             </div>
                             <label class="block mt-4 w-[60%]">
                                 <span class="text-gray-700 dark:text-gray-400">Detailed Instructions <span class="text-red-300 pl-1 font-semibold">*</span></span>
@@ -201,6 +208,7 @@ function submit() {
                                     v-model="form.instructions"
                                     @keypress="btnEnable"
                                 ></textarea>
+                                <p class="my-2 text-red-300 text-center">{{ errors.instructions }} </p>
                             </label>
                         </div>
 
@@ -208,6 +216,7 @@ function submit() {
                         <div @click="btnEnabled" class="border-2 border-dashed border-purple-400 bg-gray-700 w-1/3 mx-auto flex flex-col justify-center">
                             <input type="file" name="essay" id="essay" class="bg-gray-700 py-6 text-gray-200 cursor-pointer" @input="form.document = $event.target.files[0]">
                         </div>
+                        <p class="my-2 text-red-300 text-center"> {{ errors.document }} </p>
 
                         <progress v-if="form.progress" :value="form.progress.percentage" max="100">
                             {{ form.progress.percentage }}%
