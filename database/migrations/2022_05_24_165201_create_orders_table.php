@@ -27,6 +27,8 @@ return new class extends Migration
             $table->string('instructions');
             $table->string('amount')->nullable();
             $table->string('referenceId')->nullable();
+            $table->boolean('assigned')->default(0);
+            $table->boolean('completed')->nullable();
             $table->timestamps();
         });
     }

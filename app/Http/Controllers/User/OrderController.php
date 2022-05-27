@@ -16,17 +16,23 @@ class OrderController extends Controller
 
     public function userOrders()
     {
-        return Inertia('User/Orders');
+        $orders = Order::where('user_id', auth()->user()->id)
+                        ->select(['orderId', 'topic', 'oldFile', 'mode', 'essay_number', 'instructions', 'created_at'])
+                        ->orderBy('id', 'desc')
+                        ->get();
+
+        return Inertia('User/Orders', compact('orders'));
     }
 
     public function storeOrder(Request $request)
     {
+        //Validate Request
         $request->validate([
             'mode' => 'required|string|max:255',
             'topic' => 'required|string|max:255',
             'essay_number' => 'required|numeric|max:255',
             'instructions' => 'required|string|max:255',
-            'document' => 'mimes:doc,pdf,docx,zip|file|max:2048'
+            'document' => 'nullable|mimes:doc,pdf,docx,zip|file|max:2048'
         ]);
 
         // File Upload
@@ -38,18 +44,18 @@ class OrderController extends Controller
             $path = $file->storeAs($destination_path, $file_name);
         }
 
-        dd($destination_path . $file . $file_name . $path);
-
+        //Store Orders
         $order = Order::create([
             'user_id' => auth()->user()->id,
             'topic' => $request->topic,
             'mode' => $request->mode,
             'essay_number' => $request->essay_number,
             'instructions' => $request->instructions,
-            'oldFile' => $file_name
+            'oldFile' => $file_name ?? NULL
         ]);
 
-        $order->orderId = '001' . auth()->user()->id . $order->id;
+        //Storing the orders using the current Id
+        $order->orderId = 'OR-001' . auth()->user()->id . $order->id;
         $order->save();
 
         return redirect()->back();

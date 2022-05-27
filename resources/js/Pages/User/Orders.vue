@@ -2,6 +2,11 @@
 import { Head, Link } from '@inertiajs/inertia-vue3';
 import UserDashboard from '@/Layouts/UserDashboard.vue';
 
+const props = defineProps({
+    orders: Object,
+});
+
+console.log(props);
 </script>
 
 <template>
@@ -25,6 +30,7 @@ import UserDashboard from '@/Layouts/UserDashboard.vue';
                     >
                       <th class="px-4 py-3">Order-ID</th>
                       <th class="px-4 py-3">Topic</th>
+                      <th class="px-4 py-3">Mode</th>
                       <th class="px-4 py-3">Old File</th>
                       <th class="px-4 py-3">New File</th>
                       <th class="px-4 py-3">Date Sent</th>
@@ -34,32 +40,38 @@ import UserDashboard from '@/Layouts/UserDashboard.vue';
                   <tbody
                     class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
                   >
-                    <tr class="text-gray-700 dark:text-gray-400">
+                    <tr v-for="order in orders" :key="order.orderId" class="text-gray-700 dark:text-gray-400">
                       <td class="px-4 py-3 text-sm">
-                        OR-0001110
+                        {{ order.orderId }}
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        Environmental Pollution
+                        {{ order.topic }}
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        {{ order.mode }}
+                        <p>( {{ order.essay_number }} Pages )</p>
                       </td>
                       <td class="px-4 py-3 text-xs">
-                        <span
+                        <button
+                          type="button"
                           class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
                         >
                           download.pdf
-                        </span>
+                        </button>
                       </td>
                       <td class="px-4 py-3 text-xs">
-                        <span
+                        <button
+                          type="button"
                           class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
                         >
                           newDownload.pdf
-                        </span>
+                        </button>
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        6/10/2020
+                        {{ order.created_at }}
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        10/10/2020
+                        NULL
                       </td>
                     </tr>
                     <tr class="text-gray-700 dark:text-gray-400">

@@ -208,7 +208,7 @@ function submit() {
                                     v-model="form.instructions"
                                     @keypress="btnEnable"
                                 ></textarea>
-                                <p class="my-2 text-red-300 text-center">{{ errors.instructions }} </p>
+                                <p class="my-2 text-red-300 text-center"> {{ errors.instructions }} </p>
                             </label>
                         </div>
 

@@ -5,6 +5,7 @@ import BreezeInput from '@/Components/Input.vue';
 import BreezeLabel from '@/Components/Label.vue';
 import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
 import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
+import { ref } from 'vue';
 
 const form = useForm({
     first_name: '',
@@ -15,6 +16,16 @@ const form = useForm({
     terms: false,
     mode: '',
 });
+
+const nameVisible = ref(false);
+
+function writer(){
+    nameVisible.value = true
+}
+
+function user(){
+    nameVisible.value = false
+}
 
 const submit = () => {
     form.post(route('register'), {
@@ -30,7 +41,7 @@ const submit = () => {
         <BreezeValidationErrors class="mb-4" />
 
         <form @submit.prevent="submit">
-            <div>
+            <div v-show="nameVisible">
                 <div>
                     <BreezeLabel for="first_name" value="First Name" />
                     <BreezeInput id="first_name" type="text" class="mt-1 block w-full" v-model="form.first_name" required autofocus autocomplete="name" />
@@ -59,12 +70,12 @@ const submit = () => {
 
             <div class="flex justify-between">
                 <div class="mt-4 flex">
-                    <BreezeInput id="userRole" type="radio" name="role" value="2" class="mr-2" v-model="form.mode" required autocomplete="mode" />
+                    <BreezeInput id="userRole" type="radio" name="role" value="2" class="mr-2" v-model="form.mode" required checked @click="user" />
                     <BreezeLabel for="userRole" value="User" />
                 </div>
 
                 <div class="mt-4 flex">
-                    <BreezeInput id="writerRole" name="role" type="radio" value="3" class="mr-2" v-model="form.mode" required autocomplete="mode" />
+                    <BreezeInput id="writerRole" name="role" type="radio" value="3" class="mr-2" v-model="form.mode" required @click="writer"  />
                     <BreezeLabel for="writerRole" value="Writer" />
                 </div>
             </div>
