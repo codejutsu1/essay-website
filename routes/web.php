@@ -58,6 +58,8 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function(
         Route::get('orders', 'ordersAdmin')->name('orders.admin');
         Route::get('completed-orders', 'completeOrders')->name('complete.orders');
         Route::get('all-orders', 'allOrders')->name('all.orders');
+        Route::get('{id}/assign-orders', 'assignOrders')->name('assign.orders');
+        Route::get('{writerId}/{id}/assign-orders', 'assignWriters')->name('assign.writers');
     });
 
     Route::resource('users', UserController::class);

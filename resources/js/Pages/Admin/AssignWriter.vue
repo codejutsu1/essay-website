@@ -1,132 +1,96 @@
 <script setup>
 import { Head, Link } from '@inertiajs/inertia-vue3';
-import UserDashboard from '@/Layouts/UserDashboard.vue';
+import Dashboard from '@/Layouts/AdminDashboard.vue';
+// import Vue from 'vue';
+// import VueTailwind from 'vue-tailwind';
+// import TDialog  from 'vue-tailwind/dist/components';
 
 const props = defineProps({
-    orders: Object,
+  writers: Object,
+  id: String,
 });
 
+function confirmAssign()
+{
+  // this.$dialog.confirm({
+  //   title: 'Delete user?',
+  //   text: 'This action cannot be undone.',
+  //   icon: 'info',
+  //   // variant: 'my-confirm',
+  //   // ...More props
+  // }).then((result) => {
+  //   console.log(result)
+  // });
+
+  console.log('hey');
+
+}
 </script>
 
 <template>
-    <UserDashboard>
-        <Head title="Your Orders" />
+    <Dashboard>
+        <Head title="Assign to a Writer" />
 
         <main class="h-full overflow-y-auto z-30">
           <div class="container px-6 mx-auto grid">
             <h2
-              class="mt-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+              class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
             >
-              Your Orders
+              Here are list of all writers
             </h2>
-
-            <div class="w-full overflow-hidden rounded-lg shadow-xs py-10">
+      
+            <div>
+            <div class="w-full overflow-hidden rounded-lg shadow-xs pb-10">
               <div class="w-full overflow-x-auto">
                 <table class="w-full whitespace-no-wrap">
                   <thead>
                     <tr
                       class="font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-300 dark:bg-gray-800"
                     >
-                      <th class="px-4 py-3">Order-ID</th>
-                      <th class="px-4 py-3">Topic</th>
-                      <th class="px-4 py-3">Mode</th>
-                      <th class="px-4 py-3">Old File</th>
-                      <th class="px-4 py-3">New File</th>
-                      <th class="px-4 py-3">Date Sent</th>
-                      <th class="px-4 py-3">Date Received</th>
+                      <th class="px-4 py-3">Name</th>
+                      <th class="px-4 py-3">Completed Orders</th>
+                      <th class="px-4 py-3">Pending Orders</th>
+                      <th class="px-4 py-3">Rejected Orders</th>
+                      <th class="px-4 py-3">Total Orders</th>
+                      <th class="px-4 py-3">Actions</th>
                     </tr>
                   </thead>
                   <tbody
                     class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
                   >
-                    <tr v-for="order in orders" :key="order.orderId" class="text-gray-700 dark:text-gray-400">
-                      <td class="px-4 py-3 text-sm">
-                        {{ order.orderId }}
+                    <tr v-for="writer in writers" :key="writer.id" class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">{{ writer.name }}</p>
+                          </div>
+                        </div>
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        {{ order.topic }}
+                        0
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        {{ order.mode }}
-                        <p>( {{ order.essay_number }} Pages )</p>
+                        10
                       </td>
                       <td class="px-4 py-3 text-xs">
-                        <button
-                          type="button"
-                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
-                        >
-                          download.pdf
-                        </button>
+                        2
                       </td>
                       <td class="px-4 py-3 text-xs">
-                        <button
-                          type="button"
-                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
-                        >
-                          newDownload.pdf
-                        </button>
+                        12
                       </td>
-                      <td class="px-4 py-3 text-sm">
-                        {{ order.created_at }}
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        NULL
-                      </td>
-                    </tr>
-                    <tr class="text-gray-700 dark:text-gray-400">
-                      <td class="px-4 py-3 text-sm">
-                        OR-0001123
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        Lost Youth, Where did we go wrong
-                      </td>
-                      <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
-                        >
-                          download.pdf
-                        </span>
-                      </td>
-                      <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600"
-                        >
-                          Pending
-                        </span>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        6/11/2020
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        Null
-                      </td>
-                    </tr>
-                    <tr class="text-gray-700 dark:text-gray-400">
-                      <td class="px-4 py-3 text-sm">
-                        OR-0001143
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        Learning Mechanism
-                      </td>
-                      <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
-                        >
-                          download.pdf
-                        </span>
-                      </td>
-                      <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700"
-                        >
-                          Denied
-                        </span>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        6/03/2020
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        Null
+                      <td class="px-4 py-3">
+                        <div class="flex items-center space-x-4 text-sm">
+                          <Link
+                            class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 dark:text-white dark:bg-green-600 focus:outline-none focus:shadow-outline-gray"
+                            aria-label="Edit"
+                            :href="route('assign.writers', {'writerId' : writer.id, 'id': id})"
+                          >
+                            Assign
+                          </Link>
+                          <!-- <button type="button" @click="confirmAssign">
+                            Hello
+                          </button> -->
+                        </div>
                       </td>
                     </tr>
                   </tbody>
@@ -229,14 +193,9 @@ const props = defineProps({
                 </span>
               </div>
             </div>
+            </div>
           </div>
         </main>
-
-    </UserDashboard>
+       
+    </Dashboard>
 </template>
-
-<style>
-  main{
-    display: block;
-  }
-</style>
