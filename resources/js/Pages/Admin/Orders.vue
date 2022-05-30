@@ -5,10 +5,9 @@ import { ref } from 'vue';
 
 const props = defineProps({
   newOrders : Object,
+  pendingOrders: Object,
 });
 
-
-console.log(props.newOrders);
 
 const showTable = ref(true);
 
@@ -36,11 +35,11 @@ function pendingOrder(){
       
             
             <div class="grid gap-6 mb-8 md:grid-cols-2">
-                <button type="button" @click="newOrder" :class="{'bg-gray-900': showTable }" class="flex items-center justify-center p-4 bg-gray-800 hover:bg-gray-900 transition duration-300 rounded-lg shadow-xs text-lg font-semibold text-gray-200">
+                <button type="button" @click="newOrder" :class="{'bg-gray-900 text-gray-200': showTable, 'text-gray-400' : !showTable  }" class="flex items-center justify-center p-4 bg-gray-800 hover:bg-gray-900 transition duration-300 rounded-lg shadow-xs text-lg font-semibold">
                     New Orders
                 </button>
 
-                <button type="button" @click="pendingOrder" :class="{'bg-gray-900': !showTable }" class="flex items-center justify-center p-4 bg-gray-800 hover:bg-gray-900 transition duration-300 rounded-lg shadow-xs text-lg font-semibold text-gray-200">
+                <button type="button" @click="pendingOrder" :class="{'bg-gray-900 text-gray-200': !showTable, 'text-gray-400' : showTable  }" class="flex items-center justify-center p-4 bg-gray-800 hover:bg-gray-900 transition duration-300 rounded-lg shadow-xs text-lg font-semibold">
                     Pending Orders
                 </button>
             </div>
@@ -408,19 +407,19 @@ function pendingOrder(){
                   <tbody
                     class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
                   >
-                    <tr class="text-gray-700 dark:text-gray-400">
+                    <tr v-for="order in pendingOrders" :key="order.id" class="text-gray-700 dark:text-gray-400">
                       <td class="px-4 py-3">
                         <div class="flex items-center text-sm">
                           <div>
-                            <p class="font-semibold">ID-001001</p>
+                            <p class="font-semibold">{{ order.order.orderId }}</p>
                           </div>
                         </div>
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        OR-0001110
+                        {{ order.user.name }}
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        Environmental Pollution
+                        {{ order.order.topic }}
                       </td>
                       <td class="px-4 py-3 text-xs">
                         <span
@@ -430,7 +429,7 @@ function pendingOrder(){
                         </span>
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        6/10/2020
+                        {{ order.order.created_at }}
                       </td>
                       <td class="px-4 py-3">
                         <div class="flex items-center space-x-4 text-sm">

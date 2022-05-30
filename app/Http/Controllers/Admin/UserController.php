@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -15,7 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return Inertia('Admin/Users');
+        $users = User::where('role_id', 2)->select(['id', 'name', 'email'])->get();
+        return Inertia('Admin/Users', compact('users'));
     }
 
     /**

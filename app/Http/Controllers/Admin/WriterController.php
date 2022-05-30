@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\User;
 
 class WriterController extends Controller
 {
@@ -15,7 +16,8 @@ class WriterController extends Controller
      */
     public function index()
     {
-        return Inertia('Admin/Writers');
+        $writers = User::where('role_id', 3)->select(['id', 'name', 'email'])->get();
+        return Inertia('Admin/Writers', compact('writers'));
     }
 
     /**

@@ -28,4 +28,9 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function completeOrder()
+    {
+        return $this->hasOne(CompleteOrder::class);
+    }
+
 }

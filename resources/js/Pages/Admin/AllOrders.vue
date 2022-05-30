@@ -2,6 +2,11 @@
 import { Head, Link } from '@inertiajs/inertia-vue3';
 import Dashboard from '@/Layouts/AdminDashboard.vue';
 
+const props = defineProps({
+  allOrders: Object
+});
+
+
 </script>
 
 <template>
@@ -36,15 +41,15 @@ import Dashboard from '@/Layouts/AdminDashboard.vue';
                                 <tbody
                                     class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
                                 >
-                                    <tr class="text-gray-700 dark:text-gray-400">
+                                    <tr v-for="order in allOrders" :key="order.id" class="text-gray-700 dark:text-gray-400">
                                         <td class="px-4 py-3 text-sm">
-                                            OR-0001121
+                                            {{ order.order.orderId }}
                                         </td>
                                         <td class="px-4 py-3 text-sm">
-                                            Hans Burger
+                                            {{ order.user.name }}
                                         </td>
                                         <td class="px-4 py-3 text-sm">
-                                            HTYH-78578379276
+                                            {{ order.order.referenceId ?? NULL}}
                                         </td>
                                         <td class="px-4 py-3 text-sm">
                                             <span
@@ -54,67 +59,13 @@ import Dashboard from '@/Layouts/AdminDashboard.vue';
                                             </span>
                                         </td>
                                         <td class="px-4 py-3 text-sm">
-                                            $27.00
+                                            ${{ order.order.amount ?? '0.00' }}
                                         </td>
                                         <td class="px-4 py-3 text-sm">
-                                            08/11/2020
+                                            {{ order.order.created_at }}
                                         </td>
                                         <td class="px-4 py-3 text-sm">
                                             14/11/2020
-                                        </td>
-                                    </tr>
-                                    <tr class="text-gray-700 dark:text-gray-400">
-                                        <td class="px-4 py-3 text-sm">
-                                            OR-0001121
-                                        </td>
-                                        <td class="px-4 py-3 text-sm">
-                                            Hans Burger
-                                        </td>
-                                        <td class="px-4 py-3 text-sm">
-                                            HTYH-78578379276
-                                        </td>
-                                        <td class="px-4 py-3 text-sm">
-                                            <span
-                                                class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600"
-                                            >
-                                                Pending
-                                            </span>
-                                        </td>
-                                        <td class="px-4 py-3 text-sm">
-                                            $27.00
-                                        </td>
-                                        <td class="px-4 py-3 text-sm">
-                                            08/11/2020
-                                        </td>
-                                        <td class="px-4 py-3 text-sm">
-                                            Null
-                                        </td>
-                                    </tr>
-                                    <tr class="text-gray-700 dark:text-gray-400">
-                                        <td class="px-4 py-3 text-sm">
-                                            OR-0001121
-                                        </td>
-                                        <td class="px-4 py-3 text-sm">
-                                            Hans Burger
-                                        </td>
-                                        <td class="px-4 py-3 text-sm">
-                                            HTYH-78578379276
-                                        </td>
-                                        <td class="px-4 py-3 text-sm">
-                                            <span
-                                                class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700"
-                                            >
-                                                Denied
-                                            </span>
-                                        </td>
-                                        <td class="px-4 py-3 text-sm">
-                                            $27.00
-                                        </td>
-                                        <td class="px-4 py-3 text-sm">
-                                            08/11/2020
-                                        </td>
-                                        <td class="px-4 py-3 text-sm">
-                                            Null
                                         </td>
                                     </tr>
                                 </tbody>
