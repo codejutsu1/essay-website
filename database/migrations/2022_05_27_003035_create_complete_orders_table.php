@@ -24,6 +24,8 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->string('newFile')->nullable();
+            $table->timestamp('date_submitted')->nullable();
+            $table->boolean('accepted')->default(0);
             $table->boolean('completed')->nullable();
             $table->timestamps();
         });

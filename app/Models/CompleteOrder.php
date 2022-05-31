@@ -11,6 +11,8 @@ class CompleteOrder extends Model
     protected $fillable = [
         'user_id',
         'order_id',
+        'accepted',
+        'completed'
     ];
 
     public function order()

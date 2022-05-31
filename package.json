@@ -26,6 +26,9 @@
         "vue-loader": "^17.0.0"
     },
     "dependencies": {
+        "mitt": "^3.0.0",
+        "primevue": "^3.12.6",
+        "vue-confirm-dialog": "^1.1.0",
         "vue-tailwind": "^2.5.1"
     }
 }

@@ -90,9 +90,12 @@ function rejectedOrder(){
                                 {{ order.order.created_at }}
                             </td>
                             <td>
-                                <button class="flex items-center justify-center p-4 bg-gray-800 hover:bg-gray-900 transition duration-300 rounded-lg text-sm shadow-xs font-semibold text-green-200">
+                                <Link 
+                                    class="flex items-center justify-center p-4 bg-gray-800 hover:bg-gray-900 transition duration-300 rounded-lg text-sm shadow-xs font-semibold text-green-200"
+                                    :href="route('assign.orders', order.id)"
+                                >
                                     Reassign
-                                </button>
+                                </Link>
                             </td>
                         </tr>
                     </tbody>
@@ -242,9 +245,12 @@ function rejectedOrder(){
                                 {{ order.order.created_at }}
                             </td>
                             <td>
-                                <button class="flex items-center justify-center p-4 bg-gray-800 hover:bg-gray-900 transition duration-300 rounded-lg text-sm shadow-xs font-semibold text-green-200">
+                               <Link 
+                                    class="flex items-center justify-center p-4 bg-gray-800 hover:bg-gray-900 transition duration-300 rounded-lg text-sm shadow-xs font-semibold text-green-200"
+                                    :href="route('assign.orders', order.id)"
+                                >
                                     Reassign
-                                </button>
+                                </Link>
                             </td>
                         </tr>
                     </tbody>

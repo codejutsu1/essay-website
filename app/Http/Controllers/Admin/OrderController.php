@@ -91,16 +91,19 @@ class OrderController extends Controller
         $writers = User::where('role_id', 3)->select(['id', 'name'])->get();
         return Inertia('Admin/AssignWriter', compact('writers', 'id'));
     }
+
     public function assignWriters($writerId, $id){
         $order = Order::findOrFail($id);
 
-        CompleteOrder::create([
-            'user_id' => $writerId,
-            'order_id' => $order->id
-        ]);
+        CompleteOrder::updateOrCreate(
+            ['order_id' => $order->id],
+            ['user_id' => $writerId]
+        );
 
-        $order->assigned = 1;
-        $order->save();    
+        if(!$order->assigned){
+            $order->assigned = 1;
+            $order->save();    
+        }
 
         return redirect()->route('orders.admin');
     }

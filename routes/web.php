@@ -102,6 +102,8 @@ Route::group(['middleware' => ['auth', 'writer'], 'prefix' => 'writer'], functio
     Route::controller(WriterOrder::class)->group(function(){
         Route::get('orders', 'writerOrders')->name('writer.orders');
         Route::get('received-orders', 'receivedOrders')->name('received.orders');
+        Route::get('{order}/accept-order', 'acceptOrder')->name('accept.order');
+        Route::get('{order}/reject-order', 'rejectOrder')->name('reject.order');
     });
 
     Route::controller(WriterSettings::class)->group(function(){

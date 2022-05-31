@@ -6,13 +6,11 @@ const props = defineProps({
   orders : Object,
 });
 
-
 </script>
 
 <template>
     <Dashboard>
         <Head title="Received Orders" />
-
         <main class="h-full overflow-y-auto z-30">
           <div class="container px-6 mx-auto grid">
             <h2
@@ -47,26 +45,34 @@ const props = defineProps({
                         {{ order.order.topic }}
                       </td>
                       <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
-                        >
-                          Approved
-                        </span>
+                        <div v-if="order.order.oldFile" class="flex justify-between">
+                          <a target="_blank" href="/public/document/received/letter.pdf">
+                            <img src="/images/view.png" width="30" alt="View">
+                          </a>
+                          <button>
+                            <img src="/images/download.png" width="30" alt="download">
+                          </button>
+                        </div>
+                        <span v-else>NULL</span>
                       </td>
                       <td class="px-4 py-3 text-sm">
                         {{ order.order.created_at }}
                       </td>
                       <td class="px-4 py-3">
                         <div class="flex items-center space-x-4 text-sm">
-                          <button
+                          <Link
                             class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 text-purple-600 rounded-lg dark:text-green-200 dark:bg-green-700 focus:outline-none focus:shadow-outline-gray"
                             aria-label="Edit"
+                            onclick="return confirm('Do you want to accept this order?')"
+                            :href="route('accept.order', order.id)"
                           >
                             Accept
-                          </button>
-                          <button
+                          </Link>
+                          <Link
                             class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-red-700 focus:outline-none focus:shadow-outline-gray"
                             aria-label="Delete"
+                            onclick="return confirm('Do you want to reject this order?')"
+                            :href="route('reject.order', order.id)"
                           >
                             <svg
                               class="w-5 h-5"
@@ -80,7 +86,7 @@ const props = defineProps({
                                 clip-rule="evenodd"
                               ></path>
                             </svg>
-                          </button>
+                          </Link>
                         </div>
                       </td>
                     </tr>

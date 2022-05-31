@@ -1,30 +1,14 @@
 <script setup>
 import { Head, Link } from '@inertiajs/inertia-vue3';
 import Dashboard from '@/Layouts/AdminDashboard.vue';
-// import Vue from 'vue';
-// import VueTailwind from 'vue-tailwind';
-// import TDialog  from 'vue-tailwind/dist/components';
+
 
 const props = defineProps({
   writers: Object,
   id: String,
 });
 
-function confirmAssign()
-{
-  // this.$dialog.confirm({
-  //   title: 'Delete user?',
-  //   text: 'This action cannot be undone.',
-  //   icon: 'info',
-  //   // variant: 'my-confirm',
-  //   // ...More props
-  // }).then((result) => {
-  //   console.log(result)
-  // });
 
-  console.log('hey');
-
-}
 </script>
 
 <template>
@@ -83,13 +67,11 @@ function confirmAssign()
                           <Link
                             class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 dark:text-white dark:bg-green-600 focus:outline-none focus:shadow-outline-gray"
                             aria-label="Edit"
+                            onclick="return confirm('Confirm you want to assign to this writer?')"
                             :href="route('assign.writers', {'writerId' : writer.id, 'id': id})"
                           >
                             Assign
                           </Link>
-                          <!-- <button type="button" @click="confirmAssign">
-                            Hello
-                          </button> -->
                         </div>
                       </td>
                     </tr>
