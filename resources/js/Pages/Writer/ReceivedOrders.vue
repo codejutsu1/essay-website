@@ -49,9 +49,11 @@ const props = defineProps({
                           <a target="_blank" href="/public/document/received/letter.pdf">
                             <img src="/images/view.png" width="30" alt="View">
                           </a>
-                          <button>
+                          <Link
+                            :href="route('download.essay', order.order.id)"
+                          >
                             <img src="/images/download.png" width="30" alt="download">
-                          </button>
+                          </Link>
                         </div>
                         <span v-else>NULL</span>
                       </td>

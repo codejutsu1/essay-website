@@ -85,7 +85,7 @@ function decreaseButton(){
 }
 
 function submit() {
-    Inertia.post(route('store.order'), form);   
+    Inertia.post(route('store.order'), form);       
 }
 
 </script>

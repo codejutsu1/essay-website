@@ -6,16 +6,19 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CompleteOrder;
 use App\Models\Order;
+use Illuminate\Support\Facades\Storage;
 
 class OrderController extends Controller
 {
     public function writerOrders(){
+
         $orders =  CompleteOrder::where('user_id', auth()->user()->id)
                                 ->where('accepted', 1)
                                 ->select('id', 'order_id', 'completed', 'newFile')
                                 ->with(['order' => function($query){ $query->select('id','orderId', 'topic', 'created_at', 'oldFile'); }])
                                 ->orderBy('id', 'desc')
                                 ->get();
+
         return Inertia('Writer/Orders', compact('orders'));
     }
 
@@ -26,7 +29,8 @@ class OrderController extends Controller
                                 ->select('id', 'order_id')
                                 ->with(['order' => function($query){ $query->select('id','orderId', 'topic', 'created_at', 'oldFile'); }])
                                 ->orderBy('id', 'desc')
-                                ->get();                    
+                                ->get();     
+
         return Inertia('Writer/ReceivedOrders', compact('orders'));
     }
 
@@ -36,6 +40,7 @@ class OrderController extends Controller
             'accepted' => 1
         ]);
 
+        Alert::success('Success', 'You have successfully accepted this order');
         return redirect()->back();
     }
 
@@ -45,26 +50,23 @@ class OrderController extends Controller
             'completed' => 0
         ]);
 
+        Alert::success('Success', 'You have successfully rejected this order');
         return redirect()->back();
     }
 
-    public function downloadEssay($id)
+    public function downloadEssay(Order $order)
     {
-        $user = User::where('id', $id)->first();
-        $image = VerifiedUser::where('user_id', $id)->first();
-        $destination_path = 'public/images/verified/';
-        if($image){
-            $path = $destination_path . $image->frontPage;
-            $name = $user->firstName . $user->lastName . 'FrontDocument';
-            if($path)
-            {
-                return Storage::download($path, $name);
-            }else
-            {
-                return abort(404);
-            }
-        }else{
-            return abort(404); 
+        // dd($order);
+        $destination_path = 'public/document/received/';
+        $path = $destination_path . $order->oldFile;
+        $name = 'GlobalExpert' . $order->oldFile;
+        if(!$path)
+        {
+            return abort(404);   
         }
+
+        return Storage::download($path, $name);
+
+        return redirect()->back();
     }
 }

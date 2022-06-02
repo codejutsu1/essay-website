@@ -80,13 +80,15 @@ function confirmModal(){
                     <tr v-for="order in newOrders" :key="order.user_id" class="text-gray-700 dark:text-gray-400">
                       <td class="px-4 py-3">
                         <div class="flex items-center text-sm">
-                          <div>
+                          <Link :href="route('user.details', order.user_id)">
                             <p class="font-semibold">{{ order.user.name }}</p>
-                          </div>
+                          </Link>
                         </div>
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        {{ order.orderId }}
+                        <Link :href="route('order.details', order.id)">
+                          {{ order.orderId }}
+                        </Link>
                       </td>
                       <td class="px-4 py-3 text-sm">
                         {{ order.topic }}

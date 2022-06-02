@@ -14,7 +14,7 @@ const form = useForm({
     password: '',
     password_confirmation: '',
     terms: false,
-    mode: '',
+    mode: '2'
 });
 
 const nameVisible = ref(false);

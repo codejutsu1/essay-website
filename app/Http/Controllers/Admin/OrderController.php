@@ -8,6 +8,7 @@ use Inertia\Inertia;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\CompleteOrder;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class OrderController extends Controller
 {
@@ -32,7 +33,6 @@ class OrderController extends Controller
                                         ->orderBy('id', 'desc')
                                         ->get();
 
-        
         return Inertia('Admin/Orders', compact('newOrders', 'pendingOrders'));
     }
 
@@ -104,7 +104,42 @@ class OrderController extends Controller
             $order->assigned = 1;
             $order->save();    
         }
+        
+        Alert::success('Success', 'You have successfully assigned this order');
+        // dd('true');
+        return redirect()->route('orders.admin')->with('success', 'You did it');
+    }
 
-        return redirect()->route('orders.admin');
+    public function orderDetails(Order $order)
+    {
+        $orderDetails = Order::where('id', $order->id)
+                        ->select([
+                            'orderId',
+                            'topic',
+                            'mode',
+                            'user_id',
+                            'essay_number',
+                            'instructions',
+                            'assigned',
+                            'created_at'
+                        ])
+                        ->with(['user' => function($query){ $query->select('id','name'); }])
+                        ->first();
+    
+        $completeOrder = CompleteOrder::where('id', $order->id)
+                                        ->select(['user_id', 'completed', 'date_submitted'])
+                                        ->with(['user' => function($query){ $query->select('id','name'); }])
+                                        ->first();
+
+        return Inertia('Admin/OrderDetails', compact('orderDetails', 'completeOrder'));
+    }
+
+    public function userDetails(User $user)
+    {
+        $user = User::where('id', $user->id)
+                    ->select(['name', 'email', 'role_id', 'suspend', 'created_at'])
+                    ->first();  
+
+        return Inertia('Admin/UserDetails', compact('user'));
     }
 }

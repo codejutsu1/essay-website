@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Order;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class OrderController extends Controller
 {
@@ -58,7 +59,7 @@ class OrderController extends Controller
         $order->orderId = 'OR-001' . auth()->user()->id . $order->id;
         $order->save();
 
-        return redirect()->back();
+        return redirect()->route('make.order')->with('success', 'Your order has been successfully delivered');
 
     }
 }

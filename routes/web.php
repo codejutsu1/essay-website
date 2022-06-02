@@ -60,6 +60,8 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function(
         Route::get('all-orders', 'allOrders')->name('all.orders');
         Route::get('{id}/assign-orders', 'assignOrders')->name('assign.orders');
         Route::get('{writerId}/{id}/assign-orders', 'assignWriters')->name('assign.writers');
+        Route::get('{order}/order-details', 'orderDetails')->name('order.details');
+        Route::get('{user}/user-details', 'userDetails')->name('user.details');
     });
 
     Route::resource('users', UserController::class);
@@ -104,6 +106,7 @@ Route::group(['middleware' => ['auth', 'writer'], 'prefix' => 'writer'], functio
         Route::get('received-orders', 'receivedOrders')->name('received.orders');
         Route::get('{order}/accept-order', 'acceptOrder')->name('accept.order');
         Route::get('{order}/reject-order', 'rejectOrder')->name('reject.order');
+        Route::get('{order}/download-file', 'downloadEssay')->name('download.essay');
     });
 
     Route::controller(WriterSettings::class)->group(function(){

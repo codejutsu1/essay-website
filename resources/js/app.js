@@ -4,7 +4,6 @@ import { createApp, h, Vue } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
 import { ConfirmationService } from 'primevue/confirmationservice';
-import ConfirmDialog from 'primevue/confirmdialog';
 
 
 // Vue.use(VueConfirmDialog);
