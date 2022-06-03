@@ -9,7 +9,21 @@ import { Head, Link } from '@inertiajs/inertia-vue3';
     <Head title="We are hiring freelancer professional writers" />
 
     <header class="border-2 h-screen">
-        <Links />
+        <div class="w-5/6 mx-auto flex justify-between relative z-30">
+            <div class="flex items-center">
+                <h1 class="font-semibold text-xl tracking-wide">
+                    <Link :href="route('home')">
+                        Global Expert
+                    </Link>
+                </h1>
+            </div>
+        
+            <div>
+                <Link>
+                    Log In
+                </Link>
+            </div>
+        </div>
 
         <div class="w-3/5 mx-auto h-full flex items-center justify-center">
             <div>

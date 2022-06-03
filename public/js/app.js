@@ -23834,7 +23834,7 @@ var _hoisted_1 = ["type"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
     type: $props.type,
-    "class": "inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150"
+    "class": "inline-flex items-center px-4 py-2 bg-purple-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-purple-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150"
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")], 8
   /* PROPS */
   , _hoisted_1);
@@ -24138,7 +24138,7 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = ["value"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("input", {
-    "class": "border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm",
+    "class": "bg-[#FDF7E9] border-0 border-b-2 outline-0 border-gray-300 focus:border-b-purple-300 focus:ring-0 rounded-md shadow-sm",
     value: $props.modelValue,
     onInput: _cache[0] || (_cache[0] = function ($event) {
       return _ctx.$emit('update:modelValue', $event.target.value);
@@ -25340,10 +25340,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100"
+  "class": "min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-purple-400"
 };
 var _hoisted_2 = {
-  "class": "w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg"
+  "class": "w-full sm:max-w-md mt-6 px-6 py-4 bg-[#FDF7E9] shadow-md overflow-hidden sm:rounded-lg"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
@@ -28532,12 +28532,14 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_7 = {
-  "class": "flex items-center justify-end mt-4"
+  "class": "flex items-center justify-between mt-4"
 };
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Forgot your password? ");
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Haven't Registered? ");
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Log in ");
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Forgot your password? ");
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Log in ");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["BreezeGuestLayout"], null, {
@@ -28589,13 +28591,25 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         })
       }, null, 8
       /* PROPS */
-      , ["checked"]), _hoisted_6])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [$props.canResetPassword ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Link"], {
+      , ["checked"]), _hoisted_6])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
+        href: _ctx.route('register'),
+        "class": "underline text-sm text-gray-600 hover:text-gray-900"
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [_hoisted_8];
+        }),
+        _: 1
+        /* STABLE */
+
+      }, 8
+      /* PROPS */
+      , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [$props.canResetPassword ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Link"], {
         key: 0,
         href: _ctx.route('password.request'),
         "class": "underline text-sm text-gray-600 hover:text-gray-900"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_8];
+          return [_hoisted_9];
         }),
         _: 1
         /* STABLE */
@@ -28609,14 +28623,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         disabled: $setup.form.processing
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_9];
+          return [_hoisted_10];
         }),
         _: 1
         /* STABLE */
 
       }, 8
       /* PROPS */
-      , ["class", "disabled"])])], 40
+      , ["class", "disabled"])])])], 40
       /* PROPS, HYDRATE_EVENTS */
       , _hoisted_2)];
     }),
@@ -28726,6 +28740,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $setup.form.email = $event;
         }),
         required: "",
+        autofocus: "",
         autocomplete: "username"
       }, null, 8
       /* PROPS */
@@ -30408,15 +30423,46 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = {
   "class": "border-2 h-screen"
 };
+var _hoisted_2 = {
+  "class": "w-5/6 mx-auto flex justify-between relative z-30"
+};
+var _hoisted_3 = {
+  "class": "flex items-center"
+};
+var _hoisted_4 = {
+  "class": "font-semibold text-xl tracking-wide"
+};
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"w-3/5 mx-auto h-full flex items-center justify-center\"><div><h1 class=\"text-4xl font-semibold text-center\">Welcome to the leading platform for freelance writers</h1><p class=\"text-center py-5\">Competitive salaries and a constant stream of assignments guaranteed</p><div class=\"flex justify-center\"><a href=\"#\" class=\"px-5 py-3 rounded-md border-2 inline-block\"> Read more </a></div></div></div>", 1);
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Global Expert ");
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<main><section><div class=\"w-5/6 mx-auto p-2 grid grid-cols-3 justify-center -mt-20\"><div class=\"flex items-center justify-center border-b-2 p-8\"><p>Hundreds of orders</p></div><div class=\"flex items-center justify-center border-b-2 p-8\"><p>Flexible Schedule</p></div><div class=\"flex items-center justify-center border-b-2 p-8\"><p>Communication with customers</p></div><div class=\"flex items-center justify-center p-8\"><p>Your own price</p></div><div class=\"flex items-center justify-center p-8\"><p>Rate your clients</p></div><div class=\"flex items-center justify-center p-8\"><p>Payment twice a month</p></div></div></section><section><div><h1>How To Apply</h1><div></div></div></section><section><div><h1>Career Growth</h1><p>Your earnings will grow along with your experience</p><div></div></div></section><section><div class=\"py-12 w-5/6 mx-auto\"><h1>Advantages of working with us</h1><div class=\"grid grid-cols-2 justify-center\"><div><h1> Uninterrupted Workflow </h1><p> There are hundreds of assignments every day. Choose the ones you want to work on from a huge pool of orders. </p></div><div><h1> Prompt Payments </h1><p> Withdraw your funds twice a month to the payment method of your choice. All major payment methods are supported, and no payment is ever going to be delayed. </p></div><div><h1> 24/7 Support </h1><p> Contact our Support Team any time of day to get help. We have plenty of helpful materials from formatting requirements to paper structure guidelines to cover your writing needs. </p></div><div><h1> Help For Beginners </h1><p> Even if you don’t have sufficient statistics or ratings, we’ve got your back! You will still be able to get plenty of orders any time. </p></div><div><h1> Find Tasks Instantly </h1><p> We support more than 100 fields of various subjects. Choose the assignments you like out of the available orders and set your own price for each. </p></div><div><h1> Easy Registration &amp; Career Progression </h1><p> Apply and pass a short test. It will take less than 15 minutes. Climb the career ladder from the Beginning to Expert level and earn more depending on your experience and performance. </p></div></div></div></section><section><div><h1>Latest Feedback</h1><div></div></div></section></main>", 1);
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Log In ");
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"w-3/5 mx-auto h-full flex items-center justify-center\"><div><h1 class=\"text-4xl font-semibold text-center\">Welcome to the leading platform for freelance writers</h1><p class=\"text-center py-5\">Competitive salaries and a constant stream of assignments guaranteed</p><div class=\"flex justify-center\"><a href=\"#\" class=\"px-5 py-3 rounded-md border-2 inline-block\"> Read more </a></div></div></div>", 1);
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<main><section><div class=\"w-5/6 mx-auto p-2 grid grid-cols-3 justify-center -mt-20\"><div class=\"flex items-center justify-center border-b-2 p-8\"><p>Hundreds of orders</p></div><div class=\"flex items-center justify-center border-b-2 p-8\"><p>Flexible Schedule</p></div><div class=\"flex items-center justify-center border-b-2 p-8\"><p>Communication with customers</p></div><div class=\"flex items-center justify-center p-8\"><p>Your own price</p></div><div class=\"flex items-center justify-center p-8\"><p>Rate your clients</p></div><div class=\"flex items-center justify-center p-8\"><p>Payment twice a month</p></div></div></section><section><div><h1>How To Apply</h1><div></div></div></section><section><div><h1>Career Growth</h1><p>Your earnings will grow along with your experience</p><div></div></div></section><section><div class=\"py-12 w-5/6 mx-auto\"><h1>Advantages of working with us</h1><div class=\"grid grid-cols-2 justify-center\"><div><h1> Uninterrupted Workflow </h1><p> There are hundreds of assignments every day. Choose the ones you want to work on from a huge pool of orders. </p></div><div><h1> Prompt Payments </h1><p> Withdraw your funds twice a month to the payment method of your choice. All major payment methods are supported, and no payment is ever going to be delayed. </p></div><div><h1> 24/7 Support </h1><p> Contact our Support Team any time of day to get help. We have plenty of helpful materials from formatting requirements to paper structure guidelines to cover your writing needs. </p></div><div><h1> Help For Beginners </h1><p> Even if you don’t have sufficient statistics or ratings, we’ve got your back! You will still be able to get plenty of orders any time. </p></div><div><h1> Find Tasks Instantly </h1><p> We support more than 100 fields of various subjects. Choose the assignments you like out of the available orders and set your own price for each. </p></div><div><h1> Easy Registration &amp; Career Progression </h1><p> Apply and pass a short test. It will take less than 15 minutes. Climb the career ladder from the Beginning to Expert level and earn more depending on your experience and performance. </p></div></div></div></section><section><div><h1>Latest Feedback</h1><div></div></div></section></main>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Head"], {
     title: "We are hiring freelancer professional writers"
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Links"]), _hoisted_2]), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Footer"])], 64
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
+    href: _ctx.route('home')
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_5];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["href"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], null, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_6];
+    }),
+    _: 1
+    /* STABLE */
+
+  })])]), _hoisted_7]), _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Footer"])], 64
   /* STABLE_FRAGMENT */
   );
 }
