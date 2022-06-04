@@ -104,9 +104,7 @@ class OrderController extends Controller
             $order->assigned = 1;
             $order->save();    
         }
-        
-        Alert::success('Success', 'You have successfully assigned this order');
-        // dd('true');
+    
         return redirect()->route('orders.admin')->with('success', 'You did it');
     }
 

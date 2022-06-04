@@ -106,7 +106,10 @@ Route::group(['middleware' => ['auth', 'writer'], 'prefix' => 'writer'], functio
         Route::get('received-orders', 'receivedOrders')->name('received.orders');
         Route::get('{order}/accept-order', 'acceptOrder')->name('accept.order');
         Route::get('{order}/reject-order', 'rejectOrder')->name('reject.order');
-        Route::get('{order}/download-file', 'downloadEssay')->name('download.essay');
+        Route::get('{order}/view-file', 'viewFile')->where('order', '[0-9]+')->name('view.file');
+        Route::get('{order}/upload-order', 'uploadOrder')->name('upload.order');
+        Route::put('{order}/upload-file', 'uploadFile')->name('upload.file');
+        Route::get('{order}/order-details', 'orderDetails')->name('order.details.writer');
     });
 
     Route::controller(WriterSettings::class)->group(function(){

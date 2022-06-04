@@ -45,23 +45,42 @@ const props = defineProps({
                                 >
                                     <tr v-for="order in orders" :key="order.id" class="text-gray-700 dark:text-gray-400">
                                         <td class="px-4 py-3 text-sm">
+                                            <Link :href="route('order.details.writer', order.id)">
+                                                {{ order.order.orderId }}
+                                            </Link>
                                             {{ order.order.orderId }}
                                         </td>
                                         <td class="px-4 py-3 text-sm">
                                             {{ order.order.topic }}
                                         </td>
                                         <td class="px-4 py-3 text-sm">
+                                            <div v-if="order.order.oldFile" class="flex justify-between">
+                                                <Link
+                                                    :href="route('view.file', order.order.id)"
+                                                >
+                                                    <img src="/images/view.png" alt="View">
+                                                </Link>
+                                            </div>
+                                            <span v-else>NULL</span>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">
+                                            <div v-if="order.newFile" class="flex justify-between">
+                                                <Link
+                                                    :href="route('view.file', order.id)"
+                                                >
+                                                    <img src="/images/view.png" alt="View">
+                                                </Link>
+                                            </div>
+                                            <span v-else>NULL</span>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">
                                             <span
+                                                v-if="order.completed"
                                                 class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
                                             >
-                                                download.pdf
+                                                Completed
                                             </span>
-                                        </td>
-                                        <td class="px-4 py-3 text-sm">
-                                            NULL
-                                        </td>
-                                        <td class="px-4 py-3 text-sm">
-                                            <span
+                                            <span v-else
                                                 class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600"
                                             >
                                                 Pending
@@ -71,12 +90,12 @@ const props = defineProps({
                                             {{ order.order.created_at }}
                                         </td>
                                         <td class="px-4 py-3 text-sm">
-                                            NULL
+                                            {{ order.date_submitted ?? 'NULL' }}
                                         </td>
                                         <td class="px-4 py-3 text-sm">
-                                            <button class="flex items-center justify-center p-4 bg-gray-800 hover:bg-gray-900 transition duration-300 rounded-lg text-sm shadow-xs font-semibold text-green-200">
+                                            <Link :href="route('upload.order', order.id)" class="flex items-center justify-center p-4 bg-gray-800 hover:bg-gray-900 transition duration-300 rounded-lg text-sm shadow-xs font-semibold text-green-200">
                                                 Add new File
-                                            </button>
+                                            </Link>
                                         </td>
                                     </tr>
                                 </tbody>

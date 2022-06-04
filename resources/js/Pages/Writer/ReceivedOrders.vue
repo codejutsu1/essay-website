@@ -46,13 +46,10 @@ const props = defineProps({
                       </td>
                       <td class="px-4 py-3 text-xs">
                         <div v-if="order.order.oldFile" class="flex justify-between">
-                          <a target="_blank" href="/public/document/received/letter.pdf">
-                            <img src="/images/view.png" width="30" alt="View">
-                          </a>
                           <Link
-                            :href="route('download.essay', order.order.id)"
+                          :href="route('view.file', order.order.id)"
                           >
-                            <img src="/images/download.png" width="30" alt="download">
+                            <img src="/images/view.png" alt="View">
                           </Link>
                         </div>
                         <span v-else>NULL</span>
