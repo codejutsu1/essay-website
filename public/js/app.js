@@ -30421,34 +30421,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "border-2 h-screen"
+  "class": "h-screen bg-fixed bg-center bg-no-repeat bg-cover relative bg-[url('/images/writer.jpg')] z-30"
 };
-var _hoisted_2 = {
-  "class": "w-5/6 mx-auto flex justify-between relative z-30"
-};
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "absolute inset-0 bg-gradient-to-l from-indigo-700"
+}, null, -1
+/* HOISTED */
+);
+
 var _hoisted_3 = {
-  "class": "flex items-center"
+  "class": "w-5/6 mx-auto flex justify-between relative z-30 pt-4"
 };
 var _hoisted_4 = {
+  "class": "flex items-center"
+};
+var _hoisted_5 = {
   "class": "font-semibold text-xl tracking-wide"
 };
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Global Expert ");
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Global Expert ");
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Log In ");
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Log In ");
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"w-3/5 mx-auto h-full flex items-center justify-center\"><div><h1 class=\"text-4xl font-semibold text-center\">Welcome to the leading platform for freelance writers</h1><p class=\"text-center py-5\">Competitive salaries and a constant stream of assignments guaranteed</p><div class=\"flex justify-center\"><a href=\"#\" class=\"px-5 py-3 rounded-md border-2 inline-block\"> Read more </a></div></div></div>", 1);
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"h-full flex items-center justify-center\"><div class=\"w-3/5 z-30 absolute\"><h1 class=\"text-5xl font-bold text-center text-white\">Welcome to the leading platform for freelance writers</h1><p class=\"text-2xl font-semibold py-3 text-white text-center\">Competitive salaries and a constant stream of assignments guaranteed</p><div class=\"flex justify-center\"><a href=\"#\" class=\"inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-gradient-to-tl from-pink-600 to-indigo-500 hover:translate-x-4 transition duration-300\"> Read more </a></div></div></div>", 1);
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<main><section><div class=\"w-5/6 mx-auto p-2 grid grid-cols-3 justify-center -mt-20\"><div class=\"flex items-center justify-center border-b-2 p-8\"><p>Hundreds of orders</p></div><div class=\"flex items-center justify-center border-b-2 p-8\"><p>Flexible Schedule</p></div><div class=\"flex items-center justify-center border-b-2 p-8\"><p>Communication with customers</p></div><div class=\"flex items-center justify-center p-8\"><p>Your own price</p></div><div class=\"flex items-center justify-center p-8\"><p>Rate your clients</p></div><div class=\"flex items-center justify-center p-8\"><p>Payment twice a month</p></div></div></section><section><div><h1>How To Apply</h1><div></div></div></section><section><div><h1>Career Growth</h1><p>Your earnings will grow along with your experience</p><div></div></div></section><section><div class=\"py-12 w-5/6 mx-auto\"><h1>Advantages of working with us</h1><div class=\"grid grid-cols-2 justify-center\"><div><h1> Uninterrupted Workflow </h1><p> There are hundreds of assignments every day. Choose the ones you want to work on from a huge pool of orders. </p></div><div><h1> Prompt Payments </h1><p> Withdraw your funds twice a month to the payment method of your choice. All major payment methods are supported, and no payment is ever going to be delayed. </p></div><div><h1> 24/7 Support </h1><p> Contact our Support Team any time of day to get help. We have plenty of helpful materials from formatting requirements to paper structure guidelines to cover your writing needs. </p></div><div><h1> Help For Beginners </h1><p> Even if you don’t have sufficient statistics or ratings, we’ve got your back! You will still be able to get plenty of orders any time. </p></div><div><h1> Find Tasks Instantly </h1><p> We support more than 100 fields of various subjects. Choose the assignments you like out of the available orders and set your own price for each. </p></div><div><h1> Easy Registration &amp; Career Progression </h1><p> Apply and pass a short test. It will take less than 15 minutes. Climb the career ladder from the Beginning to Expert level and earn more depending on your experience and performance. </p></div></div></div></section><section><div><h1>Latest Feedback</h1><div></div></div></section></main>", 1);
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<main><section><div class=\"w-5/6 mx-auto py-2 px-4 grid grid-cols-3 justify-center z-40 relative -mt-32 bg-white shadow-lg rounded-md\"><div class=\"flex items-center justify-center border-b p-12\"><p>Hundreds of orders</p></div><div class=\"flex items-center justify-center border-b border-r border-l p-12\"><p>Flexible Schedule</p></div><div class=\"flex items-center justify-center border-b p-12\"><p>Communication with customers</p></div><div class=\"flex items-center justify-center p-12\"><p>Your own price</p></div><div class=\"flex items-center justify-center border-r border-l p-12\"><p>Rate your clients</p></div><div class=\"flex items-center justify-center p-12\"><p>Payment twice a month</p></div></div></section><section><div class=\"py-12\"><div class=\"flex\"><div class=\"flex justify-center items-center w-1/2\"><div class=\"bg-[#FDF7E9] rounded-full flex items-center\" style=\"width:350px;height:350px;\"><img src=\"/images/order.png\" alt=\"A man collecting Orders\"></div></div><div class=\"flex justify-center items-center w-1/2\"><div><h1 class=\"text-2xl font-bold\">Available now</h1><div class=\"flex justify-between py-8\"><div><p class=\"text-5xl font-bold\">5803</p><span class=\"font-semibold\">Pages</span></div><div><p class=\"text-5xl font-bold\">1209</p><span class=\"font-semibold\">Orders</span></div></div><a class=\"inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-gradient-to-tl from-pink-600 to-indigo-500 hover:translate-x-4 transition duration-300\">Sign up as a writer now</a></div></div></div></div></section><section class=\"bg-fixed bg-center bg-no-repeat bg-cover relative bg-[url(&#39;/images/advantage.jpg&#39;)] z-30\"><div class=\"absolute inset-0 bg-indigo-700 opacity-90\"></div><div class=\"py-12 w-5/6 mx-auto z-30 relative text-white\"><h1 class=\"text-center font-bold text-4xl\">Advantages of working with us</h1><div class=\"grid grid-cols-2 justify-center py-10 gap-16\"><div><h1 class=\"text-2xl font-bold pb-4\"> Uninterrupted Workflow </h1><p> There are hundreds of assignments every day. Choose the ones you want to work on from a huge pool of orders. </p></div><div><h1 class=\"text-2xl font-bold pb-4\"> Prompt Payments </h1><p> Withdraw your funds twice a month to the payment method of your choice. All major payment methods are supported, and no payment is ever going to be delayed. </p></div><div><h1 class=\"text-2xl font-bold pb-4\"> 24/7 Support </h1><p> Contact our Support Team any time of day to get help. We have plenty of helpful materials from formatting requirements to paper structure guidelines to cover your writing needs. </p></div><div><h1 class=\"text-2xl font-bold pb-4\"> Help For Beginners </h1><p> Even if you don’t have sufficient statistics or ratings, we’ve got your back! You will still be able to get plenty of orders any time. </p></div><div><h1 class=\"text-2xl font-bold pb-4\"> Find Tasks Instantly </h1><p> We support more than 100 fields of various subjects. Choose the assignments you like out of the available orders and set your own price for each. </p></div><div><h1 class=\"text-2xl font-bold pb-4\"> Easy Registration &amp; Career Progression </h1><p> Apply and pass a short test. It will take less than 15 minutes. Climb the career ladder from the Beginning to Expert level and earn more depending on your experience and performance. </p></div></div></div></section><section class=\"bg-[#FDF7E9]\"><div class=\"flex items-center justify-center py-12\"><div class=\"w-3/5 text-center\"><h1 class=\"text-4xl font-bold\">Simple application process that is both quick and transparent</h1><p class=\"font-semibold py-5 text-lg\">Global Expert is the platform for college students. So if you are a recent graduate, you are in good company! We currently have 579 freelancers working with us, and that number keeps rising steadily.</p><a href=\"#\" class=\"inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-gradient-to-tl from-pink-600 to-indigo-500 hover:translate-x-4 transition duration-300\">Get Started Now</a></div></div></section></main>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Head"], {
     title: "We are hiring freelancer professional writers"
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
     href: _ctx.route('home')
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_5];
+      return [_hoisted_6];
     }),
     _: 1
     /* STABLE */
@@ -30457,12 +30464,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["href"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_6];
+      return [_hoisted_7];
     }),
     _: 1
     /* STABLE */
 
-  })])]), _hoisted_7]), _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Footer"])], 64
+  })])]), _hoisted_8]), _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Footer"])], 64
   /* STABLE_FRAGMENT */
   );
 }
