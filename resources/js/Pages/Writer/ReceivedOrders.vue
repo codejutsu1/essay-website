@@ -39,7 +39,9 @@ const props = defineProps({
                   >
                     <tr v-for="order in orders" :key="order.id" class="text-gray-700 dark:text-gray-400">
                       <td class="px-4 py-3 text-sm">
-                        {{ order.order.orderId }}
+                        <Link :href="route('order.details.writer', order.id)">
+                            {{ order.order.orderId }}
+                        </Link>
                       </td>
                       <td class="px-4 py-3 text-sm">
                         {{ order.order.topic }}

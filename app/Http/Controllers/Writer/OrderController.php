@@ -27,11 +27,12 @@ class OrderController extends Controller
 
         $orders =  CompleteOrder::where('user_id', auth()->user()->id)
                                 ->where('accepted', 0)
+                                ->whereNull('completed')
                                 ->select('id', 'order_id')
                                 ->with(['order' => function($query){ $query->select('id','orderId', 'topic', 'created_at', 'oldFile'); }])
                                 ->orderBy('id', 'desc')
                                 ->get();     
-
+        // dd($orders);
         return Inertia('Writer/ReceivedOrders', compact('orders'));
     }
 
@@ -97,6 +98,10 @@ class OrderController extends Controller
             'completed' => 1
         ]);
 
+        Order::where('id', $order->order_id)->update([
+            'completed' => 1
+        ]);
+
         return redirect()->route('writer.orders');
     } 
 
@@ -107,6 +112,7 @@ class OrderController extends Controller
                                 ->with(['order' => function($query){ $query->select('id','orderId', 'topic', 'mode', 'essay_number', 'instructions', 'created_at'); }])
                                 ->first();
 
-        return Inertia('Writer/OrderDetails', compact($order));
+                                // dd($order);
+        return Inertia('Writer/OrderDetails', compact('order'));
     }
 }

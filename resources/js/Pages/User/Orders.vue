@@ -30,6 +30,7 @@ const props = defineProps({
                       <th class="px-4 py-3">Order-ID</th>
                       <th class="px-4 py-3">Topic</th>
                       <th class="px-4 py-3">Mode</th>
+                      <th class="px-4 py-3">Status</th>
                       <th class="px-4 py-3">Old File</th>
                       <th class="px-4 py-3">New File</th>
                       <th class="px-4 py-3">Date Sent</th>
@@ -39,94 +40,55 @@ const props = defineProps({
                   <tbody
                     class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
                   >
-                    <tr v-for="order in orders" :key="order.orderId" class="text-gray-700 dark:text-gray-400">
+                    <tr v-for="order in orders" :key="order.id" class="text-gray-700 dark:text-gray-400">
                       <td class="px-4 py-3 text-sm">
-                        {{ order.orderId }}
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        {{ order.topic }}
+                        {{ order.order.orderId }}
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        {{ order.mode }}
-                        <p>( {{ order.essay_number }} Pages )</p>
-                      </td>
-                      <td class="px-4 py-3 text-xs">
-                        <button
-                          type="button"
-                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
-                        >
-                          download.pdf
-                        </button>
-                      </td>
-                      <td class="px-4 py-3 text-xs">
-                        <button
-                          type="button"
-                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
-                        >
-                          newDownload.pdf
-                        </button>
+                        {{ order.order.topic }}
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        {{ order.created_at }}
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        NULL
-                      </td>
-                    </tr>
-                    <tr class="text-gray-700 dark:text-gray-400">
-                      <td class="px-4 py-3 text-sm">
-                        OR-0001123
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        Lost Youth, Where did we go wrong
+                        {{ order.order.mode }}
+                        <p>( {{ order.order.essay_number }} Pages )</p>
                       </td>
                       <td class="px-4 py-3 text-xs">
                         <span
-                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                            v-if="order.completed"
+                            class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
                         >
-                          download.pdf
+                            Completed
+                        </span>
+                        <span v-else
+                            class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600"
+                        >
+                            Pending
                         </span>
                       </td>
                       <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600"
-                        >
-                          Pending
-                        </span>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        6/11/2020
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        Null
-                      </td>
-                    </tr>
-                    <tr class="text-gray-700 dark:text-gray-400">
-                      <td class="px-4 py-3 text-sm">
-                        OR-0001143
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        Learning Mechanism
+                        <div v-if="order.order.oldFile" class="flex justify-between">
+                            <Link
+                                :href="route('view.file.user', order.order.id)"
+                            >
+                                <img src="/images/view.png" alt="View">
+                            </Link>
+                        </div>
+                        <span v-else>NULL</span>
                       </td>
                       <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
-                        >
-                          download.pdf
-                        </span>
-                      </td>
-                      <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700"
-                        >
-                          Denied
-                        </span>
+                        <div v-if="order.newFile" class="flex justify-between">
+                            <Link
+                                :href="route('view.new.file.user', order.id)"
+                            >
+                                <img src="/images/view.png" alt="View">
+                            </Link>
+                        </div>
+                        <span v-else>NULL</span>
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        6/03/2020
+                        {{ order.order.created_at }}
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        Null
+                        {{ order.date_submitted ?? 'NULL' }}
                       </td>
                     </tr>
                   </tbody>

@@ -1,6 +1,6 @@
 <script setup>
 import { Head, Link } from '@inertiajs/inertia-vue3';
-import UserDashboard from '@/Layouts/WriterDashboard.vue';
+import UserDashboard from '@/Layouts/UserDashboard.vue';
 
 const props = defineProps({
   fileDetails : Object,
@@ -20,8 +20,8 @@ const props = defineProps({
               If in docx, it will download automatically.
             </h2>
             <div class="bg-gray-800 px-4 py-10 my-10">
-                <h1 class="text-3xl pt-2 pb-8 text-white">{{ fileDetails.order.orderId }}</h1>
-                <iframe width="500" height="500" :src="'/storage/document/received/' + fileDetails.order.oldFile" frameborder="0"></iframe>
+                <h1 class="text-3xl pt-2 pb-8 text-white">{{ fileDetails.order.orderId ?? 'NULL' }}</h1>
+                <iframe width="500" height="500" :src="'/storage/document/received/' + fileDetails.newFile" frameborder="0"></iframe>
             </div>
           </div>
         </main>

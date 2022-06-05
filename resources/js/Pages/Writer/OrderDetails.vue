@@ -1,10 +1,12 @@
 <script setup>
 import { Head, Link } from '@inertiajs/inertia-vue3';
-import Dashboard from '@/Layouts/AdminDashboard.vue';
+import Dashboard from '@/Layouts/WriterDashboard.vue';
 
 const props = defineProps({
     order: Object,
 });
+
+console.log(props.order);
 </script>
 
 <template>
@@ -44,7 +46,7 @@ const props = defineProps({
                         <li class="flex justify-between py-4 border-b border-b-gray-100">
                             <span>Status</span>
                             <span v-if="order.completed">Completed</span>
-                            <span v-else-if="order.completed =x= 0">Rejected</span>
+                            <span v-else-if="order.completed == 0">Rejected</span>
                             <span v-else>Pending</span>
                         </li>
                         <li class="flex justify-between py-4 border-b border-b-gray-100">
@@ -53,7 +55,7 @@ const props = defineProps({
                         </li>
                         <li class="flex justify-between py-4 border-b border-b-gray-100">
                             <span>Date Received</span>
-                            <span>{{ order.date_submitted ?? 'NUll' }}</span>
+                            <span>{{ order.date_submitted ?? 'NULL' }}</span>
                         </li>
                     </ul>
                 </div>

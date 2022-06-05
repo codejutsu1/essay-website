@@ -78,6 +78,8 @@ Route::group(['middleware' => ['auth', 'user'], 'prefix' => 'user'], function(){
         Route::get('make-order', 'makeOrder')->name('make.order');
         Route::post('store-order', 'storeOrder')->name('store.order');
         Route::get('orders', 'userOrders')->name('user.orders');
+        Route::get('{order}/view-file', 'viewFileUser')->where('order', '[0-9]+')->name('view.file.user');
+        Route::get('{order}/view-new-file', 'viewNewFileUser')->where('order', '[0-9]+')->name('view.new.file.user');
     });
 
     Route::controller(UserPayment::class)->group(function() {

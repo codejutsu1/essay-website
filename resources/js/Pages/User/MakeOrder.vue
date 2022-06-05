@@ -212,8 +212,8 @@ function submit() {
                         </div>
 
                         <span class="text-gray-400 font-semibold text-center block pb-4">File<span class="text-red-300 pl-1 font-semibold" v-show="fileRequire">*</span></span>
-                        <div @click="btnEnabled" class="border-2 border-dashed border-purple-400 bg-gray-700 w-1/3 mx-auto flex flex-col justify-center">
-                            <input type="file" name="essay" id="essay" class="bg-gray-700 py-6 text-gray-200 cursor-pointer" @input="form.document = $event.target.files[0]">
+                        <div class="border-2 border-dashed border-purple-400 bg-gray-700 w-1/3 mx-auto flex flex-col justify-center">
+                            <input @click="btnEnable" type="file" name="essay" id="essay" class="bg-gray-700 py-6 text-gray-200 cursor-pointer" @input="form.document = $event.target.files[0]">
                         </div>
                         <p class="my-2 text-red-300 text-center"> {{ errors.document }} </p>
 

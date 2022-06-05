@@ -48,7 +48,6 @@ const props = defineProps({
                                             <Link :href="route('order.details.writer', order.id)">
                                                 {{ order.order.orderId }}
                                             </Link>
-                                            {{ order.order.orderId }}
                                         </td>
                                         <td class="px-4 py-3 text-sm">
                                             {{ order.order.topic }}

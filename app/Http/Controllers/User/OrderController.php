@@ -6,7 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Order;
+use App\Models\CompleteOrder;
 use RealRashid\SweetAlert\Facades\Alert;
+Use Exception;
+
 
 class OrderController extends Controller
 {
@@ -17,11 +20,14 @@ class OrderController extends Controller
 
     public function userOrders()
     {
-        $orders = Order::where('user_id', auth()->user()->id)
-                        ->select(['orderId', 'topic', 'oldFile', 'mode', 'essay_number', 'instructions', 'created_at'])
-                        ->orderBy('id', 'desc')
-                        ->get();
+        $keys = Order::where('user_id', auth()->user()->id)->pluck('id');
 
+        $orders = CompleteOrder::whereIn('order_id', $keys)
+                                ->select(['id', 'order_id', 'user_id', 'newFile', 'date_submitted'])
+                                ->with(['order' => function($query){ $query->select(['id','orderId', 'topic', 'oldFile', 'mode', 'essay_number', 'instructions', 'created_at']); }])
+                                ->orderBy('id', 'desc')
+                                ->get();
+        
         return Inertia('User/Orders', compact('orders'));
     }
 
@@ -61,5 +67,29 @@ class OrderController extends Controller
 
         return redirect()->route('make.order')->with('success', 'Your order has been successfully delivered');
 
+    }
+
+    public function viewFileUser(Order $order)
+    {
+        $fileDetails = Order::where('user_id', auth()->user()->id)
+                            ->where('id', $order->id)
+                            ->select(['id','orderId','oldFile'])
+                            ->firstOrFail();
+
+        return Inertia('User/View', compact('fileDetails'));
+    }
+
+    public function viewNewFileUser(CompleteOrder $order){
+
+        $fileDetails = CompleteOrder::where('id', $order->id)
+                                    ->select(['order_id', 'newFile'])   
+                                    ->with(['order' => function($query){ $query->where('user_id', auth()->user()->id)->select('id', 'orderId'); }])
+                                    ->firstOrFail();
+
+        if(!$fileDetails->order){
+            abort(404);
+        }                           
+
+        return Inertia('User/ViewNew', compact('fileDetails'));
     }
 }
