@@ -4,18 +4,6 @@ import { Link } from '@inertiajs/inertia-vue3';
 // import { before } from 'laravel-mix';
 import { ref, onMounted} from 'vue';
 
-const scrollFromTop = ref(false);
-
-
-
-    function scroll(){
-        return window.pageYOffset;
-    }
-
-onMounted(()=> {
-    scroll();
-    window.addEventListener('scroll', scroll());
-});
 
 
 </script>
