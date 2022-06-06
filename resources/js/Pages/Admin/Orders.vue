@@ -2,6 +2,7 @@
 import { Head, Link } from '@inertiajs/inertia-vue3';
 import Dashboard from '@/Layouts/AdminDashboard.vue';
 import { ref } from 'vue';
+import Notification from '@/Components/Notification.vue';
 
 const props = defineProps({
   newOrders : Object,
@@ -18,18 +19,11 @@ function pendingOrder(){
   showTable.value = false
 }
 
-function confirmModal(){
-
-  const result = confirm('You want to assign thisorde');
-
-  if(result) {
-    Inertia.get(route(''));
-  }
-}
 
 </script>
 
 <template>
+<Notification />
     <Dashboard>
         <Head title="List of Orders" />
 

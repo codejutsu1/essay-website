@@ -32,11 +32,11 @@ class PaymentController extends Controller
         //     'topic' => request('topic'),
         //     'essay_number' => request('essay_number'),
         //     'instructions' => request('instructions'),
-
+          
         // initialize new payment and get the response from the api call.
         $response = Paystack::transaction()
             ->initialize($paymentDetails)->response();
-
+            
         if (!$response['status']) {
             // notify that something went wrong
         }

@@ -15,6 +15,7 @@ use App\Http\Controllers\User\SettingsController as UserSettings;
 use App\Http\Controllers\Writer\DashboardController as WriterDashboard;
 use App\Http\Controllers\Writer\OrderController as WriterOrder;
 use App\Http\Controllers\Writer\SettingsController as WriterSettings;
+use App\Mail\AdminUserOrder as WriterEmail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +26,9 @@ use App\Http\Controllers\Writer\SettingsController as WriterSettings;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/email-user', function(){
+    return new WriterEmail();
+});
 
 Route::get('/', function () {
     return Inertia::render('Web/Index', [

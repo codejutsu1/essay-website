@@ -1,6 +1,7 @@
 <script setup>
 import { Head, Link } from '@inertiajs/inertia-vue3';
 import Dashboard from '@/Layouts/AdminDashboard.vue';
+import Notification from '@/Components/Notification.vue';
 
 
 const props = defineProps({
@@ -12,6 +13,7 @@ const props = defineProps({
 </script>
 
 <template>
+  <Notification />
     <Dashboard>
         <Head title="Assign to a Writer" />
 
