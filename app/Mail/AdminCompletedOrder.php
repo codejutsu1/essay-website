@@ -6,6 +6,8 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use App\Models\User;
+use App\Models\Order;
 
 class AdminCompletedOrder extends Mailable
 {
@@ -16,9 +18,10 @@ class AdminCompletedOrder extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(User $user, Order $newOrder)
     {
-        //
+        $this->user = $user;
+        $this->order = $newOrder;
     }
 
     /**
@@ -28,6 +31,10 @@ class AdminCompletedOrder extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.admin-completed-order');
+        return $this->markdown('emails.admin-completed-order')
+                    ->with([
+                        'name' => $this->user->name,
+                        'order_name' => $this->order->orderId
+                    ]);
     }
 }

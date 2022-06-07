@@ -1,7 +1,7 @@
 @component('mail::message')
 # GlobalExpert | Welcome To GlobalExpert
 
-Hello ,
+Hello {{ ucwords($name)}} @if($role == '3') of role <b>Writer</b>@endif,
 
 Welcome to {{ ENV('APP_NAME') }}.
 

@@ -74,7 +74,7 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function(
 
 // User's Dashboard
 
-Route::group(['middleware' => ['auth', 'user'], 'prefix' => 'user'], function(){
+Route::group(['middleware' => ['auth', 'user', 'verified'], 'prefix' => 'user'], function(){
 
     Route::get('dashboard', [UserDashboard::class, 'dashboardUser'])->name('dashboard.user');
 
@@ -103,7 +103,7 @@ Route::group(['middleware' => ['auth', 'user'], 'prefix' => 'user'], function(){
 
 //Writer's Dashboard
 
-Route::group(['middleware' => ['auth', 'writer'], 'prefix' => 'writer'], function(){
+Route::group(['middleware' => ['auth', 'writer', 'verified'], 'prefix' => 'writer'], function(){
 
     Route::get('dashboard', [WriterDashboard::class, 'dashboardWriter'])->name('dashboard.writer');
 

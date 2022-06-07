@@ -8,6 +8,9 @@ use App\Models\CompleteOrder;
 use App\Models\Order;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CompletedOrder;
+use App\Mail\AdminCompletedOrder;
 
 class OrderController extends Controller
 {
@@ -101,6 +104,12 @@ class OrderController extends Controller
         Order::where('id', $order->order_id)->update([
             'completed' => 1
         ]);
+
+        $user = User::where('id', auth()->user()->id)->first();
+        $newOrder = Order::where('id', $order->order_id)->first();
+
+        Mail::to($user->email)->send(new CompletedOrder($user, $newOrder));
+        Mail::to('admin@admin.com')->send(new AdminCompletedOrder($user, $newOrder));
 
         return redirect()->route('writer.orders')->with('message', 'You have successfully uploaded the new file.');
     } 

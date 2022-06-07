@@ -1,9 +1,9 @@
 @component('mail::message')
 # GlobalExpert | Order Completed
 
-Hello ,
+Hello {{ ucwords($name) }},
 
-Your Order has been completed. Proceed to your dashboard to download your order.
+Your Order <b>{{ $order_name }}</b> has been completed. Proceed to your dashboard to download your order.
 
 @component('mail::panel')
 To download your order, <a href="{{ route('user.orders') }}" target="_blank">visit here.</a><br>

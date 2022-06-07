@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\CompleteOrder;
-use RealRashid\SweetAlert\Facades\Alert;
-Use Exception;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserOrder;
+use App\Mail\AdminUserOrder;
 
 
 class OrderController extends Controller
@@ -65,6 +66,10 @@ class OrderController extends Controller
         $order->orderId = 'OR-001' . auth()->user()->id . $order->id;
         $order->save();
 
+        $user = User::where('id', auth()->user()->id)->first();
+
+        Mail::to($user->email)->send(new UserOrder($user, $order));
+        Mail::to('admin@admin.com')->send(new AdminUserOrder($order, $user));
         return redirect()->route('dashboard.user')->with('message', 'Your order has delivered  successfully');
 
     }

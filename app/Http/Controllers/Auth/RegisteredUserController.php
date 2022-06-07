@@ -59,7 +59,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        if(auth::check() && Auth::user()->role_id == 3){
+        if(Auth::check() && Auth::user()->role_id == 3){
             return redirect(RouteServiceProvider::WRITER);
         }else {
             return redirect(RouteServiceProvider::USER);

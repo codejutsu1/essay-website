@@ -3,7 +3,7 @@
 
 Hello Admin,
 
-Order belonging to user has been completed by writer.
+Order <b>{{  }}</b> has been completed by writer.
 
 @component('mail::panel')
 Click here to use more details, <a href="{{ route('complete.orders') }}" target="_blank">visit here.</a><br>
