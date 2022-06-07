@@ -72,16 +72,18 @@ function rejectedOrder(){
                         <tr v-for="order in completedOrders" :key="order.id" class="text-gray-700 dark:text-gray-400">
                             <td class="px-4 py-3">
                                 <div class="flex items-center text-sm">
-                                <div>
-                                    <p class="font-semibold">{{ order.order.user.name }}</p>
-                                </div>
+                                    <Link :href="route('user.details', order.order.user_id)">
+                                        <p class="font-semibold">{{ order.order.user.name }}</p>
+                                    </Link>
                                 </div>
                             </td>
                             <td class="px-4 py-3 text-sm">
                                 {{ order.order.orderId }}
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                {{ order.user.name }}
+                                <Link :href="route('user.details', order.user_id)">
+                                    <p class="font-semibold">{{ order.user.name }}</p>
+                                </Link>
                             </td>
                             <td class="px-4 py-3 text-sm">
                                 {{ order.order.topic }}
@@ -92,7 +94,7 @@ function rejectedOrder(){
                             <td>
                                 <Link 
                                     class="flex items-center justify-center p-4 bg-gray-800 hover:bg-gray-900 transition duration-300 rounded-lg text-sm shadow-xs font-semibold text-green-200"
-                                    :href="route('assign.orders', order.id)"
+                                    :href="route('assign.orders', order.order.id)"
                                 >
                                     Reassign
                                 </Link>
@@ -227,16 +229,18 @@ function rejectedOrder(){
                         <tr v-for="order in rejectedOrders" :key="order.id" class="text-gray-700 dark:text-gray-400">
                             <td class="px-4 py-3">
                                 <div class="flex items-center text-sm">
-                                <div>
+                                <Link :href="route('user.details', order.order.user_id)">
                                     <p class="font-semibold">{{ order.order.user.name }}</p>
-                                </div>
+                                </Link>
                                 </div>
                             </td>
                             <td class="px-4 py-3 text-sm">
                                 {{ order.order.orderId }}
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                {{ order.user.name }}
+                                <Link :href="route('user.details', order.user_id)">
+                                    <p class="font-semibold">{{ order.user.name }}</p>
+                                </Link>
                             </td>
                             <td class="px-4 py-3 text-sm">
                                 {{ order.order.topic }}
@@ -247,7 +251,7 @@ function rejectedOrder(){
                             <td>
                                <Link 
                                     class="flex items-center justify-center p-4 bg-gray-800 hover:bg-gray-900 transition duration-300 rounded-lg text-sm shadow-xs font-semibold text-green-200"
-                                    :href="route('assign.orders', order.id)"
+                                    :href="route('assign.orders', order.order.id)"
                                 >
                                     Reassign
                                 </Link>

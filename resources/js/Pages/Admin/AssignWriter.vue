@@ -13,7 +13,6 @@ const props = defineProps({
 </script>
 
 <template>
-  <Notification />
     <Dashboard>
         <Head title="Assign to a Writer" />
 

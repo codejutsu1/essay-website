@@ -23,7 +23,9 @@ function pendingOrder(){
 </script>
 
 <template>
-<Notification />
+  <div v-if="$page.props.flash.message" class="absolute top-8 right-10 z-40">
+    <Notification :message="$page.props.flash.message" />
+  </div>
     <Dashboard>
         <Head title="List of Orders" />
 
@@ -261,7 +263,9 @@ function pendingOrder(){
                         </div>
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        {{ order.user.name }}
+                          <Link :href="route('user.details', order.user_id)">
+                              <p class="font-semibold">{{ order.user.name }}</p>
+                          </Link>
                       </td>
                       <td class="px-4 py-3 text-sm">
                         {{ order.order.topic }}
@@ -281,7 +285,7 @@ function pendingOrder(){
                           <Link
                             class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 text-purple-600 rounded-lg dark:text-green-200 dark:bg-green-700 focus:outline-none focus:shadow-outline-gray"
                             aria-label="Edit"
-                            :href="route('assign.orders', order.id)"
+                            :href="route('assign.orders', order.order.id)"
                           >
                             Reassign
                           </Link>

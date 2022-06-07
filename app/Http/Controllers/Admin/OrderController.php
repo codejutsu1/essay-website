@@ -94,10 +94,10 @@ class OrderController extends Controller
 
     public function assignWriters($writerId, $id){
         $order = Order::findOrFail($id);
-
+        
         CompleteOrder::updateOrCreate(
             ['order_id' => $order->id],
-            ['user_id' => $writerId]
+            ['user_id' => $writerId, 'completed' => null]
         );
 
         if(!$order->assigned){
@@ -105,7 +105,7 @@ class OrderController extends Controller
             $order->save();    
         }
     
-        return redirect()->route('orders.admin')->with('success', 'You did it');
+        return redirect()->route('orders.admin')->with('message', 'You have successfully assigned the order to a writer.');
     }
 
     public function orderDetails(Order $order)

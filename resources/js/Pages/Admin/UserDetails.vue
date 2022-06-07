@@ -33,7 +33,7 @@ const props = defineProps({
                         </li>
                         <li class="flex justify-between py-4 border-b border-b-gray-100">
                             <span>Role</span>
-                            <span>{{ user.role_id = 2 ? 'User' : 'Writer' }}</span>
+                            <span>{{ user.role_id == 2 ? 'User' : 'Writer' }}</span>
                         </li>
                         <li class="flex justify-between py-4 border-b border-b-gray-100">
                             <span>Suspend</span>
