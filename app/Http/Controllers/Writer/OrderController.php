@@ -42,7 +42,7 @@ class OrderController extends Controller
             'accepted' => 1
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('message', 'You have successfully accepted this order.');
     }
 
     public function rejectOrder(Order $order)
@@ -51,7 +51,7 @@ class OrderController extends Controller
             'completed' => 0
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('message', 'You have successfully rejected this order.');
     }
 
     public function viewFile(CompleteOrder $order)
@@ -102,7 +102,7 @@ class OrderController extends Controller
             'completed' => 1
         ]);
 
-        return redirect()->route('writer.orders');
+        return redirect()->route('writer.orders')->with('message', 'You have successfully uploaded the new file.');
     } 
 
     public function orderDetails(CompleteOrder $order)  

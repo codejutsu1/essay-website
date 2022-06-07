@@ -2,7 +2,7 @@
 import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
 import UserDashboard from '@/Layouts/UserDashboard.vue';
 import { ref, reactive, computed } from 'vue';
-import { Inertia } from '@inertiajs/inertia'
+import { Inertia } from '@inertiajs/inertia';
 
 const props = defineProps({
     errors: Object,
@@ -85,7 +85,7 @@ function decreaseButton(){
 }
 
 function submit() {
-    Inertia.post(route('pay'), form);       
+    Inertia.post(route('store.order'), form);       
 }
 
 </script>

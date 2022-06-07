@@ -65,7 +65,7 @@ class OrderController extends Controller
         $order->orderId = 'OR-001' . auth()->user()->id . $order->id;
         $order->save();
 
-        return redirect()->route('make.order')->with('success', 'Your order has been successfully delivered');
+        return redirect()->route('dashboard.user')->with('message', 'Your order has delivered  successfully');
 
     }
 

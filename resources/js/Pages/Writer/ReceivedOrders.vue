@@ -1,6 +1,7 @@
 <script setup>
 import { Head, Link } from '@inertiajs/inertia-vue3';
 import Dashboard from '@/Layouts/WriterDashboard.vue';
+import Notification from '@/Components/Notification.vue';
 
 const props = defineProps({
   orders : Object,
@@ -9,6 +10,9 @@ const props = defineProps({
 </script>
 
 <template>
+    <div v-if="$page.props.flash.message" class="absolute top-8 right-10 z-40">
+        <Notification :message="$page.props.flash.message" />
+    </div>
     <Dashboard>
         <Head title="Received Orders" />
         <main class="h-full overflow-y-auto z-30">
