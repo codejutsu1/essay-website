@@ -12,7 +12,9 @@ import { Head, Link } from '@inertiajs/inertia-vue3';
     <header>
         <Links />
 
-        <Work />
+        <div class="pt-5">
+            <Work />
+        </div>
     </header>
 
     <main>
@@ -36,13 +38,13 @@ import { Head, Link } from '@inertiajs/inertia-vue3';
         <section>
             <div class="py-12 w-5/6 mx-auto">
                 <h1 class="font-bold text-4xl text-center">Feel free to contact us at any time</h1>
-                <div class="grid grid-cols-2 w-1/2 mx-auto space-x-8 pt-10 px-8">
-                    <div>
+                <div class="md:grid grid-cols-2 md:w-1/2 mx-auto space-y-3 md:space-y-0 space-x-0 md:space-x-8 pt-10 px-2 md:px-8">
+                    <div class="flex flex-row md:flex-col space-x-3 md:space-x-0">
                         <h1 class="text-lg font-bold">Email for customers:</h1>
                         <a href="mailto:support@essay.com" class="text-blue-600 hover:underline">support@essay.com</a>
                     </div>
-                    <div>
-                        <h1 class="text-lg font-bold">Email for Writers</h1>
+                    <div class="flex flex-row md:flex-col space-x-1 md:space-x-0">
+                        <h1 class="text-lg font-bold">Email for Writers:</h1>
                         <a href="mailto:writers@essay.com" class="text-blue-600 hover:underline">writers@essay.com</a>
                     </div>
                 </div>

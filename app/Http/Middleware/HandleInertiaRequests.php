@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use Inertia\Middleware;
 use Tightenco\Ziggy\Ziggy;
 
@@ -44,6 +45,8 @@ class HandleInertiaRequests extends Middleware
             'flash' => [
                 'message' => fn () => $request->session()->get('message')
             ],
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
         ]);
     }
 }

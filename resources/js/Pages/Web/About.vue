@@ -11,12 +11,12 @@ defineProps({
 </script>
 
 <template>
-    <header class="h-[400px] bg-fixed bg-center bg-no-repeat bg-cover relative bg-[url('/images/about.jpg')] z-30">
-        <div class="absolute inset-0 bg-gradient-to-r from-indigo-700"></div>
+    <header class="h-[600px] md:h-[400px] bg-fixed bg-center bg-no-repeat bg-cover relative bg-[url('/images/about.jpg')] z-30">
+        <div class="absolute inset-0 bg-indigo-700 opacity-60 md:opacity-0 md:bg-gradient-to-r from-indigo-700"></div>
         <Links />
 
         <div class="w-5/6 mx-auto flex items-center h-full">
-            <div class="w-2/5 z-30 absolute text-white">
+            <div class="w-full md:w-2/5 z-20 relative text-white">
                 <h1 class="text-6xl font-bold">About Us</h1>
                 <p class="py-5 text-xl font-semibold">
                     We are an online service providing Personalised Essay Writing Suggestions. 
@@ -30,7 +30,7 @@ defineProps({
     <main>
         <section>
             <div class="py-12">
-                <div class="grid grid-cols-2 gap-10 w-5/6 mx-auto">
+                <div class="md:grid grid-cols-2 gap-10 w-5/6 mx-auto">
                     <div>
                         <h1 class="text-3xl font-bold">Problem</h1>
                         <p class="py-5 font-semibold">

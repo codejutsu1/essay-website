@@ -2,6 +2,7 @@
 import Footer from '@/Components/Footer.vue';
 import Links from '@/Components/Links.vue'
 import { Head, Link } from '@inertiajs/inertia-vue3';
+import Work from '@/Components/Work.vue';
 
 defineProps({
     canLogin: Boolean,
@@ -12,12 +13,12 @@ defineProps({
 <template>
     <Head title="Welcome" />
     
-    <header class="h-[550px] bg-fixed bg-center bg-no-repeat bg-cover relative bg-[url('/images/hero.jpg')] z-30">
+    <header class="h-[650px] md:h-[550px] bg-fixed bg-center bg-no-repeat bg-cover relative bg-[url('/images/hero.jpg')] z-30">
         <div class="absolute inset-0 bg-gradient-to-r from-indigo-700"></div>
        <Links />
 
        <div class="flex justify-center items-center h-full">
-            <div class="z-30 absolute w-3/5">
+            <div class="z-20 relative md:w-3/5 w-5/6">
                 <h1 class="text-5xl font-bold text-center text-white">Get a unique essay!</h1>
                 <p class="text-2xl font-semibold py-3 text-white text-center">Hire our professional writer to save time</p>
                 <div class="flex justify-center">
@@ -56,11 +57,11 @@ defineProps({
         
         <section class="bg-[#FDF7E9]">
             <div class="py-12">
-                <div class="mx-auto w-5/6">
+                <div class="mx-auto w-full md:w-5/6">
                     <h1 class="text-4xl font-semibold text-center">Check out our most recent customer reviews</h1>
-                    <div class="w-3/5 mx-auto py-10 my-12 flex bg-white px-4 rounded-md shadow-xl">
-                        <div class="px-2">
-                            <div>
+                    <div class="w-5/6 md:w-3/5 mx-auto py-10 my-12 md:flex bg-white px-4 rounded-md shadow-xl">
+                        <div class="px-2 flex justify-center md:justify-start">
+                            <div class="text-center">
                                 <img src="/images/user.png" alt="A user" loading="lazy">
                                 <p class="font-semibold">Customer-34858509</p>
                                 <span class="text-xs text-gray-300 font-semibold">May 16, 2021</span>
@@ -100,7 +101,7 @@ defineProps({
                     <p class="text-2xl font-semibold text-center">Our Expertise Covers...</p>
                 </div>
 
-                <div class="grid grid-cols-3 py-12 justify-center">
+                <div class="md:grid grid-cols-3 py-12 justify-center">
                     <div class="border-2 rounded-[100%] flex flex-col items-center justify-center h-[300px] w-[300px] bg-pink-500">
                         <div>
                             <img src="/images/essay.svg" alt="Essay Writing" loading="lazy" width="150">
@@ -123,7 +124,7 @@ defineProps({
 
                 <div class="rounded-2xl my-6 py-5 bg-[#FDF7E9]">
                     <div class="w-5/6 mx-auto">
-                        <ul class="flex list-disc list-inside space-x-10 justify-center items-center">
+                        <ul class="md:flex list-disc list-inside space-y-8 md:space-y-0 space-x-0 md:space-x-10 justify-center items-center">
                             <li>Narrative</li>
                             <li>Descriptive</li>
                             <li>Expository</li>
@@ -137,31 +138,7 @@ defineProps({
             </div>
         </section>
 
-        <!-- Steps to get Essay done -->
-        <section class="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-400">
-            <div class="py-12">
-                <div class="w-5/6 mx-auto">
-                    <h1 class="text-4xl font-bold text-center text-white">Steps to follow to get your Essay done</h1>
-
-                    <div class="w-5/6 mx-auto flex py-10">
-                        <div class="w-1/2">
-
-                        </div>
-                        <div class="w-1/2 text-white">
-                            <h2 class="text-2xl font-bold">1<sup>st</sup> Step</h2>
-                            <p class="font-semibold text-lg py-5">
-                                As a first step, we’ll ask you to provide as many details about your essay as possible. Fill out the simple form – be as specific as you feel is necessary.
-                            </p>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="text-center text-sm text-gray-200">
-                            By choosing Global Expert Solutions you get covered by our <a :href="route('terms')" class="underline">Money back</a>, <a :href="route('policy')" class="underline">Confidentiality</a>, <a :href="route('terms')" class="underline">Plagiarism free</a> guarantees.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+       <Work />
 
         <!-- About Us -->
 
@@ -188,7 +165,7 @@ defineProps({
 
         <section class="bg-[#FDF7E9]">
             <div class="py-12">
-                <div class="w-5/6 grid grid-cols-3 mx-auto gap-10">
+                <div class="w-5/6 md:grid grid-cols-3 mx-auto gap-10">
                     <div>
                         <h1 class="text-3xl font-bold text-center">Are you a professional writer?</h1>
                         <p class="py-10 font-semibold">
@@ -196,7 +173,7 @@ defineProps({
                         </p>
                         <a href="#" class="inline-block w-full px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-purple-500 hover:translate-x-4 hover:bg-purple-700 transition duration-300">Become a writer</a>
                     </div>
-                    <div>
+                    <div class="pt-10 md:pt-0">
                         <h1 class="text-2xl font-bold">Core requirements</h1>
                         <ul class="p-4 space-y-4">
                             <li class="flex items-center">

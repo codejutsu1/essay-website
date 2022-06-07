@@ -12,7 +12,7 @@ import { Head, Link } from '@inertiajs/inertia-vue3';
     <Links />
 
     <main>
-        <div class="w-[70%] mx-auto">
+        <div class="w-[70%] mx-auto py-6">
             <p class="font-semibold">
                 Essay Writing Services / Privacy Policy
             </p>
