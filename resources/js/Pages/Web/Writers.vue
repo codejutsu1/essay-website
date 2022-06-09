@@ -27,7 +27,7 @@ import { Head, Link } from '@inertiajs/inertia-vue3';
         </div>
 
         <div class="h-full flex items-center justify-center">
-            <div class="w-3/5 z-30 absolute">
+            <div class="w-full md:w-3/5 z-30 absolute">
                 <h1 class="text-5xl font-bold text-center text-white">Welcome to the leading platform for freelance writers</h1>
                 <p class="text-2xl font-semibold py-3 text-white text-center">Competitive salaries and a constant stream of assignments guaranteed</p>
                 <div class="flex justify-center">

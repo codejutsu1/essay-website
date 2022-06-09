@@ -21851,11 +21851,6 @@ __webpack_require__.r(__webpack_exports__);
     var expose = _ref.expose;
     expose();
     var navbar = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)(false);
-
-    if (navbar.value == true) {
-      console.log('hey');
-    }
-
     var __returned__ = {
       navbar: navbar,
       Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.Link,
@@ -24513,14 +24508,20 @@ var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 
 var _hoisted_25 = {
   key: 0,
-  "class": "hidden px-6 py-4 sm:block"
+  "class": "px-6 py-4 sm:block"
 };
 
 var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Dashboard ");
 
 var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Log in ");
 
-var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Register ");
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "px-3"
+}, "|", -1
+/* HOISTED */
+);
+
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Register ");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-400 "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
@@ -24594,7 +24595,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href"])])]), _ctx.canLogin ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_12, [_ctx.$page.props.auth.user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Link"], {
+  , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [_ctx.$page.props.canLogin ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_12, [_ctx.$page.props.auth.user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Link"], {
     key: 0,
     href: _ctx.route('dashboard')
   }, {
@@ -24619,7 +24620,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href"]), _ctx.canRegister ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Link"], {
+  , ["href"]), _ctx.$page.props.canRegister ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Link"], {
     key: 0,
     href: _ctx.route('register'),
     "class": "px-6 py-4"
@@ -24634,7 +24635,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["href"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
   /* STABLE_FRAGMENT */
-  ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Mobile Responsive "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": "p-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple",
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $setup.navbar = !$setup.navbar;
@@ -24650,7 +24651,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, null, 2
   /* CLASS */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
       'hidden': !$setup.navbar,
       'block': $setup.navbar
@@ -24715,7 +24716,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href"])])]), _ctx.canLogin ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_25, [_ctx.$page.props.auth.user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Link"], {
+  , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [_ctx.$page.props.canLogin ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_25, [_ctx.$page.props.auth.user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Link"], {
     key: 0,
     href: _ctx.route('dashboard')
   }, {
@@ -24729,8 +24730,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["href"])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     key: 1
-  }, [_ctx.$page.props.canLogin ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Link"], {
-    key: 0,
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
     href: _ctx.route('login')
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -24741,13 +24741,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.$page.props.canRegister ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Link"], {
-    key: 1,
+  , ["href"]), _hoisted_28, _ctx.$page.props.canRegister ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Link"], {
+    key: 0,
     href: _ctx.route('register'),
-    "class": "px-6 py-4"
+    "class": "py-4"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_28];
+      return [_hoisted_29];
     }),
     _: 1
     /* STABLE */
@@ -24756,7 +24756,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["href"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
   /* STABLE_FRAGMENT */
-  ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 2
+  ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])], 2
   /* CLASS */
   )])])])], 2112
   /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
@@ -30791,7 +30791,7 @@ var _hoisted_1 = {
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "absolute inset-0 bg-indigo-700 opacity-60 md:opacity-0 md:bg-gradient-to-r from-indigo-700"
+  "class": "absolute inset-0 bg-indigo-700 opacity-60 md:bg-inherit md:bg-gradient-to-r from-indigo-700"
 }, null, -1
 /* HOISTED */
 );
@@ -30836,7 +30836,7 @@ var _hoisted_1 = {
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "absolute inset-0 bg-gradient-to-r from-indigo-700"
+  "class": "absolute inset-0 bg-indigo-700 opacity-60 md:bg-gradient-to-r from-indigo-700"
 }, null, -1
 /* HOISTED */
 );
@@ -31081,7 +31081,7 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNod
 
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Log In ");
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"h-full flex items-center justify-center\"><div class=\"w-3/5 z-30 absolute\"><h1 class=\"text-5xl font-bold text-center text-white\">Welcome to the leading platform for freelance writers</h1><p class=\"text-2xl font-semibold py-3 text-white text-center\">Competitive salaries and a constant stream of assignments guaranteed</p><div class=\"flex justify-center\"><a href=\"#\" class=\"inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-gradient-to-tl from-pink-600 to-indigo-500 hover:translate-x-4 transition duration-300\"> Read more </a></div></div></div>", 1);
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"h-full flex items-center justify-center\"><div class=\"w-full md:w-3/5 z-30 absolute\"><h1 class=\"text-5xl font-bold text-center text-white\">Welcome to the leading platform for freelance writers</h1><p class=\"text-2xl font-semibold py-3 text-white text-center\">Competitive salaries and a constant stream of assignments guaranteed</p><div class=\"flex justify-center\"><a href=\"#\" class=\"inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-gradient-to-tl from-pink-600 to-indigo-500 hover:translate-x-4 transition duration-300\"> Read more </a></div></div></div>", 1);
 
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<main><section><div class=\"w-5/6 mx-auto py-2 px-4 grid grid-cols-3 justify-center z-40 relative -mt-32 bg-white shadow-lg rounded-md\"><div class=\"flex items-center justify-center border-b p-12\"><p>Hundreds of orders</p></div><div class=\"flex items-center justify-center border-b border-r border-l p-12\"><p>Flexible Schedule</p></div><div class=\"flex items-center justify-center border-b p-12\"><p>Communication with customers</p></div><div class=\"flex items-center justify-center p-12\"><p>Your own price</p></div><div class=\"flex items-center justify-center border-r border-l p-12\"><p>Rate your clients</p></div><div class=\"flex items-center justify-center p-12\"><p>Payment twice a month</p></div></div></section><section><div class=\"py-12\"><div class=\"flex\"><div class=\"flex justify-center items-center w-1/2\"><div class=\"bg-[#FDF7E9] rounded-full flex items-center\" style=\"width:350px;height:350px;\"><img src=\"/images/order.png\" alt=\"A man collecting Orders\"></div></div><div class=\"flex justify-center items-center w-1/2\"><div><h1 class=\"text-2xl font-bold\">Available now</h1><div class=\"flex justify-between py-8\"><div><p class=\"text-5xl font-bold\">5803</p><span class=\"font-semibold\">Pages</span></div><div><p class=\"text-5xl font-bold\">1209</p><span class=\"font-semibold\">Orders</span></div></div><a class=\"inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-gradient-to-tl from-pink-600 to-indigo-500 hover:translate-x-4 transition duration-300\">Sign up as a writer now</a></div></div></div></div></section><section class=\"bg-fixed bg-center bg-no-repeat bg-cover relative bg-[url(&#39;/images/advantage.jpg&#39;)] z-30\"><div class=\"absolute inset-0 bg-indigo-700 opacity-90\"></div><div class=\"py-12 w-5/6 mx-auto z-30 relative text-white\"><h1 class=\"text-center font-bold text-4xl\">Advantages of working with us</h1><div class=\"grid grid-cols-2 justify-center py-10 gap-16\"><div><h1 class=\"text-2xl font-bold pb-4\"> Uninterrupted Workflow </h1><p> There are hundreds of assignments every day. Choose the ones you want to work on from a huge pool of orders. </p></div><div><h1 class=\"text-2xl font-bold pb-4\"> Prompt Payments </h1><p> Withdraw your funds twice a month to the payment method of your choice. All major payment methods are supported, and no payment is ever going to be delayed. </p></div><div><h1 class=\"text-2xl font-bold pb-4\"> 24/7 Support </h1><p> Contact our Support Team any time of day to get help. We have plenty of helpful materials from formatting requirements to paper structure guidelines to cover your writing needs. </p></div><div><h1 class=\"text-2xl font-bold pb-4\"> Help For Beginners </h1><p> Even if you don’t have sufficient statistics or ratings, we’ve got your back! You will still be able to get plenty of orders any time. </p></div><div><h1 class=\"text-2xl font-bold pb-4\"> Find Tasks Instantly </h1><p> We support more than 100 fields of various subjects. Choose the assignments you like out of the available orders and set your own price for each. </p></div><div><h1 class=\"text-2xl font-bold pb-4\"> Easy Registration &amp; Career Progression </h1><p> Apply and pass a short test. It will take less than 15 minutes. Climb the career ladder from the Beginning to Expert level and earn more depending on your experience and performance. </p></div></div></div></section><section class=\"bg-[#FDF7E9]\"><div class=\"flex items-center justify-center py-12\"><div class=\"w-3/5 text-center\"><h1 class=\"text-4xl font-bold\">Simple application process that is both quick and transparent</h1><p class=\"font-semibold py-5 text-lg\">Global Expert is the platform for college students. So if you are a recent graduate, you are in good company! We currently have 579 freelancers working with us, and that number keeps rising steadily.</p><a href=\"#\" class=\"inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-gradient-to-tl from-pink-600 to-indigo-500 hover:translate-x-4 transition duration-300\">Get Started Now</a></div></div></section></main>", 1);
 

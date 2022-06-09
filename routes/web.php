@@ -30,20 +30,8 @@ Route::get('/email-user', function(){
     return new WriterEmail();
 });
 
-Route::get('/', function () {
-    return Inertia::render('Web/Index', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-    ]);
-})->name('home');
-
-Route::get('about', function(){
-    return Inertia::render('Web/About', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-    ]);
-})->name('about');
-
+Route::inertia('/', 'Web/Index')->name('home');
+Route::inertia('about', 'Web/About')->name('about');
 Route::inertia('contact-us', 'Web/Contact')->name('contact');
 Route::inertia('how-it-works', 'Web/Works')->name('works');
 Route::inertia('writer', 'Web/Writers')->name('writers');
