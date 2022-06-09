@@ -51,7 +51,7 @@ defineProps({
                     </div>
                 </div>
                 <div class="flex justify-center">
-                    <a href="#" class="inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-purple-500 hover:translate-x-4 hover:bg-purple-700 transition duration-300">Start Now</a>
+                    <Link :href="route('login')" class="inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-purple-500 hover:translate-x-4 hover:bg-purple-700 transition duration-300">Start Now</Link>
                 </div>
             </div>
         </section>

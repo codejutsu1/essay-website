@@ -49,7 +49,7 @@ import { Head, Link } from '@inertiajs/inertia-vue3';
                     </div>
                 </div>
                 <div class="flex justify-center">
-                    <a href="#" class="inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-gradient-to-br from-pink-500 to-indigo-500 hover:translate-x-4 transition duration-300">Live Chat</a>
+                    <Link :href="route('login')" class="inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-gradient-to-br from-pink-500 to-indigo-500 hover:translate-x-4 transition duration-300">Live Chat</Link>
                 </div>
             </div>
         </section>

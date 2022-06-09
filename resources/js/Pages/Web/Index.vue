@@ -22,7 +22,7 @@ defineProps({
                 <h1 class="text-5xl font-bold text-center text-white">Get a unique essay!</h1>
                 <p class="text-2xl font-semibold py-3 text-white text-center">Hire our professional writer to save time</p>
                 <div class="flex justify-center">
-                    <a href="#" class="inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-gradient-to-br from-pink-500 to-indigo-500 hover:translate-x-4 transition duration-300">Hire Writer</a>
+                    <Link :href="route('login')" class="inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-gradient-to-br from-pink-500 to-indigo-500 hover:translate-x-4 transition duration-300">Hire Writer</Link>
                 </div>
 
                 <div class="mt-5">
@@ -86,7 +86,7 @@ defineProps({
                         </div>
                     </div>
                     <div class="flex justify-center">
-                        <a href="#" class="inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-purple-500 hover:translate-x-4 hover:bg-purple-700 transition duration-300">Order Now</a>
+                        <Link :href="route('login')" class="inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-purple-500 hover:translate-x-4 hover:bg-purple-700 transition duration-300">Order Now</Link>
                     </div>
                 </div>
             </div>
@@ -156,7 +156,7 @@ defineProps({
                     </p>
                 </div>
                 <div class="flex justify-center">
-                    <a href="#" class="inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-purple-500 hover:translate-x-4 hover:bg-purple-700 transition duration-300">Read More</a>
+                    <Link :href="route('login')" class="inline-block mt-5 px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-purple-500 hover:translate-x-4 hover:bg-purple-700 transition duration-300">Read More</Link>
                 </div>
             </div>
         </section>
@@ -171,7 +171,7 @@ defineProps({
                         <p class="py-10 font-semibold">
                             We are always looking for talented writers and academic experts to join our team
                         </p>
-                        <a href="#" class="inline-block w-full px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-purple-500 hover:translate-x-4 hover:bg-purple-700 transition duration-300">Become a writer</a>
+                        <Link :href="route('login')" class="inline-block w-full px-8 py-4 rounded-md text-center tracking-wider text-white font-bold bg-purple-500 hover:translate-x-4 hover:bg-purple-700 transition duration-300">Become a writer</Link>
                     </div>
                     <div class="pt-10 md:pt-0">
                         <h1 class="text-2xl font-bold">Core requirements</h1>
