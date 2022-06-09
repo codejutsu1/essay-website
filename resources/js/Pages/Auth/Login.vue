@@ -54,13 +54,13 @@ const submit = () => {
                 </label>
             </div>
 
-            <div class="flex items-center justify-between mt-4">
+            <div class="md:flex items-center justify-between mt-4">
                 <div>
                     <Link :href="route('register')" class="underline text-sm text-gray-600 hover:text-gray-900">
                         Haven't Registered?
                     </Link>
                 </div>
-                <div>
+                <div class="flex justify-between items-center mt-3 md:mt-0 md:justify-start">
                     <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
                         Forgot your password?
                     </Link>
