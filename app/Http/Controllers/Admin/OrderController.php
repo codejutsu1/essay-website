@@ -112,9 +112,11 @@ class OrderController extends Controller
     {
         $orderDetails = Order::where('id', $order->id)
                         ->select([
+                            'id',
                             'orderId',
                             'topic',
                             'mode',
+                            'oldFile',
                             'user_id',
                             'essay_number',
                             'instructions',
@@ -125,7 +127,7 @@ class OrderController extends Controller
                         ->first();
     
         $completeOrder = CompleteOrder::where('id', $order->id)
-                                        ->select(['user_id', 'completed', 'date_submitted'])
+                                        ->select(['user_id', 'newFile', 'completed', 'date_submitted'])
                                         ->with(['user' => function($query){ $query->select('id','name'); }])
                                         ->first();
 
@@ -140,4 +142,28 @@ class OrderController extends Controller
 
         return Inertia('Admin/UserDetails', compact('user'));
     }
+
+    public function viewFile(Order $order)
+    {
+        $fileDetails = Order::where('id', $order->id)
+                            ->select(['id', 'orderID', 'oldFile'])
+                            ->firstOrFail();
+        
+        return Inertia('Admin/View', compact('fileDetails'));
+    }
+
+    public function viewNewFile(CompleteOrder $order){
+
+        $fileDetails = CompleteOrder::where('id', $order->id)
+                                    ->select(['order_id', 'newFile'])   
+                                    ->with(['order' => function($query){ $query->select('id', 'orderId'); }])
+                                    ->firstOrFail();
+
+        if(!$fileDetails->order){
+            abort(404);
+        }                           
+
+        return Inertia('Admin/ViewNew', compact('fileDetails'));
+    }
 }
+

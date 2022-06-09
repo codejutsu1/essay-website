@@ -90,11 +90,14 @@ function pendingOrder(){
                         {{ order.topic }}
                       </td>
                       <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
-                        >
-                          Approved
-                        </span>
+                        <div v-if="order.oldFile" class="flex justify-between">
+                            <Link
+                                :href="route('view.file.admin', order.id)"
+                            >
+                                <img src="/images/view.png" alt="View">
+                            </Link>
+                        </div>
+                        <span v-else>NULL</span>
                       </td>
                       <td class="px-4 py-3 text-sm">
                         {{ order.created_at }}
@@ -258,7 +261,9 @@ function pendingOrder(){
                       <td class="px-4 py-3">
                         <div class="flex items-center text-sm">
                           <div>
-                            <p class="font-semibold">{{ order.order.orderId }}</p>
+                            <Link :href="route('order.details', order.order.id)">
+                              <p class="font-semibold">{{ order.order.orderId }}</p>
+                            </Link>
                           </div>
                         </div>
                       </td>
@@ -271,11 +276,14 @@ function pendingOrder(){
                         {{ order.order.topic }}
                       </td>
                       <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
-                        >
-                          Approved
-                        </span>
+                        <div v-if="order.order.oldFile" class="flex justify-between">
+                            <Link
+                                :href="route('view.file.admin', order.order.id)"
+                            >
+                                <img src="/images/view.png" alt="View">
+                            </Link>
+                        </div>
+                        <span v-else>NULL</span>
                       </td>
                       <td class="px-4 py-3 text-sm">
                         {{ order.order.created_at }}

@@ -16,7 +16,7 @@ class WriterController extends Controller
      */
     public function index()
     {
-        $writers = User::where('role_id', 3)->select(['id', 'name', 'email'])->get();
+        $writers = User::where('role_id', 3)->select(['id', 'name', 'email', 'created_at'])->get();
         return Inertia('Admin/Writers', compact('writers'));
     }
 
@@ -81,8 +81,11 @@ class WriterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return redirect()->route('writers.index')
+            ->with('message', 'Writer deleted successfully');
     }
 }

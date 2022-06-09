@@ -78,7 +78,9 @@ function rejectedOrder(){
                                 </div>
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                {{ order.order.orderId }}
+                                <Link :href="route('order.details', order.order.id)">
+                                    {{ order.order.orderId }}
+                                </Link>
                             </td>
                             <td class="px-4 py-3 text-sm">
                                 <Link :href="route('user.details', order.user_id)">
@@ -235,7 +237,9 @@ function rejectedOrder(){
                                 </div>
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                {{ order.order.orderId }}
+                                <Link :href="route('order.details', order.order.id)">
+                                    {{ order.order.orderId }}
+                                </Link>
                             </td>
                             <td class="px-4 py-3 text-sm">
                                 <Link :href="route('user.details', order.user_id)">

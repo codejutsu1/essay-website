@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::where('role_id', 2)->select(['id', 'name', 'email'])->get();
+        $users = User::where('role_id', 2)->select(['id', 'name', 'email', 'created_at'])->get();
         return Inertia('Admin/Users', compact('users'));
     }
 
@@ -81,8 +81,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return redirect()->route('users.index')
+            ->with('message', 'User deleted successfully');
     }
 }

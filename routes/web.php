@@ -54,6 +54,8 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function(
         Route::get('{writerId}/{id}/assign-orders', 'assignWriters')->name('assign.writers');
         Route::get('{order}/order-details', 'orderDetails')->name('order.details');
         Route::get('{user}/user-details', 'userDetails')->name('user.details');
+        Route::get('{order}/view-file', 'viewFile')->where('order', '[0-9]+')->name('view.file.admin');
+        Route::get('{order}/view-new-file', 'viewNewFile')->where('order', '[0-9]+')->name('view.new.file.admin');
     });
 
     Route::resource('users', UserController::class);

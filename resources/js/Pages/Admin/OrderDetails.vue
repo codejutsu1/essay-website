@@ -28,7 +28,10 @@ const props = defineProps({
                         </li>
                         <li class="flex justify-between py-4 border-b border-b-gray-100">
                             <span>Writer</span>
-                            <span>{{ completeOrder.user.name }}</span>
+                            <span v-if="completeOrder">
+                                <span>{{ completeOrder.user.name }}</span>
+                            </span>
+                            <span v-else>NULL</span>
                         </li>
                         <li class="flex justify-between py-4 border-b border-b-gray-100">
                             <span>User</span>
@@ -56,9 +59,12 @@ const props = defineProps({
                         </li>
                         <li class="flex justify-between py-4 border-b border-b-gray-100">
                             <span>Status</span>
-                            <span v-if="completeOrder.completed">Completed</span>
-                            <span v-else-if="completeOrder.completed == 0">Rejected</span>
-                            <span v-else>Pending</span>
+                            <span v-if="completeOrder">
+                                <span v-if="completeOrder.completed">Completed</span>
+                                <span v-else-if="completeOrder.completed == 0">Rejected</span>
+                                <span v-else>Pending</span>
+                            </span>
+                            <span v-else>NULL</span>
                         </li>
                         <li class="flex justify-between py-4 border-b border-b-gray-100">
                             <span>Date Sent</span>
@@ -66,7 +72,35 @@ const props = defineProps({
                         </li>
                         <li class="flex justify-between py-4 border-b border-b-gray-100">
                             <span>Date Received</span>
-                            <span>{{ completeOrder.date_submitted ?? 'NUll' }}</span>
+                            <div v-if="completeOrder">
+                                <span>{{ completeOrder.date_submitted ?? 'NUll' }}</span>
+                            </div>
+                            <span v-else>NULL</span>
+                        </li>
+                        <li class="flex justify-between py-4 border-b border-b-gray-100">
+                            <span>Old File</span>
+                            <div v-if="orderDetails.oldFile" class="flex justify-between">
+                                <Link
+                                    :href="route('view.file.admin', orderDetails.id)"
+                                >
+                                    <img src="/images/view.png" alt="View">
+                                </Link>
+                            </div>
+                            <span v-else>NULL</span>
+                        </li>
+                        <li class="flex justify-between py-4 border-b border-b-gray-100">
+                            <span>New File</span>
+                            <div v-if="completedOrder">
+                                <div v-if="completeOrder.newFile" class="flex justify-between">
+                                    <Link
+                                        :href="route('view.new.file.admin', completeOrder.id)"
+                                    >
+                                        <img src="/images/view.png" alt="View">
+                                    </Link>
+                                </div>
+                                <span v-else>NULL</span>
+                            </div>
+                            <span v-else>NULL</span>
                         </li>
                     </ul>
                 </div>

@@ -1,15 +1,28 @@
 <script setup>
 import { Head, Link } from '@inertiajs/inertia-vue3';
 import Dashboard from '@/Layouts/AdminDashboard.vue';
+import { Inertia } from '@inertiajs/inertia';
+import Notification from '@/Components/Notification.vue';
 
 const props = defineProps({
   users : Object,
 });
 
+const destroy = (id) => {
+  if(confirm('Are you sure?')){
+    Inertia.delete(route('users.destroy', id));
+  }
+
+  return { destroy }
+}
+
 
 </script>
 
 <template>
+    <div v-if="$page.props.flash.message" class="absolute top-8 right-10 z-40">
+      <Notification :message="$page.props.flash.message" />
+    </div>
     <Dashboard>
         <Head title="All Users" />
 
@@ -45,7 +58,9 @@ const props = defineProps({
                       <td class="px-4 py-3">
                         <div class="flex items-center text-sm">
                           <div>
-                            <p class="font-semibold">{{ user.name }}</p>
+                            <Link :href="route('user.details', user.id)">
+                              <p class="font-semibold">{{ user.name }}</p>
+                          </Link>
                           </div>
                         </div>
                       </td>
@@ -62,7 +77,7 @@ const props = defineProps({
                         12
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        6/10/2020
+                        {{ user.created_at }}
                       </td>
                       <td class="px-4 py-3">
                         <div class="flex items-center space-x-4 text-sm">
@@ -73,6 +88,7 @@ const props = defineProps({
                             Suspend
                           </button>
                           <button
+                            @click="destroy(user.id)"
                             class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-red-700 focus:outline-none focus:shadow-outline-gray"
                             aria-label="Delete"
                           >
