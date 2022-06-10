@@ -29,7 +29,7 @@ use App\Mail\AdminUserOrder as WriterEmail;
 Route::get('/email-user', function(){
     return new WriterEmail();
 });
-
+Route::inertia('test', 'Dashboard')->name('dashboard');
 Route::inertia('/', 'Web/Index')->name('home');
 Route::inertia('about', 'Web/About')->name('about');
 Route::inertia('contact-us', 'Web/Contact')->name('contact');
@@ -56,6 +56,11 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function(
         Route::get('{user}/user-details', 'userDetails')->name('user.details');
         Route::get('{order}/view-file', 'viewFile')->where('order', '[0-9]+')->name('view.file.admin');
         Route::get('{order}/view-new-file', 'viewNewFile')->where('order', '[0-9]+')->name('view.new.file.admin');
+    });
+
+    Route::controller(UserController::class)->group(function() {
+        Route::put('users/suspend/{user}', 'suspendUser')->name('suspend.user');
+        Route::put('users/unsuspend/{user}', 'unsuspendUser')->name('unsuspend.user');
     });
 
     Route::resource('users', UserController::class);

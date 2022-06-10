@@ -164,8 +164,8 @@ function submit() {
                             <p class="my-2 text-red-300 text-center">{{ errors.topic }} </p>
                         </label>
 
-                        <div class="flex justify-between py-10">
-                            <div class="w-1/5">
+                        <div class="md:flex justify-between py-10">
+                            <div class="w-full md:w-1/5">
                                 <span class="text-gray-700 dark:text-gray-400 pb-2 block font-semibold">Pages <span class="text-red-300 pl-1 font-semibold">*</span></span>
 
                                 <div class="flex items-center justify-center ">
@@ -198,7 +198,7 @@ function submit() {
                                 </span>
                                 <p class="my-2 text-red-300 text-center">{{ errors.essay_number }} </p>
                             </div>
-                            <label class="block mt-4 w-[60%]">
+                            <label class="block mt-4 w-full md:w-[60%]">
                                 <span class="text-gray-700 dark:text-gray-400">Detailed Instructions <span class="text-red-300 pl-1 font-semibold">*</span></span>
                                 <textarea
                                     class="block w-full mt-1 dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
@@ -212,7 +212,7 @@ function submit() {
                         </div>
 
                         <span class="text-gray-400 font-semibold text-center block pb-4">File<span class="text-red-300 pl-1 font-semibold" v-show="fileRequire">*</span></span>
-                        <div class="border-2 border-dashed border-purple-400 bg-gray-700 w-1/3 mx-auto flex flex-col justify-center">
+                        <div class="border-2 border-dashed border-purple-400 bg-gray-700 w-full md:w-1/3 mx-auto flex flex-col justify-center">
                             <input @click="btnEnable" type="file" name="essay" id="essay" class="bg-gray-700 py-6 text-gray-200 cursor-pointer" @input="form.document = $event.target.files[0]">
                         </div>
                         <p class="my-2 text-red-300 text-center"> {{ errors.document }} </p>
@@ -224,8 +224,8 @@ function submit() {
                     </div>
 
                     
-                    <div class="flex justify-between" v-show="formStep == 2">
-                        <div class="bg-gray-900 w-1/3 py-6 px-3 rounded-md">
+                    <div class="md:flex justify-between" v-show="formStep == 2">
+                        <div class="bg-gray-900 w-full md:w-1/3 py-6 px-3 rounded-md">
                             <div>
                                 <span class="text-gray-200 text-sm">Topic</span>
                                 <p class="font-bold text-2xl text-gray-100">{{ form.topic }}</p>
@@ -244,7 +244,7 @@ function submit() {
                             </div>
                         </div>
 
-                        <div class="bg-gray-900 py-6 px-4 rounded-md">
+                        <div class="bg-gray-900 py-6 px-4 rounded-md mt-5 md:mt-0">
                             <div>
                                 <h1 class="font-bold text-3xl text-gray-100">Order Summary</h1>
 

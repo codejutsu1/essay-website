@@ -53,7 +53,7 @@ const props = defineProps({
                                             </Link>
                                         </td>
                                         <td class="px-4 py-3 text-sm">
-                                            {{ order.order.referenceId ?? NULL}}
+                                            {{ order.order.referenceId ?? 'NULL'}}
                                         </td>
                                         <td class="px-4 py-3 text-sm">
                                             <span
@@ -69,7 +69,7 @@ const props = defineProps({
                                             {{ order.order.created_at }}
                                         </td>
                                         <td class="px-4 py-3 text-sm">
-                                            14/11/2020
+                                            {{ order.date_submitted ?? 'NULL' }}
                                         </td>
                                     </tr>
                                 </tbody>

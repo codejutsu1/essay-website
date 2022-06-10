@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::where('role_id', 2)->select(['id', 'name', 'email', 'created_at'])->get();
+        $users = User::where('role_id', 2)->select(['id', 'name', 'email', 'created_at', 'suspend'])->get();
         return Inertia('Admin/Users', compact('users'));
     }
 
@@ -70,9 +70,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+    
     }
 
     /**
@@ -87,5 +87,23 @@ class UserController extends Controller
 
         return redirect()->route('users.index')
             ->with('message', 'User deleted successfully');
+    }
+
+    public function suspendUser(User $user)
+    {   
+        $user->suspend = 1;
+        $user->update();
+
+        return redirect()->back()
+            ->with('message', 'User successfully suspended');
+    }
+
+    public function unsuspendUser(User $user)
+    {   
+        $user->suspend = 0;
+        $user->update();
+
+        return redirect()->back()
+            ->with('message', 'User successfully activated');
     }
 }

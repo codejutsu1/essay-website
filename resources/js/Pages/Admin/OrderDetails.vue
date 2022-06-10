@@ -20,7 +20,7 @@ const props = defineProps({
               Order Details
             </h2>
       
-                <div class="bg-gray-800 px-6 py-10 w-3/5 mx-auto rounded-md">
+                <div class="bg-gray-800 px-6 py-10 w-full md:w-3/5 mx-auto rounded-md">
                     <ul class="text-lg text-gray-200 font-semibold tracking-wider">
                         <li class="flex justify-between pb-6 border-b border-b-gray-100">
                             <span>Order Id</span>

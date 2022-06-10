@@ -16,6 +16,22 @@ const destroy = (id) => {
   return { destroy }
 }
 
+const suspend = (id) => {
+  if(confirm('Are you sure you want to suspend this user?')){
+    Inertia.put(route('suspend.user', id))
+  }
+
+  return { suspend }
+}
+
+const unsuspend = (id) => {
+  if(confirm('Are you sure you want to activate this user?')){
+    Inertia.put(route('unsuspend.user', id))
+  }
+
+  return { unsuspend }
+}
+
 
 </script>
 
@@ -81,12 +97,24 @@ const destroy = (id) => {
                       </td>
                       <td class="px-4 py-3">
                         <div class="flex items-center space-x-4 text-sm">
+                          <div>
+                            <button
+                            v-if="user.suspend"
+                            @click="unsuspend(user.id)"
+                            class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 dark:text-white dark:bg-green-600 focus:outline-none focus:shadow-outline-gray"
+                            aria-label="Edit"
+                          >
+                            Activate
+                          </button>
                           <button
+                            v-else
+                            @click="suspend(user.id)"
                             class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 dark:text-white dark:bg-orange-600 focus:outline-none focus:shadow-outline-gray"
                             aria-label="Edit"
                           >
                             Suspend
                           </button>
+                          </div>
                           <button
                             @click="destroy(user.id)"
                             class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-red-700 focus:outline-none focus:shadow-outline-gray"
