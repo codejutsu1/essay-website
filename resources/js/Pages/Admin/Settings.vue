@@ -1,5 +1,5 @@
 <script setup>
-import { Head, Link } from '@inertiajs/inertia-vue3';
+import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
 import Dashboard from '@/Layouts/AdminDashboard.vue';
 import { Inertia } from '@inertiajs/inertia';
 import Notification from '@/Components/Notification.vue';
@@ -34,6 +34,9 @@ function updatePassword(){
 </script>
 
 <template>
+    <div v-if="$page.props.flash.message" class="absolute top-8 right-10 z-40">
+      <Notification :message="$page.props.flash.message" />
+    </div>
     <Dashboard>
         <Head title="Settings" />
 
@@ -50,7 +53,6 @@ function updatePassword(){
                         <span class="text-gray-400 pt-4 pb-2 block font-semibold">Site Name</span>
                         <input
                             class="block w-full mt-1 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                            value="Global Expert"
                             v-model="form.site_name"
                         />
                         <p v-if="errors.site_name" class="text-sm text-red-500">{{ errors.site_name }}</p>
@@ -71,7 +73,7 @@ function updatePassword(){
                         <input
                             class="block w-full mt-1 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                             type="tel"
-                            v-model="site_phone"
+                            v-model="form.site_phone"
                         />
                         <p v-if="errors.site_phone" class="text-sm text-red-500">{{ errors.site_phone }}</p>
                     </label>
