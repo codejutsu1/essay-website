@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\WriterController;
+use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\User\DashboardController as UserDashboard;
 use App\Http\Controllers\User\OrderController as UserOrder;
 use App\Http\Controllers\User\PaymentController as UserPayment;
@@ -26,9 +27,7 @@ use App\Mail\AdminUserOrder as WriterEmail;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/email-user', function(){
-    return new WriterEmail();
-});
+
 Route::inertia('test', 'Dashboard')->name('dashboard');
 Route::inertia('/', 'Web/Index')->name('home');
 Route::inertia('about', 'Web/About')->name('about');
@@ -65,6 +64,12 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function(
 
     Route::resource('users', UserController::class);
     Route::resource('writers', WriterController::class);
+
+    Route::controller(SettingsController::class)->group(function() {
+        Route::get('settings', 'adminSettings')->name('admin.settings'); 
+        Route::post('settings', 'updateSite')->name('update.site');
+        Route::post('settings/password', 'updateAdminPassword')->name('update.admin.password');
+    });
 });
 
 // User's Dashboard
@@ -93,6 +98,8 @@ Route::group(['middleware' => ['auth', 'user', 'verified'], 'prefix' => 'user'],
 
     Route::controller(UserSettings::class)->group(function() {
         Route::get('settings', 'userSettings')->name('user.settings'); 
+        Route::post('settings', 'updateUser')->name('update.user');
+        Route::post('settings/password', 'updatePassword')->name('update.password');
     });
 });
 
@@ -115,6 +122,8 @@ Route::group(['middleware' => ['auth', 'writer', 'verified'], 'prefix' => 'write
 
     Route::controller(WriterSettings::class)->group(function(){
         Route::get('settings', 'writerSettings')->name('writer.settings');
+        Route::post('settings', 'updateWriter')->name('update.writer');
+        Route::post('settings/password', 'updateWriterPassword')->name('update.writer.password');
     });
 });
 
