@@ -13,7 +13,7 @@ defineProps({
 <template>
     <header class="h-[600px] md:h-[400px] bg-fixed bg-center bg-no-repeat bg-cover relative bg-[url('/images/about.jpg')] z-30">
         <div class="absolute inset-0 bg-indigo-700 opacity-60 md:bg-inherit md:bg-gradient-to-r from-indigo-700"></div>
-        <Links />
+        <Links :num="400" />
 
         <div class="w-5/6 mx-auto flex items-center h-full">
             <div class="w-full md:w-2/5 z-20 relative text-white">

@@ -3,15 +3,43 @@
 import { Link } from '@inertiajs/inertia-vue3';
 import { ref, onMounted} from 'vue';
 
+const props = defineProps({
+    num: Number,
+    navbarColor: Boolean
+});
+
 const navbar = ref(false);
+
+const navbarScroll = ref(false);
+
+const scrollPosition = ref(null);
+
+onMounted(() => {
+    window.addEventListener('scroll', onScrollTop);
+});
+
+function onScrollTop()
+{
+    scrollPosition.value = window.scrollY;
+
+    if(scrollPosition.value > props.num){
+        return navbarScroll.value = true;
+    }else{
+        return navbarScroll.value = false
+    }
+}
 
 
 </script>
 
 <template>
 <!-- bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-400 -->
-    <div>
-        <div class="w-5/6 mx-auto flex justify-between pt-5 relative z-30">
+    <div :class="{
+        'bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-400 fixed top-0 w-full' : navbarScroll, 
+        'relative bg-transparent w-full' : !navbarScroll, 
+        'bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-400 w-full' : props.navbarColor,
+     }">
+        <div class="w-5/6 mx-auto flex justify-between py-4 relative z-30">
             <div class="flex items-center">
                 <h1 class="font-semibold text-xl tracking-wide">
                     <Link :href="route('home')">

@@ -90,6 +90,9 @@ Route::group(['middleware' => ['auth', 'user', 'verified'], 'prefix' => 'user'],
         // The route that the button calls to initialize payment
         Route::post('paystack/initialize', 'initialize')->name('pay');
 
+        Route::post('pay', 'redirectToGateway')->name('pay.stack');
+        Route::get('payment/callback', 'handleGatewayCallback');
+
         // The callback url after a payment
         Route::get('paystack/callback', 'callback')->name('callback');
 

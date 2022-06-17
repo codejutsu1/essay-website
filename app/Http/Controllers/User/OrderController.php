@@ -10,13 +10,15 @@ use App\Models\CompleteOrder;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\UserOrder;
 use App\Mail\AdminUserOrder;
+use Paystack;
 
 
 class OrderController extends Controller
 {
     public function makeOrder()
     {
-        return Inertia('User/MakeOrder');
+        $reference = Paystack::genTranxRef();;
+        return Inertia('User/MakeOrder', ['reference' => $reference]);
     }
 
     public function userOrders()

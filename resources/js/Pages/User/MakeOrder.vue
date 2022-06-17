@@ -3,9 +3,11 @@ import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
 import UserDashboard from '@/Layouts/UserDashboard.vue';
 import { ref, reactive, computed } from 'vue';
 import { Inertia } from '@inertiajs/inertia';
+import Notification from '@/Components/Notification.vue';
 
 const props = defineProps({
     errors: Object,
+    reference: String,
 });
 
 const formStep = ref(1);
@@ -13,15 +15,16 @@ const btnDisable = ref(true);
 const fileRequire = ref(false);
 
 const form = useForm({
-    mode: '',
-    topic: '',
-    essay_number: 2,
-    instructions: '',
-    document: '',
+    // mode: '',
+    // topic: '',
+    // essay_number: 2,
+    // instructions: '',
+    // document: '',
     email: 'user@email.com',
     amount: 2700,
     currency: 'NGN',
-    channels: ['card']
+    channels: ['card'],
+    reference: props.reference
 });
 
 function editing(){
@@ -85,12 +88,15 @@ function decreaseButton(){
 }
 
 function submit() {
-    Inertia.post(route('store.order'), form);       
+    Inertia.post(route('pay.stack'), form);       
 }
 
 </script>
 
 <template>
+    <div v-if="$page.props.flash.message" class="absolute top-8 right-10 z-40">
+        <Notification :message="$page.props.flash.message" />
+    </div>
     <UserDashboard>
         <Head title="Make Order" />
 

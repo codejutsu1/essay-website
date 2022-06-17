@@ -15,7 +15,7 @@ defineProps({
     
     <header class="h-[650px] md:h-[550px] bg-fixed bg-center bg-no-repeat bg-cover relative bg-[url('/images/hero.jpg')] z-30">
         <div class="absolute inset-0 bg-gradient-to-r from-indigo-700"></div>
-       <Links />
+       <Links :num="500" />
 
        <div class="flex justify-center items-center h-full">
             <div class="z-20 relative md:w-3/5 w-5/6">

@@ -2,6 +2,9 @@
 import Footer from '@/Components/Footer.vue';
 import Links from '@/Components/Links.vue';
 import { Head, Link } from '@inertiajs/inertia-vue3';
+import { ref } from 'vue';
+
+const navbarColor = ref(true);
 
 
 </script>
@@ -10,7 +13,7 @@ import { Head, Link } from '@inertiajs/inertia-vue3';
 
     <Head title="Acceptable Use Policy" />
 
-    <Links />
+    <Links :navbarColor="navbarColor" :num="150" />
 
     <main>
          <div class="w-[70%] mx-auto">

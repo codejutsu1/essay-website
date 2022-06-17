@@ -2,70 +2,41 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Iamolayemi\Paystack\Facades\Paystack;
+
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
+use Paystack;
 
 class PaymentController extends Controller
 {
+
     /**
-     * Initialize a new paystack payment
-     *
+     * Redirect the User to Paystack Payment Page
+     * @return Url
+     */
+    public function redirectToGateway()
+    {
+        try{
+            return Paystack::getAuthorizationUrl()->redirectNow();
+        }catch(\Exception $e){
+            return $e->getMessage();
+            // return Redirect::back()->withMessage(['msg'=>'The paystack token has expired. Please refresh the page and try again.', 'type'=>'error']);
+        }        
+    }
+
+    /**
+     * Obtain Paystack payment information
      * @return void
      */
-    public function initialize()
+    public function handleGatewayCallback()
     {
-        // Generate a unique payment reference
-        $reference = Paystack::generateReference();
+        $paymentDetails = Paystack::getPaymentData();
 
-        // prepare payment details from form request
-        $paymentDetails = [
-            'email' => request('email'),
-            'amount' => request('amount'),
-            'currency' => request('currency'),
-            'channels' => request('channels'),
-            'reference' => $reference,
-            'callback_url' =>  route('callback'),
-        ];
-
-        // 'mode' => request('mode'),
-        //     'topic' => request('topic'),
-        //     'essay_number' => request('essay_number'),
-        //     'instructions' => request('instructions'),
-          
-        // initialize new payment and get the response from the api call.
-        $response = Paystack::transaction()
-            ->initialize($paymentDetails)->response();
-            
-        if (!$response['status']) {
-            // notify that something went wrong
-        }
-
-        // redirect to authorization url
-        return redirect($response['data']['authorization_url']);
-    }
-
-
-    public function callback()
-    {
-        // get reference  from request
-        $reference = request('reference') ?? request('trxref');
-
-        // verify payment details
-        $payment = Paystack::transaction()->verify($reference)->response('data');
-
-
-        // check payment status
-        if ($payment['status'] == 'success') {
-            // payment is successful
-            // code your business logic here
-        } else {
-            // payment is not successful
-        }
-    }
-
-    public function paymentHistory()
-    {
-        return Inertia('User/PaymentHistory');
+        dd($paymentDetails);
+        // Now you have the payment details,
+        // you can store the authorization_code in your db to allow for recurrent subscriptions
+        // you can then redirect or do whatever you want
     }
 }

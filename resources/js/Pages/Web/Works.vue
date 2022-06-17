@@ -3,6 +3,9 @@ import Footer from '@/Components/Footer.vue';
 import Links from '@/Components/Links.vue';
 import Work from '@/Components/Work.vue';
 import { Head, Link } from '@inertiajs/inertia-vue3';
+import { ref } from 'vue';
+
+const navbarColor = ref(true);
 
 
 </script>
@@ -10,11 +13,10 @@ import { Head, Link } from '@inertiajs/inertia-vue3';
     <Head title="How it is done on Essay?" />
     
     <header>
-        <Links />
+        <Links :navbarColor="navbarColor" :num="400" />
 
-        <div class="pt-5">
-            <Work />
-        </div>
+        <Work />
+
     </header>
 
     <main>
