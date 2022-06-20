@@ -21,7 +21,7 @@ class OrderController extends Controller
                                 ->select('id', 'order_id', 'date_submitted', 'completed', 'newFile')
                                 ->with(['order' => function($query){ $query->select('id','orderId', 'topic', 'created_at', 'oldFile'); }])
                                 ->orderBy('id', 'desc')
-                                ->get();
+                                ->paginate(10);
 
         return Inertia('Writer/Orders', compact('orders'));
     }
@@ -34,7 +34,7 @@ class OrderController extends Controller
                                 ->select('id', 'order_id')
                                 ->with(['order' => function($query){ $query->select('id','orderId', 'topic', 'created_at', 'oldFile'); }])
                                 ->orderBy('id', 'desc')
-                                ->get();     
+                                ->paginate(10);     
         // dd($orders);
         return Inertia('Writer/ReceivedOrders', compact('orders'));
     }

@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::where('role_id', 2)->select(['id', 'name', 'email', 'created_at', 'suspend'])->get();
+        $users = User::where('role_id', 2)->select(['id', 'name', 'email', 'created_at', 'suspend'])->paginate(10);
         return Inertia('Admin/Users', compact('users'));
     }
 

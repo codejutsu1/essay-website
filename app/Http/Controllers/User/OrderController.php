@@ -29,7 +29,7 @@ class OrderController extends Controller
                                 ->select(['id', 'order_id', 'user_id', 'newFile', 'date_submitted', 'completed'])
                                 ->with(['order' => function($query){ $query->select(['id','orderId', 'topic', 'oldFile', 'mode', 'essay_number', 'instructions', 'created_at']); }])
                                 ->orderBy('id', 'desc')
-                                ->get();
+                                ->paginate(10);
         
         return Inertia('User/Orders', compact('orders'));
     }

@@ -16,7 +16,7 @@ class WriterController extends Controller
      */
     public function index()
     {
-        $writers = User::where('role_id', 3)->select(['id', 'name', 'email', 'created_at'])->get();
+        $writers = User::where('role_id', 3)->select(['id', 'name', 'email', 'created_at'])->paginate(10);
         return Inertia('Admin/Writers', compact('writers'));
     }
 

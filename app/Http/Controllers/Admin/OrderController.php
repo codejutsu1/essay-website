@@ -19,8 +19,6 @@ class OrderController extends Controller
                             ->with(['user' => function($query){ $query->select('id','name'); }])
                             ->orderBy('id', 'desc')
                             ->paginate(10);
-
-                            // dd($newOrders);
                                 
         $pendingOrders = CompleteOrder::where('completed', NULL)
                                         ->select(['id', 'user_id', 'order_id'])
@@ -33,7 +31,7 @@ class OrderController extends Controller
                                             }
                                         ])
                                         ->orderBy('id', 'desc')
-                                        ->get();
+                                        ->paginate(10);
 
         return Inertia('Admin/Orders', compact('newOrders', 'pendingOrders'));
     }
@@ -52,7 +50,7 @@ class OrderController extends Controller
                                             }
                                         ])
                                         ->orderBy('id', 'desc')
-                                        ->get();
+                                        ->paginate(10);
 
         $rejectedOrders = CompleteOrder::where('completed', 0)
                                         ->select(['id', 'user_id', 'order_id'])
@@ -66,7 +64,7 @@ class OrderController extends Controller
                                             }
                                         ])
                                         ->orderBy('id', 'desc')
-                                        ->get();               
+                                        ->paginate(10);               
 
         return Inertia('Admin/CompletedOrders', compact('completedOrders', 'rejectedOrders'));
     }
@@ -83,14 +81,14 @@ class OrderController extends Controller
                                             }
                                         ])
                                         ->orderBy('id', 'desc')
-                                        ->get();      
+                                        ->paginate(10);      
                                         
         return Inertia('Admin/AllOrders', compact('allOrders'));
     }
 
     public function assignOrders($id)
     {
-        $writers = User::where('role_id', 3)->select(['id', 'name'])->get();
+        $writers = User::where('role_id', 3)->select(['id', 'name'])->paginate(10);
         return Inertia('Admin/AssignWriter', compact('writers', 'id'));
     }
 
