@@ -18,7 +18,9 @@ class OrderController extends Controller
                             ->select(['id','orderId', 'topic', 'oldFile', 'created_at', 'user_id'])
                             ->with(['user' => function($query){ $query->select('id','name'); }])
                             ->orderBy('id', 'desc')
-                            ->get();
+                            ->paginate(10);
+
+                            // dd($newOrders);
                                 
         $pendingOrders = CompleteOrder::where('completed', NULL)
                                         ->select(['id', 'user_id', 'order_id'])

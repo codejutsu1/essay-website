@@ -70,8 +70,8 @@ class OrderController extends Controller
 
         $user = User::where('id', auth()->user()->id)->first();
 
-        Mail::to($user->email)->send(new UserOrder($user, $order));
-        Mail::to('admin@admin.com')->send(new AdminUserOrder($order, $user));
+        // Mail::to($user->email)->send(new UserOrder($user, $order));
+        // Mail::to('admin@admin.com')->send(new AdminUserOrder($order, $user));
         return redirect()->route('dashboard.user')->with('message', 'Your order has delivered  successfully');
 
     }

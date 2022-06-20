@@ -15,11 +15,11 @@ const btnDisable = ref(true);
 const fileRequire = ref(false);
 
 const form = useForm({
-    // mode: '',
-    // topic: '',
-    // essay_number: 2,
-    // instructions: '',
-    // document: '',
+    mode: '',
+    topic: '',
+    essay_number: 2,
+    instructions: '',
+    document: '',
     email: 'user@email.com',
     amount: 2700,
     currency: 'NGN',
@@ -88,7 +88,7 @@ function decreaseButton(){
 }
 
 function submit() {
-    Inertia.post(route('pay.stack'), form);       
+    Inertia.post(route('store.order'), form);       
 }
 
 </script>
