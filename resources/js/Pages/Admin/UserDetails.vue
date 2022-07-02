@@ -48,7 +48,7 @@ const destroy = (id) => {
                             <span>{{ user.suspend ? 'Yes' : 'No' }}</span>
                         </li>
                         <li class="flex justify-between py-4 border-b border-b-gray-100">
-                            <span>Conpleted Orders</span>
+                            <span>Completed Orders</span>
                             <span>5</span>
                         </li>
                         <li class="flex justify-between py-4 border-b border-b-gray-100">
