@@ -18,7 +18,7 @@ class OrderController extends Controller
                             ->select(['id','orderId', 'topic', 'oldFile', 'created_at', 'user_id'])
                             ->with(['user' => function($query){ $query->select('id','name'); }])
                             ->orderBy('id', 'desc')
-                            ->paginate(10);
+                            ->paginate(20);
                                 
         $pendingOrders = CompleteOrder::where('completed', NULL)
                                         ->select(['id', 'user_id', 'order_id'])
@@ -31,7 +31,7 @@ class OrderController extends Controller
                                             }
                                         ])
                                         ->orderBy('id', 'desc')
-                                        ->paginate(10);
+                                        ->paginate(20);
 
         return Inertia('Admin/Orders', compact('newOrders', 'pendingOrders'));
     }
@@ -50,7 +50,7 @@ class OrderController extends Controller
                                             }
                                         ])
                                         ->orderBy('id', 'desc')
-                                        ->paginate(10);
+                                        ->paginate(20);
 
         $rejectedOrders = CompleteOrder::where('completed', 0)
                                         ->select(['id', 'user_id', 'order_id'])
@@ -64,7 +64,7 @@ class OrderController extends Controller
                                             }
                                         ])
                                         ->orderBy('id', 'desc')
-                                        ->paginate(10);               
+                                        ->paginate(20);               
 
         return Inertia('Admin/CompletedOrders', compact('completedOrders', 'rejectedOrders'));
     }
@@ -81,7 +81,7 @@ class OrderController extends Controller
                                             }
                                         ])
                                         ->orderBy('id', 'desc')
-                                        ->paginate(10);      
+                                        ->paginate(20);      
                                         
         return Inertia('Admin/AllOrders', compact('allOrders'));
     }
@@ -93,7 +93,7 @@ class OrderController extends Controller
     }
 
     public function assignWriters($writerId, $id){
-        $order = Order::findOrFail($id);
+        $order = Order::with('user')->findOrFail($id);
         
         CompleteOrder::updateOrCreate(
             ['order_id' => $order->id],

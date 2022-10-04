@@ -58,9 +58,16 @@ const props = defineProps({
                                         </td>
                                         <td class="px-4 py-3 text-sm">
                                             <span
+                                                v-if="order.completed"
                                                 class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
                                             >
                                                 Confirmed
+                                            </span>
+                                            <span
+                                                v-else
+                                                class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:bg-orange-700 dark:text-orange-100"
+                                            >
+                                                Pending
                                             </span>
                                         </td>
                                         <td class="px-4 py-3 text-sm">
