@@ -12,8 +12,10 @@ class DashboardController extends Controller
     public function dashboardUser()
     {
         $completed_order = CompleteOrder::where('user_id', auth()->user()->id)->where('completed', 1)->count('id');
-        // Pending Order not correct.
-        $pending_order = CompleteOrder::where('user_id', auth()->user()->id)->whereNull('completed')->count('id');
+        
+        $order_id = Order::where('user_id', auth()->user()->id)->pluck('id');
+
+        $pending_order = CompleteOrder::whereIn('order_id', $order_id)->whereNull('completed')->count('id');
 
         $total_order = CompleteOrder::where('user_id', auth()->user()->id)->count('id');
 
