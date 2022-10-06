@@ -24,7 +24,7 @@ class VerifyEmailController extends Controller
         if ($request->user()->hasVerifiedEmail()) {
             if(Auth::check() && Auth::user()->role_id == 3){
                 return redirect()->intended(RouteServiceProvider::WRITER.'?verified=1');
-            }else {
+            }elseif(Auth::check() && Auth::user()->role_id == 2) {
                 return redirect()->intended(RouteServiceProvider::USER.'?verified=1');
             }
             // return redirect()->intended(RouteServiceProvider::HOME.'?verified=1');

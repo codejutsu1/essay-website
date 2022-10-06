@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Auth;
+namespace Tests\Feature\Auth\Writer;
 
 use App\Models\User;
 use Illuminate\Auth\Notifications\ResetPassword;
@@ -8,8 +8,10 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 
+
 class PasswordResetTest extends TestCase
 {
+    protected $seed = true;
     use RefreshDatabase;
 
     public function test_reset_password_link_screen_can_be_rendered()
@@ -23,7 +25,7 @@ class PasswordResetTest extends TestCase
     {
         Notification::fake();
 
-        $user = User::factory()->create();
+        $user = User::factory()->create(['role_id' => 3]);
 
         $this->post('/forgot-password', ['email' => $user->email]);
 
@@ -34,7 +36,7 @@ class PasswordResetTest extends TestCase
     {
         Notification::fake();
 
-        $user = User::factory()->create();
+        $user = User::factory()->create(['role_id' => 3]);
 
         $this->post('/forgot-password', ['email' => $user->email]);
 
@@ -51,7 +53,7 @@ class PasswordResetTest extends TestCase
     {
         Notification::fake();
 
-        $user = User::factory()->create();
+        $user = User::factory()->create(['role_id' => 3]);
 
         $this->post('/forgot-password', ['email' => $user->email]);
 

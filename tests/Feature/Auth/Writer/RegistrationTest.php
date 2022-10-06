@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Auth;
+namespace Tests\Feature\Auth\Writer;
 
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -8,6 +8,7 @@ use Tests\TestCase;
 
 class RegistrationTest extends TestCase
 {
+    protected $seed = true;
     use RefreshDatabase;
 
     public function test_registration_screen_can_be_rendered()
@@ -24,9 +25,10 @@ class RegistrationTest extends TestCase
             'email' => 'test@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',
+            'mode' => '3'
         ]);
 
         $this->assertAuthenticated();
-        $response->assertRedirect(RouteServiceProvider::HOME);
+        $response->assertRedirect(RouteServiceProvider::WRITER);
     }
 }
